@@ -11,8 +11,8 @@ class IndexView(ListView):
 
 class AuthorView(DetailView):
     model = Author
-    template_name = 'books/author.html'
+    template_name = 'books/author_detail.html'
 
 class BookView(DetailView):
     model = Book
-    template_name = 'books/book.html'
+    template_name = 'books/book_detail.html'
