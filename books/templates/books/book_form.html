@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<table> {{ form.as_table }} </table>
+
+<form method="post">{% csrf_token %}
+	<fieldset>
+		<legend>Book Information</legend><br>
+		
+    	<div class="form-group">
+        	<label for="{{ form.title.id_for_label }}">Book Title: </label>
+        	{{ form.title }}
+        	<input type="text" name="title" maxlength="100" class="form-control" required id="{{ form.title.id_for_label }}">
+
+   		</div>
+   		<div class="form-group">
+   			{{ form.authors.label_tag }} {{ form.authors}}
+   		</div>
+		
+    <input type="submit" value="Save">
+</fieldset>
+</form>
+
+{% endblock %}

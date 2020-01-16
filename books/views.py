@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
+from django.views.generic.edit import ModelFormMixin, CreateView
 from books.models import Author, Book
+from books.forms import BookForm
 
 # Create your views here.
 
@@ -16,3 +18,7 @@ class AuthorView(DetailView):
 class BookView(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
+
+class BookEdit(CreateView):
+	model = Book
+	fields = ['title', 'authors']
