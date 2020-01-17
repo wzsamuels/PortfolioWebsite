@@ -1,13 +1,13 @@
 {% extends "base.html" %} 
 
 {% block content %}
-	<h2>Books by Title</h2><br>
+	<h2>Authors by Last Name</h2><br>
 	
-		{% for book in book_list %}
+		{% for author in author_list %}
 	  		<p>
-	  			<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-	  			{% for author in book.authors.all %}
-	  				<a href="{{ author.get_absolute_url }}">{{ author }}</a>
+	  			<a href="{{ author.get_absolute_url }}">{{ author }}</a> has written
+	  			{% for book in author.books.all %}
+	  				<a href="{{ book.get_absolute_url }}">{{ book }}</a>
 	  				<!-- Handle proper formatting for multiple authors -->
 	  				{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
 	  				{% if forloop.revcounter0 == 1 %}and {%endif%}

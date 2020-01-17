@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<h2> Add A Book to the Collection</h2><br>
-
 <form method="post">{% csrf_token %}
 	<fieldset>
 		<legend>Book Information</legend><br>
@@ -20,6 +18,5 @@
     <input type="submit" value="Save">
 </fieldset>
 </form>
-
 
 {% endblock %}

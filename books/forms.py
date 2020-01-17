@@ -1,5 +1,10 @@
 from django.forms import ModelForm
-from books.models import Book
+from books.models import Author, Book
+
+class AuthorForm(ModelForm):
+	class Meta:
+		model = Author
+		fields = '__all__'
 
 class BookForm(ModelForm):
 	#auto_id=False

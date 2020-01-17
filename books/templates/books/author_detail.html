@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<h1>{{ object }} </h1>
+<p><a href="{{ object.get_absolute_url }}update">Update Author Information</a></p>
+<p>Book(s) Written:</p>
+{% for book in object.books.all %}
+	<p><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></p>
+{% endfor %}
+
+
+{% endblock %}

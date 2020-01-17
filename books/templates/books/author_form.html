@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<h2> Add an Author to the Collection</h2><br>
+<form method="post">{% csrf_token %}
+	<fieldset>
+		<legend>Author Information</legend><br>
+		
+    	<div class="form-group">
+        	<label for="{{ form.first_name.id_for_label }}">First Name:</label><br>
+        	{{ form.first_name }}
+        </div>
+      <div class="form-group">
+          <label for="{{ form.last_name.id_for_label }}">Last Name:</label><br>
+          {{ form.last_name }}
+
+   		</div>
+		
+    <input type="submit" value="Save">
+</fieldset>
+</form>
+
+{% endblock %}
