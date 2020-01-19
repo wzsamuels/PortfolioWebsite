@@ -1,6 +1,9 @@
 {% extends "base.html" %} 
 
 {% block content %}
+<script type="text/javascript">
+  document.getElementById("AuthorForm").classList.add('active');
+</script>
 
 <h2> Add an Author to the Collection</h2><br>
 <form method="post">{% csrf_token %}
