@@ -2,9 +2,33 @@
 
 {% block content %}
 
+<h2>Update Author's Information</h2><br>
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
+	<fieldset>
+		<legend>Author Information</legend>
+    	<div class="container">
+	      	<div class="row">
+	        	<div class="col-25">
+	        		<label for="{{ form.first_name.id_for_label }}">First Name:</label>
+	        	</div>
+	        	<div class="col-75">
+	        		{{ form.first_name }}
+	        	</div>
+	      	</div>
+	      	<div class="row">
+	        	<div class="col-25">
+	          		<label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+	        	</div>
+		        <div class="col-75">
+	    	      {{ form.last_name }}
+	        	</div>
+	   		</div>
+	      	<br>
+			<div class="row">
+	      		<input type="submit" value="Update">
+	    	</div>
+	  	</div>
+	</fieldset>
 </form>
 
 {% endblock %}

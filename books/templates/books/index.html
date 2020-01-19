@@ -1,10 +1,11 @@
 {% extends "base.html" %} 
 
 {% block content %}
-	<h2>Books by Title</h2><br>
-	
+<h2>Books by Title</h2><br>
+	<div class="container">
+		<ul>
 		{% for book in book_list %}
-	  		<p>
+	  		<li>
 	  			<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
 	  			{% for author in book.authors.all %}
 	  				<a href="{{ author.get_absolute_url }}">{{ author }}</a>
@@ -12,7 +13,10 @@
 	  				{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
 	  				{% if forloop.revcounter0 == 1 %}and {%endif%}
 	  			{% endfor %}
-	  		</p>
+	  		</li>
+
 		{% endfor %}
+		</ul>
+	</div>
 	
 {% endblock %}
