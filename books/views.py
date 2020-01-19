@@ -25,7 +25,7 @@ class AuthorUpdate(UpdateView):
 	template_name_suffix = '_update_form'
 
 class BookList(ListView):
-    template_name = 'books/index.html'
+    template_name = 'books/book_list.html'
     def get_queryset(self):
     	return Book.objects.all()
 

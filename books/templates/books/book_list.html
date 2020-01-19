@@ -1,0 +1,25 @@
+{% extends "books/base.html" %} 
+
+{% block content %}
+<script type="text/javascript">
+  document.getElementById("BookList").classList.add('active');
+</script>
+<h2>Books by Title</h2><br>
+<div class="container">
+	<ul class="list">
+	{% for book in book_list %}
+  		<li>
+  			<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
+  			{% for author in book.authors.all %}
+  				<a href="{{ author.get_absolute_url }}">{{ author }}</a>
+  				<!-- Handle proper formatting for multiple authors -->
+  				{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+  				{% if forloop.revcounter0 == 1 %}and {%endif%}
+  			{% endfor %}
+  		</li>
+
+	{% endfor %}
+	</ul>
+</div>
+	
+{% endblock %}
