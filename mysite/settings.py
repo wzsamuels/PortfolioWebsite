@@ -25,7 +25,7 @@ SECRET_KEY = '(-go&3zhpur3m@2gi=om8)fq=!r=$i6$l2yh8^ts8vk!v9ergj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wzsamuels.com', '127.0.0.1']
+ALLOWED_HOSTS = ['wzsamuels.com']
 
 
 # Application definition
@@ -119,8 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www'
+STATIC_ROOT = '/home/ubuntu/django-project/static'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"), '/var/www',
-]       
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]       
+
+STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
+    )

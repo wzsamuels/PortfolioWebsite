@@ -7,14 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static styles.css %}"> 
+    <link rel="stylesheet" type="text/css"  href="{% static "books/styles.css" %}"> 
 
     <title>Book Collection</title>
     </head>
 
     <body>
     <ul class="nav">
-        <li><a id="BookList" href="/">Book List</a></li>
+        <li class="nav"><a id="BookList" href="/">Book List</a></li>
         <li><a id="BookForm" href="/books/add_book.html">Add Book</a></li>
         <li><a id="AuthorList" href="/authors/author_list.html">Author List</a></li>
         <li><a id="AuthorForm" href="/authors/add_author">Add Author</a></li>
