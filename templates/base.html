@@ -26,8 +26,8 @@
             text-decoration: none;
         }
 
-        ul.nav li a:hover:not(.active) {background-color: MediumBlue;}
-        ul.nav li a.active {background-color: DodgerBlue;}
+        ul.nav li a:hover:not(.active) {background-color: DodgerBlue;}
+        ul.nav li a.active {background-color: MediumBlue;}
         ul.nav li.right {float: right;}
 
         @media screen and (max-width: 600px) {
@@ -44,11 +44,11 @@
 
     <body>
     <ul class="nav">
-        <li><a href="/">Book List</a></li>
-        <li><a href="/books/add_book.html">Add Book</a></li>
-        <li><a href="/authors/author_list.html">Author List</a></li>
+        <li><a id="BookList" href="/">Book List</a></li>
+        <li><a id="BookForm" href="/books/add_book.html">Add Book</a></li>
+        <li><a id="AuthorList" href="/authors/author_list.html">Author List</a></li>
         <li><a id="AuthorForm" href="/authors/add_author">Add Author</a></li>
-        <li><a href="/">About</a></li>
+        <!-- <li><a href="/">About</a></li> -->
     </ul>
     <br>
     {% block content %}
