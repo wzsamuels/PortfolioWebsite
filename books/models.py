@@ -9,8 +9,8 @@ class Author(models.Model):
     first_name = models.CharField(max_length=200)
     slug = models.SlugField(null=False, unique=True)
 
-    #class Meta:
-     #   ordering = ["-last_name"]
+    class Meta:
+        ordering = ["last_name"]
 
     def __str__(self):
         return self.last_name + ", " + self.first_name
@@ -30,9 +30,13 @@ class Book(models.Model):
     summary = models.TextField()
     slug = models.SlugField(null=False, unique=True)
 
-    # class Meta:
-      #  order_with_respect_to = 'authors'
-    
+#    class Meta:
+ #       order_with_respect_to = 'authors'
+
+    @property
+    def sort_by_title(self):
+        return self.title
+        
     def __str__(self):
         return self.title
 
