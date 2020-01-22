@@ -13,11 +13,20 @@
     </head>
 
     <body>
-    <ul class="nav">
-        <li><a id="Home" href="/">Home</a></li>
-        <li><a id="BookList" href="/books/"></a></li>
-        <!-- <li><a href="/">About</a></li> -->
-    </ul>
+    <div class="navbar">
+        <a id="Home" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Book List
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a id="AuthorList" href="/books/authors/">Author List</a>
+                <a id="BookList" href="/books/">Book List</a>
+                <a id="AuthorForm" href="/books/authors/add_author">Add Author</a>
+                <a id="BookForm" href="/books/add_book">Add Book</a>                
+            </div>
+        </div> 
+    </div>
     <br>
     {% block content %}
     {% endblock %}
