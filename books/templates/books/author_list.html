@@ -5,6 +5,7 @@
   document.getElementById("AuthorList").classList.add('active');
 </script>
 <h2>Authors by Last Name</h2><br>
+<fieldset>
 <div class="container">
     <ul class="list">    
     {% for author in author_list %}
@@ -20,4 +21,5 @@
     {% endfor %}
     </ul>
 </div>
+</fieldset>
 {% endblock %}

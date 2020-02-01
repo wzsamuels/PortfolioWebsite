@@ -1,28 +1,74 @@
 {% extends "base.html" %} 
 
 {% block content %}
+
+<div id="SortByTitle">
+  <h2>Books by Title</h2><br>
+  <fieldset>
+    <legend>Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a></legend>
+  <div class="container">
+  <ul class="list">
+    {% for book in book_list|dictsort:"title" %}
+    <li>
+      <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
+        <!-- Handle proper formatting for multiple authors -->
+  	{% for author in book.authors.all %}
+  	<a href="{{ author.get_absolute_url }}">{{ author }}</a>
+  	{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+  	{% if forloop.revcounter0 == 1 %}and {%endif%}
+  	{% endfor %}
+    </li>
+
+    {% endfor %}
+  </ul>
+  </div>
+</fieldset>
+</div>
+
+<div id="SortByAuthor">
+  <h2>Books by Author</h2><br>
+  <fieldset>
+    <legend>Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a></legend>
+  <div class="container">
+    <ul class="list">
+      {% for book in book_list|dictsort:"authors" %}
+      <li>
+	<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
+        <!-- Handle proper formatting for multiple authors -->
+  	{% for author in book.authors.all %}
+  	<a href="{{ author.get_absolute_url }}">{{ author }}</a>
+  	{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+  	{% if forloop.revcounter0 == 1 %}and {%endif%}
+  	{% endfor %}
+      </li>
+      
+      {% endfor %}
+    </ul>
+  </div>
+  </fieldset>
+</div>
+
+
 <script type="text/javascript">
   document.getElementById("BookList").classList.add('active');
-</script>
-<h2>Books by Title</h2><br>
-<h3>Sort by: Author | Title</h3>
-<fieldset>
-<div class="container">
-	<ul class="list">
-	{% for book in book_list|dictsort:"title" %}
-  		<li>
-  			<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-        <!-- Handle proper formatting for multiple authors -->
-  			{% for author in book.authors.all %}
-  				<a href="{{ author.get_absolute_url }}">{{ author }}</a>
-  				{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-  				{% if forloop.revcounter0 == 1 %}and {%endif%}
-  			{% endfor %}
-  		</li>
+  var authorList = document.getElementById("SortByAuthor");
+  authorList.style.display = "none";
+  
+  
+  function titleSort() {
+  document.getElementById("SortByTitle").style.display = "block";
+  document.getElementById("SortByAuthor").style.display = "none";
+  }
 
-	{% endfor %}
-	</ul>
-</div>
-</fieldset>
-	
+  function authorSort() {
+  let titleList = document.getElementById("SortByTitle");
+  let authorList = document.getElementById("SortByAuthor");
+      if(authorList.style.display == "none") {
+  authorList.style.display = "block";
+  titleList.style.display = "none";
+      }
+  }
+  
+</script>
+
 {% endblock %}
