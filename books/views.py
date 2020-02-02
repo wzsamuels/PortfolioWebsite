@@ -1,5 +1,6 @@
+import json
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import ModelFormMixin, CreateView, UpdateView
 from books.models import Author, Book
 from books.forms import BookForm
@@ -29,9 +30,15 @@ class BookList(ListView):
     def get_queryset(self):
     	return Book.objects.all()
 
-class BookView(DetailView):
-    model = Book
+#class BookView(DetailView):
+class BookView(TemplateView):
+    #model = Book
     template_name = 'books/book_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["books_json"] = json.dumps(Books.objects.all())
+        return context
 
 class BookEdit(CreateView):
     model = Book

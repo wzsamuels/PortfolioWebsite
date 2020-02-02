@@ -38,6 +38,8 @@
         background-color: DeepSkyBlue;
       }
 
+      .navbar a.active {background-color: DeepSkyBlue;}
+
       .dropdown-content {
         display: none;
         position: absolute;
@@ -65,7 +67,6 @@
       }
 
         ul.nav li a:hover:not(.active) {background-color: DodgerBlue;}
-        ul.nav li a.active {background-color: DodgerBlue;}
         ul.nav li.right {float: right;}*/
 
         p {padding:0 16px;}

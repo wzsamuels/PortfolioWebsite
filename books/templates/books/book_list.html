@@ -1,5 +1,5 @@
 {% extends "base.html" %} 
-
+{% load static %}
 {% block content %}
 
 <div id="SortByTitle">
@@ -13,9 +13,9 @@
       <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
         <!-- Handle proper formatting for multiple authors -->
   	{% for author in book.authors.all %}
-  	<a href="{{ author.get_absolute_url }}">{{ author }}</a>
-  	{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-  	{% if forloop.revcounter0 == 1 %}and {%endif%}
+  	  <a href="{{ author.get_absolute_url }}">{{ author }}</a>
+  	  {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+  	  {% if forloop.revcounter0 == 1 %}and {%endif%}
   	{% endfor %}
     </li>
 
@@ -41,34 +41,39 @@
   	{% if forloop.revcounter0 == 1 %}and {%endif%}
   	{% endfor %}
       </li>
-      
       {% endfor %}
     </ul>
   </div>
   </fieldset>
 </div>
+<!--
+  <div id="app">
+    [[message]]
 
-
-<script type="text/javascript">
-  document.getElementById("BookList").classList.add('active');
-  var authorList = document.getElementById("SortByAuthor");
-  authorList.style.display = "none";
+    <ul>
+      <li v-for="book in books">
+        <ul>[[ book.title ]]
+	  <li v-for="value in book">[[ value ]]</li>
+	</ul>
+      </li>
+    </ul>
+  </div>
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   
-  
-  function titleSort() {
-  document.getElementById("SortByTitle").style.display = "block";
-  document.getElementById("SortByAuthor").style.display = "none";
-  }
+<script type='text/javascript'>
+    var books-list = {{ books_json|safe }};
+  </script>
 
-  function authorSort() {
-  let titleList = document.getElementById("SortByTitle");
-  let authorList = document.getElementById("SortByAuthor");
-      if(authorList.style.display == "none") {
-  authorList.style.display = "block";
-  titleList.style.display = "none";
+<script>
+    var app = new Vue({
+      delimiters: ['[[', ']]'],
+      el: '#app',
+      data: {
+          message: 'Hello Vue!',
+          books: books-list,
       }
-  }
-  
-</script>
-
+    });
+  </script>
+<script src="{% static "books/book_list.js" %}"></script>
 {% endblock %}
