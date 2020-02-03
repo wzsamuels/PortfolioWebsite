@@ -30,8 +30,8 @@ class Book(models.Model):
     summary = models.TextField()
     slug = models.SlugField(null=False, unique=True)
 
-#    class Meta:
- #       order_with_respect_to = 'authors'
+    class Meta:
+        ordering = ['title']
 
     @property
     def sort_by_title(self):

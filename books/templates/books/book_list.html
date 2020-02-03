@@ -2,78 +2,95 @@
 {% load static %}
 {% block content %}
 
-<div id="SortByTitle">
-  <h2>Books by Title</h2><br>
-  <fieldset>
-    <legend>Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a></legend>
-  <div class="container">
-  <ul class="list">
-    {% for book in book_list|dictsort:"title" %}
-    <li>
-      <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-        <!-- Handle proper formatting for multiple authors -->
-  	{% for author in book.authors.all %}
-  	  <a href="{{ author.get_absolute_url }}">{{ author }}</a>
-  	  {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-  	  {% if forloop.revcounter0 == 1 %}and {%endif%}
-  	{% endfor %}
-    </li>
+<div class="container">
+  <div id="SortByTitle">
+    <h2>Books by Title</h2><br>
+    Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
+    <div class="container">
+      <ul class="list">
+        {% for book in book_json %}
+        {{book}}
+        {% endfor %}
+        {% for book in book_list|dictsort:"title" %}
+        <li>
+          <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
+            <!-- Handle proper formatting for multiple authors -->
+      	{% for author in book.authors.all %}
+      	  <a href="{{ author.get_absolute_url }}">{{ author }}</a>
+      	  {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+      	  {% if forloop.revcounter0 == 1 %}and {%endif%}
+      	{% endfor %}
+        </li>
 
-    {% endfor %}
-  </ul>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-</fieldset>
+
+  <div id="SortByAuthor">
+    <h2>Books by Author</h2><br>
+      Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
+        <div class="container">
+          <ul class="list">    
+          {% for author in author_list %}
+              <li>
+                  <a href="{{ author.get_absolute_url }}">{{ author }}</a> has written
+                  {% for book in author.books.all %}
+                      <a href="{{ book.get_absolute_url }}">{{ book }}</a>
+                      <!-- Handle proper formatting for multiple authors -->
+                      {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+                      {% if forloop.revcounter0 == 1 %}and {%endif%}
+                  {% endfor %}
+              </li>
+          {% endfor %}
+          </ul>
+      </div>
+  </div>
 </div>
 
-<div id="SortByAuthor">
-  <h2>Books by Author</h2><br>
-  <fieldset>
-    <legend>Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a></legend>
-  <div class="container">
-    <ul class="list">
-      {% for book in book_list|dictsort:"authors" %}
-      <li>
-	<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-        <!-- Handle proper formatting for multiple authors -->
-  	{% for author in book.authors.all %}
-  	<a href="{{ author.get_absolute_url }}">{{ author }}</a>
-  	{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-  	{% if forloop.revcounter0 == 1 %}and {%endif%}
-  	{% endfor %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  </fieldset>
+<button class="open-button-right" onclick="openFormRight()">Add Author to Collection</button>
+<div class="form-popup-right" id="right-form">
+  <form method="post" class="form-container">{% csrf_token %}
+          <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
+          {{ author_form.first_name }}
+          <label for="{{ author_form.last_name.id_for_label }}">Last Name:</label>
+          {{ author_form.last_name }}
+    <button type="submit" class="btn" name="author_button">Add Author</button>
+    <button type="button" class="btn cancel" onclick="closeFormRight()">Cancel</button>
+  </form>
 </div>
-<!--
-  <div id="app">
-    [[message]]
 
-    <ul>
-      <li v-for="book in books">
-        <ul>[[ book.title ]]
-	  <li v-for="value in book">[[ value ]]</li>
-	</ul>
-      </li>
-    </ul>
-  </div>
--->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  
-<script type='text/javascript'>
-    var books-list = {{ books_json|safe }};
-  </script>
+<button class="open-button-left" onclick="openFormLeft()">Add Book to Collection</button>
+<div class="form-popup-left" id="left-form">
+  <form method="post" class="form-container">{% csrf_token %}
+    <label for="{{ book_form.title.id_for_label }}">Book Title:</label>
+      {{ book_form.title }}
+      {{ book_form.authors.label_tag }}
+      {{ book_form.authors}}
+    <button type="submit" class="btn" name="book_button">Add Book</button> 
+    <button type="button" class="btn cancel" onclick="closeFormLeft()">Cancel</button>
+  </form>
+</form>
+</div>
 
 <script>
-    var app = new Vue({
-      delimiters: ['[[', ']]'],
-      el: '#app',
-      data: {
-          message: 'Hello Vue!',
-          books: books-list,
-      }
-    });
-  </script>
+function openFormRight() {
+  document.getElementById("right-form").style.display = "block";
+}
+
+function closeFormRight() {
+  document.getElementById("right-form").style.display = "none";
+}
+
+function openFormLeft() {
+  document.getElementById("left-form").style.display = "block";
+}
+
+function closeFormLeft() {
+  document.getElementById("left-form").style.display = "none";
+}
+</script>
+
+
 <script src="{% static "books/book_list.js" %}"></script>
 {% endblock %}

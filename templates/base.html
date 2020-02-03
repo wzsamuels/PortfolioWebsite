@@ -7,29 +7,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css"  href="{% static "books/styles.css" %}">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" type="text/css"  href="{% static "books/styles.css" %}">
     <title>Book Collection</title>
     </head>
 
     <body>
     <div class="navbar">
       <a id="Home" href="/">Home</a>
-      <!--<a id="BookList" href="/books/">Book Collection</a>-->
+      <a id="BookList" href="/books/">Book Collection</a>
+      <!--
         <div class="dropdown">
             <button class="dropbtn">Book Collection
                 <i class="fa fa-caret-down"></i>
             </button>
-
             <div class="dropdown-content">
-                <a id="AuthorList" href="/books/authors/">Author List</a>
-                <a id="BookList" href="/books/">Book List</a>
                 <a id="AuthorForm" href="/books/authors/add_author">Add Author</a>
-                <a id="BookForm" href="/books/add_book">Add Book</a>                
+                <a id="BookForm" href="/books/add_book">Add Book</a>  
+                <a id="AuthorList" href="/books/authors/">Author List</a>
+                <a id="BookList" href="/books/">Book List</a>              
             </div>
         </div> 
+    -->
     </div>
+    
     <br>
     {% block content %}
     {% endblock %}

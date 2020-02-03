@@ -107,7 +107,7 @@
         padding: 12px 12px 12px 0;
         display: inline-block;
       }
-
+      
       input[type=submit] {
         background-color: DodgerBlue;
         color: white;
@@ -120,7 +120,7 @@
 
       .container {
         border-radius: 5px;
-        background-color: #f2f2f2;
+        /* background-color: #f2f2f2; */
         padding: 20px;
       }
 
@@ -147,13 +147,118 @@
 
       /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 600px) {
-          .col-25, .col-75, input[type=submit] {
+          .col-25, .col-75, .row, input[type=submit] {
             width: 100%;
             margin-top: 0;
         }
+
+        .open-button-right, .open-button-left {
+          float:none;
+        }
+      }
         /*
         ul.nav li.right, 
         ul.nav li {float: none;}*/
+
+        .left {
+          width:75%;
+          float:left;
+          background-color: white;
+        }
+        .right {
+          width:25%;
+          float:right;
+        }
+
+        /* Button used to open the contact form - fixed at the bottom of the page */
+.open-button-right {
+  background-color: DodgerBlue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  /*width: 280px;*/
+}
+
+.open-button-left {
+  background-color: DodgerBlue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 350px;
+  /*width: 280px;*/
+}
+
+/* The popup form - hidden by default */
+.form-popup-right {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-popup-left {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 350px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: DodgerBlue;
+  color: black;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: DeepSkyBlue;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
       }
     </style>
   </head>
