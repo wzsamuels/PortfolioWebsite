@@ -6,52 +6,16 @@ from django.forms import modelformset_factory
 from books.models import Author, Book
 from books.forms import BookForm, AuthorForm
 
-# Create your views here.
-
-class AuthorList(ListView):
-    template_name = 'books/author_list.html'
-    def get_queryset(self):
-       	return Author.objects.all()
-
-class AuthorView(DetailView):
+class AuthorDetail(DetailView):
     model = Author
     template_name = 'books/author_detail.html'
-
-class AuthorCreate(CreateView):
-    model = Author
-    fields = ['last_name', 'first_name']
 
 class AuthorUpdate(UpdateView):
     model = Author
     fields = ['last_name', 'first_name']
     template_name_suffix = '_update_form'
 
-class BookList(ListView):
-    model = Book
-    paginate_by = 10
-    #template_name = 'books/book_list.html'
-    #def get_queryset(self):
-    #	return Book.objects.all()
-
-#class BookView(DetailView):
-class BookView(TemplateView):
-    #model = Book
-    #template_name = 'books/book_detail.html'
-    template_name = 'books/book_list.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["book_list"] = Book.objects.all()
-        context["author_list"] = Author.objects.all()
-        #data = Book.objects.all()
-        #context["book_json"] = serializers.serialize('json', data)
-        return context
-
-#class BookEdit(CreateView):
-#    model = Book
-#    fields = ['title', 'authors']
-
-def create_book(request):
+def BookIndex(request):
     #BookFormSet = modelformset_factory(Book, fields=('title', 'authors'))
 
     if request.method == 'POST':
@@ -78,6 +42,10 @@ def create_book(request):
     context["book_form"] = BookFormSet
     context["author_form"] = AuthorFormSet
     return render(request, 'books/book_list.html', context)
+
+class BookDetail(DetailView):
+    model = Book
+    template_name = 'books/book_detail.html'
 
 class BookUpdate(UpdateView):
     model = Book

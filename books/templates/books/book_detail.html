@@ -2,10 +2,13 @@
 
 {% block content %}
 
-<h1>{{ object.title }}</h1>
-<p><a href="{{ object.get_absolute_url }}update">Update Book Information</a></p>
-<p>Author(s): </p>
-{% for author in object.authors.all %}
-	<p><a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a></p>
-{% endfor %}
+<div class="container">
+  <h2>{{ object.title }}</h2>
+  <p><a href="{{ object.get_absolute_url }}update">Update Book Information</a></p>
+  <p>Author(s): </p>
+  {% for author in object.authors.all %}
+  <p><a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a></p>
+  {% endfor %}
+
+</div>
 {% endblock %}

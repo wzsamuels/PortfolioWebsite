@@ -1,3 +1,19 @@
+function openFormRight() {
+    document.getElementById("right-form").style.display = "block";
+}
+
+function closeFormRight() {
+    document.getElementById("right-form").style.display = "none";
+}
+
+function openFormLeft() {
+    document.getElementById("left-form").style.display = "block";
+}
+
+function closeFormLeft() {
+    document.getElementById("left-form").style.display = "none";
+}
+
 document.getElementById("BookList").classList.add('active');
 document.getElementById("SortByAuthor").style.display = "none";
     
