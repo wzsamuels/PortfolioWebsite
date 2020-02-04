@@ -41,7 +41,7 @@ def BookIndex(request):
     context["author_list"] = Author.objects.all()
     context["book_form"] = BookFormSet
     context["author_form"] = AuthorFormSet
-    return render(request, 'books/book_list.html', context)
+    return render(request, 'books/index.html', context)
 
 class BookDetail(DetailView):
     model = Book

@@ -1,22 +1,101 @@
 {% extends "base.html" %} 
-
+{% load static %}
 {% block content %}
-<h2>Books by Title</h2><br>
-	<div class="container">
-		<ul class="list">
-		{% for book in book_list %}
-	  		<li>
-	  			<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-	  			{% for author in book.authors.all %}
-	  				<a href="{{ author.get_absolute_url }}">{{ author }}</a>
-	  				<!-- Handle proper formatting for multiple authors -->
-	  				{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-	  				{% if forloop.revcounter0 == 1 %}and {%endif%}
-	  			{% endfor %}
-	  		</li>
 
-		{% endfor %}
-		</ul>
-	</div>
-	
+<h2>
+    <button class="open-button" onclick="openFormLeft()">Add Book to Collection</button> 
+    <button class="open-button" onclick="openFormRight()">Add Author to Collection</button></h2>
+
+<div class="form-popup-right" id="left-form">
+  <form method="post" class="form-container">{% csrf_token %}
+    <fieldset><legend>Add Book</legend>
+      <label for="{{ book_form.title.id_for_label }}">Book Title:</label>
+      {{ book_form.title }}
+      {{ book_form.authors.label_tag }}
+      {{ book_form.authors}}
+      <button type="submit" class="btn" name="book_button">Add Book</button> 
+      <button type="button" class="btn cancel" onclick="closeFormLeft()">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+    
+<div class="form-popup-right" id="right-form">
+  <form method="post" class="form-container">{% csrf_token %}
+    <fieldset><legend>Add Author</legend>
+      <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
+      {{ author_form.first_name }}
+      <label for="{{ author_form.last_name.id_for_label }}">Last Name:</label>
+      {{ author_form.last_name }}
+      <button type="submit" class="btn" name="author_button">Add Author</button>
+      <button type="button" class="btn cancel" onclick="closeFormRight()">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+
+
+<div id="SortByTitle">
+  <h2>Books by Title</h2><br>
+  <div class="container">
+    Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
+    <div class="container">
+      <ul class="list">
+        {% for book in book_json %}
+        {{book}}
+        {% endfor %}
+        {% for book in book_list|dictsort:"title" %}
+        <li>
+          <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
+          <!-- Handle proper formatting for multiple authors -->
+      	{% for author in book.authors.all %}
+      	  <a href="{{ author.get_absolute_url }}">{{ author }}</a>
+      	  {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+      	  {% if forloop.revcounter0 == 1 %}and {%endif%}
+      	  {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="SortByAuthor">
+  <h2>Books by Author</h2><br>
+  <div class="container">
+    Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
+    <div class="container">
+      <ul class="list">    
+        {% for author in author_list %}
+        <li>
+          <a href="{{ author.get_absolute_url }}">{{ author }}</a> has written
+          {% for book in author.books.all %}
+          <a href="{{ book.get_absolute_url }}">{{ book }}</a>
+          <!-- Handle proper formatting for multiple authors -->
+          {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+          {% if forloop.revcounter0 == 1 %}and {%endif%}
+          {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openFormRight() {
+    document.getElementById("right-form").style.display = "block";
+}
+
+function closeFormRight() {
+    document.getElementById("right-form").style.display = "none";
+}
+
+function openFormLeft() {
+    document.getElementById("left-form").style.display = "block";
+}
+
+function closeFormLeft() {
+    document.getElementById("left-form").style.display = "none";
+  }
+  </script>
+<script src="{% static "books/book_list.js" %}"></script>
 {% endblock %}
