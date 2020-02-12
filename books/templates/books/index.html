@@ -1,10 +1,9 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block content %}
-
-<h2>
-    <button class="open-button" onclick="openFormLeft()">Add Book to Collection</button> 
-    <button class="open-button" onclick="openFormRight()">Add Author to Collection</button></h2>
+<h6 style="text-align: center;">    <button class="open-button" onclick="openFormLeft()">Add Book to Collection</button> 
+  <button class="open-button" onclick="openFormRight()">Add Author to Collection</button>
+  </h6>
 
 <div class="form-popup-right" id="left-form">
   <form method="post" class="form-container">{% csrf_token %}
@@ -45,7 +44,7 @@
   <h2>Books by Title</h2><br>
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-    <div class="container">
+    <div class="container bg-white">
       <ul class="list">
         {% for book in book_json %}
         {{book}}
@@ -70,7 +69,7 @@
   <h2>Books by Author</h2><br>
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-    <div class="container">
+    <div class="container bg-white">
       <ul class="list">    
         {% for author in author_list %}
         <li>
