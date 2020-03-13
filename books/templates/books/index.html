@@ -1,9 +1,9 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block content %}
-<h6 style="text-align: center;">    <button class="open-button" onclick="openFormLeft()">Add Book to Collection</button> 
+<p style="text-align: center;">    <button class="open-button" onclick="openFormLeft()">Add Book to Collection</button> 
   <button class="open-button" onclick="openFormRight()">Add Author to Collection</button>
-  </h6>
+  </p>
 
 <div class="form-popup-right" id="left-form">
   <form method="post" class="form-container">{% csrf_token %}

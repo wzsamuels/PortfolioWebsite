@@ -44,9 +44,11 @@
     <div class="navbar">
       <a id="Home" href="/">Home</a>
       <a id="BookList" href="/books/">Book Collection</a>
-      
-      <a id="Logout" href="/accounts/logout/" style="float:right;">Logout</a>
-      <a id="Login" href="/accounts/login/" style="float:right;">Login</a>
+      {% if user.is_authenticated %}
+        <a id="Logout" href="/accounts/logout/" style="float:right;">Logout</a>
+      {% else %} 
+        <a id="Login" href="/accounts/login/" style="float:right;">Login</a>
+      {% endif %}
         <!--
         <div class="dropdown">
             <button class="dropbtn">Book Collection

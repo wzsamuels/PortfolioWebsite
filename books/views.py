@@ -30,7 +30,7 @@ def BookIndex(request):
             BookFormSet = BookForm()
             if AuthorFormSet.is_valid():
                 AuthorFormSet.save()
-        
+       
     else:
         BookFormSet = BookForm()
         AuthorFormSet = AuthorForm()
