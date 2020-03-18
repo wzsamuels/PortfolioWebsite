@@ -16,6 +16,7 @@ function closeFormLeft() {
 
 document.getElementById("BookList").classList.add('active');
 document.getElementById("SortByAuthor").style.display = "none";
+document.getElementById("BookSideNav").style.display = "block";
     
 function titleSort() {
     document.getElementById("SortByTitle").style.display = "block";
