@@ -5,7 +5,8 @@
   <button class="open-button" onclick="openFormRight()">Add Author to Collection</button>
   </p>
 
-<div class="form-popup-right" id="left-form">
+<!-- Popup form for adding a new Book -->
+<div class="form-popup" id="left-form">
   <form method="post" class="form-container">{% csrf_token %}
     <fieldset><legend>Add Book</legend>
       {% if user.is_authenticated %}
@@ -15,14 +16,15 @@
       {{ book_form.authors}}
       <button type="submit" class="btn" name="book_button">Add Book</button>       
       {% else %}
-      <h2>You must be logged in to add a book.</h2>
+      <p style="text-align: center;">You must be logged in to add a book.</p>
       {% endif %}
       <button type="button" class="btn cancel" onclick="closeFormLeft()">Cancel</button>
     </fieldset>
   </form>
 </div>
     
-<div class="form-popup-right" id="right-form">
+<!-- Popup form for adding a new Author -->
+<div class="form-popup" id="right-form">
   <form method="post" class="form-container">{% csrf_token %}
     <fieldset><legend>Add Author</legend>
       {% if user.is_authenticated %}
@@ -32,7 +34,7 @@
       {{ author_form.last_name }}
       <button type="submit" class="btn" name="author_button">Add Author</button>
       {% else %}
-      <h2>You must be logged in to add an author.</h2>
+      <p style="text-align: center;">You must be logged in to add an author.</p>
       {% endif %}
       <button type="button" class="btn cancel" onclick="closeFormRight()">Cancel</button>
     </fieldset>
