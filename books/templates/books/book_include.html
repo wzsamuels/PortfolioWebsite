@@ -12,6 +12,43 @@
   </ul>
 </div>
 
+<!-- Popup form for adding a new Book -->
+<div class="form-popup" id="left-form">
+  <form method="post" class="form-container">{% csrf_token %}
+    <fieldset><legend>Add Book</legend>
+      {% if user.is_authenticated %}
+        <label for="{{ book_form.title.id_for_label }}">Title:</label>
+        {{ book_form.title }}
+        {{ book_form.authors.label_tag }}
+        {{ book_form.authors}}
+        <button type="submit" class="btn" name="book_button">Add Book</button>       
+      {% else %}
+        <p style="text-align: center;">You must be logged in to add a book.</p>
+      {% endif %}
+      <button type="button" class="btn cancel" onclick="closeFormLeft()">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+
+<!-- Popup form for adding a new Author -->
+<div class="form-popup" id="right-form">
+  <form method="post" class="form-container">{% csrf_token %}
+    <fieldset><legend>Add Author</legend>
+      {% if user.is_authenticated %}
+        <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
+        {{ author_form.first_name }}
+        <label for="{{ author_form.last_name.id_for_label }}">Last Name:</label>
+        {{ author_form.last_name }}
+        <button type="submit" class="btn" name="author_button">Add Author</button>
+      {% else %}
+        <p style="text-align: center;">You must be logged in to add an author.</p>
+      {% endif %}
+      <button type="button" class="btn cancel" onclick="closeFormRight()">Cancel</button>
+    </fieldset>
+  </form>
+</div>
+
+<!-- Javascript to show and hide forms -->
 <script>
   function openFormRight() {
     document.getElementById("right-form").style.display = "block";
