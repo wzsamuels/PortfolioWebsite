@@ -11,24 +11,13 @@
 	<fieldset>
 		<legend>Book Information</legend><br>
 		<div class="container">
-    	<div class="row">
-          <div class="col-25">
             <label for="{{ form.title.id_for_label }}">Book Title:</label><br>
-          </div>
-          <div class="col-75">
-            {{ form.title }}
-          </div>
-        </div>
-
-   		</div>
-   		<div class="row">
-        <div class="col-25">
-   			  {{ form.authors.label_tag }} <br> {{ form.authors}}
-        </div>
-      </div>
-		
+          {{ form.title }}
+   			  {{ form.authors.label_tag }} <br> {{ form.authors}}		
     <input type="submit" value="Save">
+  </div>
 </fieldset>
 </form>
+
 
 {% endblock %}
