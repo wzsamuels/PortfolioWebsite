@@ -17,6 +17,28 @@
       	box-sizing: border-box;
         font-family:'Roboto', sans-serif;
     }
+
+    .main {
+        margin-left: 100px; /* Same as the width of the sidenav */
+        margin-top: 70px; /* Width of the top navbar */
+    }
+    
+    h2 {
+        margin-top: 15px;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+
+    legend {
+        text-align: center;
+    }
+    
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
     
     ul.list {
       	list-style-type: none;
@@ -34,6 +56,7 @@
         overflow: hidden;
         background-color: DodgerBlue;
         height: 70px;
+        width: 100%;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -75,24 +98,7 @@
       	border-radius: 4px;
       	resize: vertical;
       	font-size:16px;
-    }
-    
-    h2 {
-        margin-top: 15px;
-        text-align: center;
-    }
-    h3 {
-        text-align: center;
-    }
-
-    legend {
-        text-align: center;
-    }
-    
-    label {
-        padding: 12px 12px 12px 0;
-        display: inline-block;
-    }
+    }    
     
     input[type=submit] {
         background-color: DodgerBlue;
@@ -204,13 +210,7 @@
     /* Add some hover effects to buttons */
     .form-container .btn:hover, .open-button:hover {
         opacity: 1;
-    }    
-
-    /* Page content */
-    .main {
-        margin-left: 100px; /* Same as the width of the sidenav */
-    }
-
+    }        
     </style>
   </head>
 </html>
