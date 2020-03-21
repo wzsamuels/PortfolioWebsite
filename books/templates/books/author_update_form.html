@@ -2,7 +2,13 @@
 
 {% block content %}
 
-<h2>Update Author's Information</h2><br>
+<script>
+  document.getElementById("BookList").classList.add('active');
+  document.getElementById("BookSideNav").style.display = "block";
+</script>
+
+<h2>Update Author's Information</h2>
+
 <form method="post">{% csrf_token %}
 	<fieldset>
 		<legend>Author Information</legend>
