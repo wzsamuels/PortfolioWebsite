@@ -49,9 +49,6 @@
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
     <div class="container bg-white rounded shadow-sm">
       <ul class="list">
-        <!--{% for book in book_json %}
-          {{book}}
-        {% endfor %}-->
         {% for book in book_list|dictsort:"title" %}
         <li>
           <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
