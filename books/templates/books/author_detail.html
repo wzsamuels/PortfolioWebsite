@@ -2,10 +2,8 @@
 
 {% block content %}
 
-<script>
-  document.getElementById("BookList").classList.add('active');
-  document.getElementById("BookSideNav").style.display = "block";
-</script>
+{% include "book_include.html" %}
+
 
 <div class="container">
   <h2>{{ object }} </h2>

@@ -1,0 +1,30 @@
+<script>
+  document.getElementById("BookList").classList.add('active');
+  document.getElementById("BookSideNav").style.display = "block";
+</script>
+
+<div id="BookSideNav" class="sidenav">        
+  <ul style="margin:auto;" class="list">
+    <li><a href="#" onclick="openFormLeft()">Add Book</a></li>
+    <li><a href="#" onclick="openFormRight()">Add Author</a></li>
+  </ul>
+</div>
+
+<script>
+  function openFormRight() {
+    document.getElementById("right-form").style.display = "block";
+}
+
+function closeFormRight() {
+    document.getElementById("right-form").style.display = "none";
+}
+
+function openFormLeft() {
+    document.getElementById("left-form").style.display = "block";
+}
+
+function closeFormLeft() {
+    document.getElementById("left-form").style.display = "none";
+  }
+  </script>
+<script src="{% static "books/book_list.js" %}"></script>
