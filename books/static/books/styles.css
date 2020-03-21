@@ -5,7 +5,8 @@
     
     /** General page style */
     body {
-        margin: 0;
+        margin-left: 100px; /* Same as the width of the sidenav */
+        margin-top: 70px; /* Width of the top navbar */
         font-size:16px;
     }
 
@@ -19,8 +20,7 @@
     }
 
     .main {
-        margin-left: 100px; /* Same as the width of the sidenav */
-        margin-top: 70px; /* Width of the top navbar */
+        
     }
     
     h2 {
