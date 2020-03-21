@@ -9,6 +9,7 @@
         font-size:16px;
     }
 
+
     p {
         padding:0 16px;
     }
@@ -162,8 +163,8 @@
     .form-popup {
         display: none;
         position: fixed;
-        left: 45%;
-        top:5%;
+        left: 5%;
+        top: 5%;
         transform: translate(-45%,5%);
         border: 2px solid #666;
         z-index: 9;
