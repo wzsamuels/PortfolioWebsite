@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include "books/book_include.html" %}
+
 <div class="container">
   <h2>{{ object.title }}</h2>
     <p><a href="{{ object.get_absolute_url }}update">Update Book Information</a></p>

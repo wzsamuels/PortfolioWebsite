@@ -28,23 +28,12 @@
       {% else %} 
         <a id="Login" href="/accounts/login.html" style="float:right;">Login</a>
       {% endif %}
-        <!--
-        <div class="dropdown">
-            <button class="dropbtn">Book Collection
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a id="AuthorForm" href="/books/authors/add_author">Add Author</a>
-                <a id="BookForm" href="/books/add_book">Add Book</a>  
-                <a id="AuthorList" href="/books/authors/">Author List</a>
-                <a id="BookList" href="/books/">Book List</a>              
-            </div>
-        </div> 
-        -->
     </div>
 
-    {% block content %}
-    {% endblock %}
+    <div class="main">
+      {% block content %}
+      {% endblock %}
+    </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>

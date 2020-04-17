@@ -6,9 +6,10 @@
     /* Page content */
 
     body {
-        margin: 0;
+        margin: 0px;
         font-size:16px;
     }
+
 
     p {
         padding:0 16px;
@@ -17,6 +18,29 @@
     * {
       	box-sizing: border-box;
         font-family:'Roboto', sans-serif;
+    }
+
+    .main {
+        margin-left: 100px; /* Same as the width of the sidenav */
+        margin-top: 70px; /* Width of the top navbar */
+    }
+    
+    h2 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+
+    legend {
+        text-align: center;
+    }
+    
+    label {
+        padding: 12px 12px 12px 0px;
+        display: inline-block;
     }
     
      /* Same as the width of the sidenav */
@@ -52,7 +76,27 @@
         overflow: hidden;
         background-color: DodgerBlue;
         height: 70px;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }    
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;        
+    }    
+
+    .navbar a:hover {
+        background-color: DeepSkyBlue;
     }
+    
+    .navbar a.active {background-color: DeepSkyBlue;}    
 
     .sidenav {
         height: 100%;
@@ -65,63 +109,6 @@
         overflow-x: hidden;
         padding-top: 20px;
         margin-top: 70px;
-    }
-
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-
-    .dropdown .dropbtn {
-        font-size: 16px;  
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-
-    .navbar a:hover, .dropdown:hover .dropbtn {
-        background-color: DeepSkyBlue;
-    }
-    
-    .navbar a.active {background-color: DeepSkyBlue;}
-    
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-    
-    .dropdown:hover .dropdown-content {
-        display: block;
     }
     
     input[type=text], input[type=password], select, textarea {
@@ -157,26 +144,6 @@
       max-width: 680px;
       padding: 15px 15px;
     }
-
-    /*
-    .col-25 {
-        float: left;
-        width: 25%;
-        margin-top: 6px;
-    }
-    
-    .col-75 {
-        float: left;
-        width: 75%;
-        margin-top: 6px;
-    }
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    */
-
 
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
@@ -231,9 +198,9 @@
     .form-popup {
         display: none;
         position: fixed;
-        left: 45%;
-        top:5%;
-        transform: translate(-45%,5%);
+        left: 150px;
+        top: 100px;
+        /* transform: translate(-45%,5%); */
         border: 2px solid #666;
         z-index: 9;
     }

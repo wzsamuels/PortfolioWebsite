@@ -2,109 +2,272 @@
 <html lang="en">
   <head>
     <style>
-        body {margin: 0;}
+  
+    body {
+        margin: 0;
+        font-size:16px;
+    }
 
-        ul.nav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: DeepSkyBlue;
-        }
+    p {
+        padding:0 16px;
+    }
+	        
+    * {
+      	box-sizing: border-box;
+        font-family:'Roboto', sans-serif;
+    }
+    
+    ul.list {
+      	list-style-type: none;
+      	margin: 5px;
+      	padding: 5px;
+    }
 
-        ul.nav li {float: left;}
-        ul.nav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+    ul.list li {
+      	display: block;
+        padding: 20px 20px;
+        text-decoration: none;
+    }
 
-        ul.nav li a:hover:not(.active) {background-color: DodgerBlue;}
-        ul.nav li a.active {background-color: DodgerBlue;}
-        ul.nav li.right {float: right;}
-        p {padding:0 16px;}
-	
-      	ul.list {
-      	    list-style-type: none;
-      	    margin: 0;
-      	    padding: 0;
-      	}
+    .navbar {
+        overflow: hidden;
+        background-color: DodgerBlue;
+        height: 70px;
+    }
 
-      	ul.list li {
-      	    display: block;
-                  padding: 14px 16px;
-                  text-decoration: none;
-      	}
+    .sidenav {
+        height: 100%;
+        width: 100px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
         
-      	* {
-      	    box-sizing: border-box;
-      	}
+        overflow-x: hidden;
+        padding-top: 20px;
+        margin-top: 70px;
+    }
 
-      	input[type=text], select, textarea {
-      	    width: 100%;
-      	    padding: 12px;
-      	    border: 1px solid #ccc;
-      	    border-radius: 4px;
-      	    resize: vertical;
-      	    font-size:16px;
-      	}
-
-      h2 {
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
         text-align: center;
-        padding: 10px;
-      }
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
 
-      label {
+    .dropdown .dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: DeepSkyBlue;
+    }
+    
+    .navbar a.active {background-color: DeepSkyBlue;}
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    input[type=text], input[type=password], select, textarea {
+      	width: 100%;
+      	padding: 12px;
+      	border: 1px solid #ccc;
+      	border-radius: 4px;
+      	resize: vertical;
+      	font-size:16px;
+    }
+    
+    h2 {
+        margin-top: 15px;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+
+    legend {
+        text-align: center;
+    }
+    
+    label {
         padding: 12px 12px 12px 0;
         display: inline-block;
-      }
-
-      input[type=submit] {
+    }
+    
+    input[type=submit] {
         background-color: DodgerBlue;
         color: white;
         padding: 12px 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        float: right;
-      }
+        /*float: right;*/
+    }
 
-      .container {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-      }
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 15px 15px;
+    }
 
-      .col-25 {
+    /*
+    .col-25 {
         float: left;
         width: 25%;
         margin-top: 6px;
-      }
-
-      .col-75 {
+    }
+    
+    .col-75 {
         float: left;
         width: 75%;
         margin-top: 6px;
-      }
-
-      /* Clear floats after the columns */
-      .row:after {
+    }
+    .row:after {
         content: "";
         display: table;
         clear: both;
-      }
+    }
+    */
 
-      /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-      @media screen and (max-width: 600px) {
-          .col-25, .col-75, input[type=submit] {
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .col-25, .col-75, .row, input[type=submit] {
             width: 100%;
             margin-top: 0;
         }
-        ul.nav li.right, 
-        ul.nav li {float: none;}
-      }
+        
+        .open-button-right, .open-button-left {
+            float:none;
+        }
+    }
+    
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+        background-color: DodgerBlue;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: sticky;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .open-button-left {
+        background-color: DodgerBlue;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: sticky;
+        }
+
+    .popup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* The popup form - hidden by default */
+    .form-popup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top:5%;
+        transform: translate(-45%,5%);
+        border: 2px solid #666;
+        z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+    }
+
+    /* Full-width input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+    
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+        background-color: DodgerBlue;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+    }
+    
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: DeepSkyBlue;
+    }
+    
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+    }    
+
+    /* Page content */
+    .main {
+        margin-left: 100px; /* Same as the width of the sidenav */
+    }
+
     </style>
   </head>
-  </html>
+</html>
