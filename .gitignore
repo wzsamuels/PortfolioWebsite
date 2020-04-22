@@ -133,4 +133,4 @@ mysite.sublime-project
 mysite.sublime-workspace
 old/
 venv2
-mysite/settings.py
+#mysite/settings.py
