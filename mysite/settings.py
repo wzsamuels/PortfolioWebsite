@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['wzsamuels.com', '127.0.0.1']
 INSTALLED_APPS = [
     'books.apps.BooksConfig',
     'home.apps.HomeConfig',
+    'budget.apps.BudgetConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,8 +131,8 @@ STATIC_ROOT = '/home/ubuntu/django-project/static'
 #]       
 
 STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
-    )
+)
 
 LOGIN_REDIRECT_URL = '/books/'

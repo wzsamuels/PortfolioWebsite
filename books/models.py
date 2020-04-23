@@ -26,7 +26,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     authors = models.ManyToManyField(Author, related_name='books')
-    published = models.IntegerField(default=0)
+    year_published = models.IntegerField(default=0)
     summary = models.TextField()
     slug = models.SlugField(null=False, unique=True)
 

@@ -1,10 +1,12 @@
 {% load static %}
 
+<!-- Highlight the Book button in the navbar -->
 <script>
   document.getElementById("BookList").classList.add('active');
   document.getElementById("BookSideNav").style.display = "block";
 </script>
 
+<!-- Side navbar for adding books and authors -->
 <div id="BookSideNav" class="sidenav">        
   <ul style="margin:auto;" class="list">
     <li><a href="#" onclick="openFormLeft()">Add Book</a></li>
