@@ -134,3 +134,4 @@ mysite.sublime-workspace
 old/
 venv2
 #mysite/settings.py
+*/migrations
