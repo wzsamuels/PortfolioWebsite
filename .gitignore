@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 # Local dev
-mysite.sublime-project
-mysite.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 old/
 venv2
 #mysite/settings.py
