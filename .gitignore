@@ -135,3 +135,4 @@ old/
 venv2
 #mysite/settings.py
 books/migrations
+budget/migrations
