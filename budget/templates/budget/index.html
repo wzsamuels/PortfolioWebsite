@@ -7,16 +7,16 @@
 <div class="container bg-white rounded shadow-sm">
 	<table style="width:100%">
 		<tr>
-			<th>Amount</th>
-			<th>Type</th>
-			<th>Date</th>
+			<th>Amount ▲ ▼</th>
+			<th>Type ▲ ▼</th>
+			<th>Date ▲ ▼</th>
 		</tr>
 
 		{% for trans in transaction_list %}
 		<tr>
-			<td>{{ trans.amount }}</td>
-			<td>Blank</td>
-			<td>Blank</td>
+			<td>${{ trans.amount }}</td>
+			<td>{{ trans.get_transType_display }}</td>
+			<td>{{ trans.date }}</td>
 		</tr>
 		{% endfor %}
 
