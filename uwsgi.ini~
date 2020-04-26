@@ -1,8 +1,0 @@
-[uwsgi]
-#socket = :8001
-socket = /home/ubuntu/django-project/mysite.sock
-chdir = /home/ubuntu/django-project/
-wsgi-file = mysite/wsgi.py
-processes = 4
-threads = 2
-chmod-socket = 664

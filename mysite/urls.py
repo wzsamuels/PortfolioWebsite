@@ -19,11 +19,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
-    path(
-        'accounts/login.html',
-        auth_views.LoginView.as_view(),
-    ),
- #   path('accounts/login', auth_views.LoginView.as_view(redirect_authenticated_user='/books/')),
+#    path('accounts/login.html', auth_views.LoginView.as_view()),
+    path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user='/books/')),
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
     path('', include('home.urls')),
