@@ -24,5 +24,6 @@ urlpatterns = [
     #path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user='/books/')),
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
+    path('budget/', include('budget.urls')),
     path('', include('home.urls')),
 ]
