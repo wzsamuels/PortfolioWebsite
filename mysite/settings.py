@@ -135,4 +135,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
     )
 
-LOGIN_REDIRECT_URL = '/books/'
+#LOGIN_REDIRECT_URL = '/books/'
