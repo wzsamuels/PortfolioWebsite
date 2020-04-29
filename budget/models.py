@@ -17,4 +17,6 @@ class Transaction(models.Model):
     	choices=TYPE_CHOICES,
     	default=WITHDRAWAL
     )
-    
+
+    class Meta:
+        ordering = ['date']

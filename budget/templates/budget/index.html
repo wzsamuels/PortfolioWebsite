@@ -5,38 +5,46 @@
 <h2>Budget App</h2>
 
 <div class="container bg-white rounded shadow-sm">
-	<table style="width:100%">
-		<tr>
-			<th>Amount ▲ ▼</th>
-			<th>Type ▲ ▼</th>
-			<th>Date ▲ ▼</th>
-		</tr>
-
-		{% for trans in transaction_list %}
-		<tr>
-			<td>${{ trans.amount }}</td>
-			<td>{{ trans.get_transType_display }}</td>
-			<td>{{ trans.date }}</td>
-		</tr>
-		{% endfor %}
-
-	</table>
-	<form method="post" class="form-container">{% csrf_token %}
+  <table style="width:100%">
+    <tr>
+      <th>Amount ▲ ▼</th>
+      <th>Type ▲ ▼</th>
+      <th>Date ▲ ▼</th>
+    </tr>
+    
+    {% for trans in transaction_list %}
+    <tr>
+      <td>${{ trans.amount }}</td>
+      <td>{{ trans.get_transType_display }}</td>
+      <td>{{ trans.date }}</td>
+    </tr>
+    {% endfor %}
+    
+  </table>
+</div>
+  <form method="post">{% csrf_token %}
     <fieldset><legend>Add Transaction</legend>
       {% if user.is_authenticated %}
-        <label for="{{ transaction_form.amount.id_for_label }}">Title:</label>
-        {{ transaction_form.amount }}
-        <label for ="{{ transaction_form.date.id_for_label }}">Amount:</label>
-        {{ transaction_form.date}}
-        <label for ="{{ transaction_form.type.id_for_label }}">Type:</label>
-        {{ transaction_form.type}}
-        <button type="submit" class="btn">Add Transaction</button>       
+      <table>
+        <tr>
+          <td><label for="{{ transaction_form.amount.id_for_label }}">Amount:</label></td>
+          <td> {{ transaction_form.amount }} </td>
+        </tr>
+        <tr>
+          <td> <label for ="{{ transaction_form.date.id_for_label }}">Date:</label></td>
+          <td>{{ transaction_form.date}} </td>
+        </tr>
+        <tr>
+          <td><label for ="{{ transaction_form.type.id_for_label }}">Type:</label></td>
+          <td>{{ transaction_form.transType }} </td>
+        </tr>
+      </table>
+      <button type="submit">Add Transaction</button>       
       {% else %}
         <p style="text-align: center;">You must be logged in to add a transaction</p>
       {% endif %}
     </fieldset>
   </form>
 </form>
-</div>
 
 {% endblock %}
