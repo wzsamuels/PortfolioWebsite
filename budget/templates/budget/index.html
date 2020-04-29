@@ -21,10 +21,21 @@
 		{% endfor %}
 
 	</table>
-	<form method="post">
-    <table>
-        {{ transaction_form }}
-    </table>
+	<form method="post" class="form-container">{% csrf_token %}
+    <fieldset><legend>Add Transaction</legend>
+      {% if user.is_authenticated %}
+        <label for="{{ transaction_form.amount.id_for_label }}">Title:</label>
+        {{ transaction_form.amount }}
+        <label for ="{{ transaction_form.date.id_for_label }}">Amount:</label>
+        {{ transaction_form.date}}
+        <label for ="{{ transaction_form.type.id_for_label }}">Type:</label>
+        {{ transaction_form.type}}
+        <button type="submit" class="btn">Add Transaction</button>       
+      {% else %}
+        <p style="text-align: center;">You must be logged in to add a transaction</p>
+      {% endif %}
+    </fieldset>
+  </form>
 </form>
 </div>
 
