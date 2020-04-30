@@ -5,7 +5,11 @@
 {% include "books/book_include.html" %}
 
 <div id="SortByTitle">
-  <h2>Books by Title</h2><br>
+  <h2>Books by Title</h2>
+  <div class="bookButton" style="text-align:center">
+    <button  type="button" onclick="openFormLeft()">Add Book</button>&nbsp
+    <button type="button" onclick="openFormRight()">Add Author</button>
+  </div>
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
     <div class="container bg-white rounded shadow-sm">
@@ -29,7 +33,11 @@
 <!-- The Book objects in the database sorted by Author. Hidden by default -->
 
 <div id="SortByAuthor">
-  <h2>Books by Author</h2><br>
+  <h2>Books by Author</h2>
+  <div style="text-align:center;">
+    <button type="button" onclick="openFormLeft()">Add Book</button>&nbsp
+    <button type="button" onclick="openFormRight()">Add Author</button>
+  </div>
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
     <div class="container bg-white rounded shadow-sm">

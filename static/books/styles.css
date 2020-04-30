@@ -1,15 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
-
-    /* Page content */
+  <style>
 
     body {
         margin: 0px;
         font-size:16px;
     }
 
+table {
+    border-spacing: 10px;
+}
+
+td {
+    /*margin-left:20px;
+    margin-right:20px;*/
+    padding: 10px;
+}
 
     p {
         padding:0 16px;
@@ -21,11 +28,12 @@
     }
 
     .main {
-        margin-left: 100px; /* Same as the width of the sidenav */
-        margin-top: 70px; /* Width of the top navbar */
+        /*margin-left: 100px; /* Same as the width of the sidenav */
+        /*margin-top: 70px; /* Width of the top navbar */
     }
     
     h2 {
+        margin-top: 15px;
         padding-top: 20px;
         padding-bottom: 20px;
         text-align: center;
@@ -42,22 +50,9 @@
         padding: 12px 12px 12px 0px;
         display: inline-block;
     }
-    
-     /* Same as the width of the sidenav */
-    .main {
-        margin-left: 100px;
-    } 
-
-    h2 {
-        margin-top: 15px;
-        text-align: center;
-    }
-    h3 {
-        text-align: center;
-    }   
-
-    /* Ordered lists */
-    
+ 
+ 
+    /* Ordered lists */    
     ul.list {
       	list-style-type: none;
       	margin: 5px;
@@ -75,12 +70,14 @@
     .navbar {
         overflow: hidden;
         background-color: DodgerBlue;
-        height: 70px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /*height: 70px;
         width: 100%;
         position: fixed;
-        z-index: 1;
         top: 0;
-        left: 0;
+        left: 0;*/
     }    
 
     .navbar a {
@@ -90,7 +87,17 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;        
-    }    
+    }
+
+    .bookButton button {
+        border:none;
+        background-color: DodgerBlue;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+    }
 
     .navbar a:hover {
         background-color: DeepSkyBlue;
@@ -110,15 +117,15 @@
         padding-top: 20px;
         margin-top: 70px;
     }
-    
+    /*
     input[type=text], input[type=password], select, textarea {
-      	/*width: 100%;*/
+      	/*width: 100%;
       	padding: 12px;
       	border: 1px solid #ccc;
       	border-radius: 4px;
       	resize: vertical;
       	font-size:16px;
-    }    
+    }    */
 
     legend {
         text-align: center;
@@ -127,6 +134,11 @@
     label {
         padding: 12px 12px 12px 0;
         display: inline-block;
+    }
+
+    input {
+        min-width: 100%;
+        max-width: 100%;
     }
     
     input[type=submit] {
@@ -140,32 +152,21 @@
     }
 
     .container {
-      width: auto;
-      max-width: 680px;
+      /*  width: 75%;
+      *max-width: 680px;*/
       padding: 15px 15px;
     }
 
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-        .col-25, .col-75, .row, .navbar, input[type=submit] {
+        /*
+        .main {
             width: 100%;
-            margin-top: 0;
-        }
-
-        .navbar {
-            height: 140px;
-        }
-        
-        .open-button-right, .open-button-left {
-            float:none;
-        }
-
-        .sidenav {
-            margin-top: 140px;
-        }
+        }*/
+        .navbar a {float : none; }
     }
     
-    /* Button used to open the contact form - fixed at the bottom of the page */
+    /* Button used to open the contact form - fixed at the bottom of the page
     .open-button {
         background-color: DodgerBlue;
         color: white;
@@ -192,7 +193,7 @@
         position: relative;
         text-align: center;
         width: 100%;
-    }
+    }*/
     
     /* The popup form - hidden by default */
     .form-popup {
@@ -213,7 +214,7 @@
     }
 
     /* Full-width input fields */
-    .form-container input[type=text], .form-container input[type=password] {
+    .form-container input[type=text], .form-container select {
         width: 100%;
         padding: 15px;
         margin: 5px 0 22px 0;
