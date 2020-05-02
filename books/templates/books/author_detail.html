@@ -1,9 +1,6 @@
-{% extends "base.html" %} 
+{% extends "books/index.html" %} 
 
 {% block content %}
-
-{% include "books/book_include.html" %}
-
 
 <div class="container">
   <h2>{{ object }} </h2>
@@ -16,4 +13,8 @@
   </div>
 </div>
 
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
 {% endblock %}

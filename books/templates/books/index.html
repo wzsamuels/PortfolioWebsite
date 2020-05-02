@@ -1,18 +1,13 @@
 {% extends "base.html" %} 
-{% load static %}
+
 {% block content %}
 
-{% include "books/book_include.html" %}
-
-<div id="SortByTitle">
+<div id="SortByTitle" class="bookContainer">
   <h2>Books by Title</h2>
-  <div class="bookButton" style="text-align:center">
-    <button  type="button" onclick="openFormLeft()">Add Book</button>&nbsp
-    <button type="button" onclick="openFormRight()">Add Author</button>
-  </div>
+
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-    <div class="container bg-white rounded shadow-sm">
+    <div class="white-box">
       <ul class="list">
         {% for book in book_list|dictsort:"title" %}
         <li>
@@ -60,6 +55,98 @@
 
 <script type="text/javascript">
   document.getElementById("SortByAuthor").style.display = "none";
+  document.getElementById("BookList").classList.add('active');
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+<ul class="bottom-nav">
+  <li><button id="BookButtonOpen">Add Book</button></li>
+  <li><button id="AuthorButtonOpen">Add Author</a></li>
+</ul>
+
+<!-- Popup form for adding a new Book -->
+<div class="modal" id="BookForm">
+  <div class="modal-content">
+    <form method="post" class="form-container">{% csrf_token %}
+      <fieldset><legend>Add Book</legend>
+      {% if user.is_authenticated %}
+        <label for="{{ book_form.title.id_for_label }}">Title:</label>
+        {{ book_form.title }}
+        <label for="{{ book_form.authors.id_for_lab }}">Author(s):</label><br>
+        {{ book_form.authors}}
+        <button type="submit" class="btn" name="book_button">Add Book</button>       
+        {% else %}
+        <p style="text-align: center;">You must be logged in to add a book.</p>
+        {% endif %}
+        <button type="button" id="BookButtonClose" class="btn cancel">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!-- Popup form for adding a new Author -->
+<div class="modal" id="AuthorForm">
+  <div class="modal-content">
+    <form method="post" class="form-container">{% csrf_token %}
+      <fieldset><legend>Add Author</legend>
+        {% if user.is_authenticated %}
+        <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
+        {{ author_form.first_name }}
+        <label for="{{ author_form.last_name.id_for_label }}">Last Name:</label>
+        {{ author_form.last_name }}
+        <button type="submit" class="btn" name="author_button">Add Author</button>
+        {% else %}
+        <p style="text-align: center;">You must be logged in to add an author.</p>
+        {% endif %}
+        <button type="button" id="AuthorButtonClose" class="btn cancel">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<script>
+// Book Form
+  var bookForm = document.getElementById("BookForm");  
+  var bookButtonOpen = document.getElementById("BookButtonOpen");
+  var bookButtonClose = document.getElementById("BookButtonClose");
+    
+  // When the user clicks the button, open the modal 
+  bookButtonOpen.onclick = function() {
+    bookForm.style.display = "block";
+  }    
+  bookButtonClose.onclick = function() {
+    bookForm.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == bookForm) {
+      bookForm.style.display = "none";
+    }
+  }
+
+  // Author Form
+  var authorForm = document.getElementById("AuthorForm");  
+  var authorButtonOpen = document.getElementById("AuthorButtonOpen");
+  var authorButtonClose = document.getElementById("AuthorButtonClose");
+    
+  // When the user clicks the button, open the modal 
+  authorButtonOpen.onclick = function() {
+    authorForm.style.display = "block";
+  }    
+  authorButtonClose.onclick = function() {
+    authorForm.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == authorForm) {
+      authorForm.style.display = "none";
+    }
+  }
 </script>
 
 {% endblock %}

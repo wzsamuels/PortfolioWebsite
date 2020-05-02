@@ -1,12 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
-  
+  <style>
+
     body {
-        margin: 0;
+        margin: 0px;
         font-size:16px;
     }
+
+table {
+    border-spacing: 10px;
+}
+
+td {
+    /*margin-left:20px;
+    margin-right:20px;*/
+    padding: 10px;
+}
 
     p {
         padding:0 16px;
@@ -16,7 +26,33 @@
       	box-sizing: border-box;
         font-family:'Roboto', sans-serif;
     }
+
+    .main {
+        /*margin-left: 100px; /* Same as the width of the sidenav */
+        /*margin-top: 70px; /* Width of the top navbar */
+    }
     
+    h2 {
+        margin-top: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+
+    legend {
+        text-align: center;
+    }
+    
+    label {
+        padding: 12px 12px 12px 0px;
+        display: inline-block;
+    }
+ 
+ 
+    /* Ordered lists */    
     ul.list {
       	list-style-type: none;
       	margin: 5px;
@@ -29,11 +65,45 @@
         text-decoration: none;
     }
 
+    /* Nav Bar */
+
     .navbar {
         overflow: hidden;
         background-color: DodgerBlue;
-        height: 70px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /*height: 70px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;*/
+    }    
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;        
     }
+
+    .bookButton button {
+        border:none;
+        background-color: DodgerBlue;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: DeepSkyBlue;
+    }
+    
+    .navbar a.active {background-color: DeepSkyBlue;}    
 
     .sidenav {
         height: 100%;
@@ -47,80 +117,15 @@
         padding-top: 20px;
         margin-top: 70px;
     }
-
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-
-    .dropdown .dropbtn {
-        font-size: 16px;  
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-
-    .navbar a:hover, .dropdown:hover .dropbtn {
-        background-color: DeepSkyBlue;
-    }
-    
-    .navbar a.active {background-color: DeepSkyBlue;}
-    
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-    
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
+    /*
     input[type=text], input[type=password], select, textarea {
-      	width: 100%;
+      	/*width: 100%;
       	padding: 12px;
       	border: 1px solid #ccc;
       	border-radius: 4px;
       	resize: vertical;
       	font-size:16px;
-    }
-    
-    h2 {
-        margin-top: 15px;
-        text-align: center;
-    }
-    h3 {
-        text-align: center;
-    }
+    }    */
 
     legend {
         text-align: center;
@@ -129,6 +134,11 @@
     label {
         padding: 12px 12px 12px 0;
         display: inline-block;
+    }
+
+    input {
+        min-width: 100%;
+        max-width: 100%;
     }
     
     input[type=submit] {
@@ -142,44 +152,21 @@
     }
 
     .container {
-      width: auto;
-      max-width: 680px;
+      /*  width: 75%;
+      *max-width: 680px;*/
       padding: 15px 15px;
     }
 
-    /*
-    .col-25 {
-        float: left;
-        width: 25%;
-        margin-top: 6px;
-    }
-    
-    .col-75 {
-        float: left;
-        width: 75%;
-        margin-top: 6px;
-    }
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    */
-
-
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-        .col-25, .col-75, .row, input[type=submit] {
+        /*
+        .main {
             width: 100%;
-            margin-top: 0;
-        }
-        
-        .open-button-right, .open-button-left {
-            float:none;
-        }
+        }*/
+        .navbar a {float : none; }
     }
     
-    /* Button used to open the contact form - fixed at the bottom of the page */
+    /* Button used to open the contact form - fixed at the bottom of the page
     .open-button {
         background-color: DodgerBlue;
         color: white;
@@ -191,7 +178,6 @@
         margin-left:auto;
         margin-right:auto;
     }
-
     .open-button-left {
         background-color: DodgerBlue;
         color: white;
@@ -201,20 +187,19 @@
         opacity: 0.8;
         position: sticky;
         }
-
     .popup {
         position: relative;
         text-align: center;
         width: 100%;
-    }
+    }*/
     
     /* The popup form - hidden by default */
     .form-popup {
         display: none;
         position: fixed;
-        left: 45%;
-        top:5%;
-        transform: translate(-45%,5%);
+        left: 150px;
+        top: 100px;
+        /* transform: translate(-45%,5%); */
         border: 2px solid #666;
         z-index: 9;
     }
@@ -227,7 +212,7 @@
     }
 
     /* Full-width input fields */
-    .form-container input[type=text], .form-container input[type=password] {
+    .form-container input[type=text], .form-container select {
         width: 100%;
         padding: 15px;
         margin: 5px 0 22px 0;
@@ -261,11 +246,6 @@
     /* Add some hover effects to buttons */
     .form-container .btn:hover, .open-button:hover {
         opacity: 1;
-    }    
-
-    /* Page content */
-    .main {
-        margin-left: 100px; /* Same as the width of the sidenav */
     }
 
     </style>

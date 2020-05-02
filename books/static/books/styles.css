@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  <style>
+<head>
+<style>
 
-    body {
-        margin: 0px;
-        font-size:16px;
-    }
+body {
+    margin: 0px;
+    font-size:16px;
+}
 
 table {
     border-spacing: 10px;
@@ -14,242 +14,349 @@ table {
 
 td {
     /*margin-left:20px;
-    margin-right:20px;*/
+      margin-right:20px;*/
     padding: 10px;
 }
 
-    p {
-        padding:0 16px;
-    }
-	        
-    * {
-      	box-sizing: border-box;
-        font-family:'Roboto', sans-serif;
-    }
+p {
+    padding:0 16px;
+}
 
-    .main {
-        /*margin-left: 100px; /* Same as the width of the sidenav */
-        /*margin-top: 70px; /* Width of the top navbar */
-    }
-    
-    h2 {
-        margin-top: 15px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-align: center;
-    }
-    h3 {
-        text-align: center;
-    }
+* {
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+}
 
-    legend {
-        text-align: center;
-    }
+.main {
+    /*margin-left: 100px; /* Same as the width of the sidenav */
+    /*margin-top: 70px; /* Width of the top navbar */
+  
+}
+
+h2 {
+    /*margin-top: 15px;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+
+.bg-gray {
+    background-color:#f2f2f2;
+    padding:15px;
+}
+
+.white-box {
+    background-color:White;
+}
+
+legend {
+    text-align: center;
+}
+
+label {
+    padding: 12px 12px 12px 0px;
+    display: inline-block;
+}
+
+
+/* Nav Bar
+
+.navbar {
+    overflow: hidden;
+    background-color: DodgerBlue;
+    margin: 0;
+    padding: 0;
+    width: 100%;*/
+/*height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+       left: 0;*/
+
+
+.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: DodgerBlue;
+}
+
+.topnav li  { float: left; }
+
+.topnav li a, .topnav .dropbutton {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav li a:hover { background-color: DeepSkyBlue; }
+
+.topnav a.active {background-color: DeepSkyBlue;}
+
+.topnav .dropdown-links li {
+  display: inline-block;
+}
+
+.topnav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: DodgerBlue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.topnav .dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav .dropdown-content a:hover {background-color: DeepSkyBlue}
+
+.topnav .dropdown-links:hover .dropdown-content {
+  display: block;
+}
+
+/** Bottom Nav Bar **/
+
+ul.bottom-nav {
+  list-style-type: none;
+  left:40%;
+  margin-left:-100px;
+  overflow: hidden;
+  background-color:transparent;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  height:50px;
+}
+
+ul.bottom-nav li {
+    float: left;
+    text-align:center;
+    padding-right:10px;
+    padding-left:10px;
+    /*text-align:center;*/
+}
+
+ul.bottom-nav li a {
+    display: block;
+    background-color: DodgerBlue;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.bottom-nav li button {
+    border:none;
+    background-color: DodgerBlue;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+/** Book App Styles **/
+
+/* Ordered lists */    
+ul.list {
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+}
+
+ul.list li {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+.bookContainer {
+    margin-bottom:45px;
+}
+
+.bookButton button {
+    border:none;
+    background-color: DodgerBlue;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+}    
+
+.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     
-    label {
-        padding: 12px 12px 12px 0px;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 70px;
+}
+    
+legend {
+    text-align: center;
+}
+
+label {
+    padding: 12px 12px 12px 0;
         display: inline-block;
-    }
- 
- 
-    /* Ordered lists */    
-    ul.list {
-      	list-style-type: none;
-      	margin: 5px;
-      	padding: 5px;
-    }
+}
 
-    ul.list li {
-      	display: block;
-        padding: 20px 20px;
-        text-decoration: none;
-    }
+input {
+    min-width: 100%;
+    max-width: 100%;
+}
 
-    /* Nav Bar */
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /*float: right;*/
+}
 
-    .navbar {
-        overflow: hidden;
-        background-color: DodgerBlue;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        /*height: 70px;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;*/
-    }    
+.container {
+    /*  width: 75%;
+     *max-width: 680px;*/
+    padding: 15px 15px;
+}
 
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;        
-    }
-
-    .bookButton button {
-        border:none;
-        background-color: DodgerBlue;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 10px 12px;
-        text-decoration: none;
-    }
-
-    .navbar a:hover {
-        background-color: DeepSkyBlue;
-    }
-    
-    .navbar a.active {background-color: DeepSkyBlue;}    
-
-    .sidenav {
-        height: 100%;
-        width: 100px;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        
-        overflow-x: hidden;
-        padding-top: 20px;
-        margin-top: 70px;
-    }
+/* The popup form - hidden by default */
+.form-popup {
     /*
-    input[type=text], input[type=password], select, textarea {
-      	/*width: 100%;
-      	padding: 12px;
-      	border: 1px solid #ccc;
-      	border-radius: 4px;
-      	resize: vertical;
-      	font-size:16px;
-    }    */
+    display: none;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    border: 2px solid #666;
+    z-index: 9;
+   */
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
 
-    legend {
-        text-align: center;
-    }
+}
+
+/* Add styles to the form container */
+  .form-container {    
+      padding: 10px;
+      background-color: white;
+      display:inline-block;
+  }
+  
+  .form-container input[type=text], .form-container select {
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+  }
+
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+      background-color: DodgerBlue;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+      background-color: DeepSkyBlue;
+  }
     
-    label {
-        padding: 12px 12px 12px 0;
-        display: inline-block;
-    }
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+  }
 
-    input {
-        min-width: 100%;
-        max-width: 100%;
-    }
-    
-    input[type=submit] {
-        background-color: DodgerBlue;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        /*float: right;*/
-    }
+  .form-container .selector {
+      width:100%;
+      min-width:200px;
+  }
 
-    .container {
-      /*  width: 75%;
-      *max-width: 680px;*/
-      padding: 15px 15px;
-    }
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
 
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        /*
-        .main {
-            width: 100%;
-        }*/
-        .navbar a {float : none; }
-    }
-    
-    /* Button used to open the contact form - fixed at the bottom of the page
-    .open-button {
-        background-color: DodgerBlue;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        opacity: 0.8;
-        position: sticky;
-        margin-left:auto;
-        margin-right:auto;
-    }
+  /* Modal Content */
+  .modal-content {
+      position: relative;
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 50%;
+      min-width:300px;
+      max-width:500px;
+      /*max-width: 300px;*/
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+      from {top:-300px; opacity:0} 
+      to {top:0; opacity:1}
+  }
 
-    .open-button-left {
-        background-color: DodgerBlue;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        opacity: 0.8;
-        position: sticky;
-        }
+  @keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+      /*ul.topnav li {float : none; }*/
+      /*ul.bottom-nav li {float : none; }*/
+      ul.bottom-nav {margin-left:-50px; left:25%;}
+  }
 
-    .popup {
-        position: relative;
-        text-align: center;
-        width: 100%;
-    }*/
-    
-    /* The popup form - hidden by default */
-    .form-popup {
-        display: none;
-        position: fixed;
-        left: 150px;
-        top: 100px;
-        /* transform: translate(-45%,5%); */
-        border: 2px solid #666;
-        z-index: 9;
-    }
-
-    /* Add styles to the form container */
-    .form-container {
-        max-width: 300px;
-        padding: 10px;
-        background-color: white;
-    }
-
-    /* Full-width input fields */
-    .form-container input[type=text], .form-container select {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        border: none;
-        background: #f1f1f1;
-    }
-    
-    /* When the inputs get focus, do something */
-    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-        background-color: #ddd;
-        outline: none;
-    }
-
-    /* Set a style for the submit/login button */
-    .form-container .btn {
-        background-color: DodgerBlue;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        margin-bottom:10px;
-        opacity: 0.8;
-    }
-    
-    /* Add a red background color to the cancel button */
-    .form-container .cancel {
-        background-color: DeepSkyBlue;
-    }
-    
-    /* Add some hover effects to buttons */
-    .form-container .btn:hover, .open-button:hover {
-        opacity: 1;
-    }
-
-    </style>
+  </style>
   </head>
 </html>
