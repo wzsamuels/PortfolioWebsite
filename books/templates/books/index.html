@@ -1,19 +1,21 @@
 {% extends "base.html" %} 
 
+{% block title %}{{ block.super }} - Book Collection{% endblock %}
+
+{% block header %}Book Collection{% endblock %}
+
 {% block content %}
 
 <div id="SortByTitle" class="bookContainer">
-  <h2>Books by Title</h2>
-
   <div class="container">
-    Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-    <div class="white-box">
+  Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
+    <div class="bg-white rounded shadow-sm">
       <ul class="list">
         {% for book in book_list|dictsort:"title" %}
         <li>
           <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
           <!-- Handle proper formatting for multiple authors -->
-      	{% for author in book.authors.all %}
+      	  {% for author in book.authors.all %}
       	  <a href="{{ author.get_absolute_url }}">{{ author }}</a>
       	  {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
       	  {% if forloop.revcounter0 == 1 %}and {%endif%}
@@ -27,15 +29,10 @@
 
 <!-- The Book objects in the database sorted by Author. Hidden by default -->
 
-<div id="SortByAuthor">
-  <h2>Books by Author</h2>
-  <div style="text-align:center;">
-    <button type="button" onclick="openFormLeft()">Add Book</button>&nbsp
-    <button type="button" onclick="openFormRight()">Add Author</button>
-  </div>
+<div id="SortByAuthor" class="bookContainer">
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-    <div class="container bg-white rounded shadow-sm">
+    <div class="bg-white rounded shadow-sm">
       <ul class="list">    
         {% for author in author_list %}
         <li>
@@ -63,7 +60,7 @@
 {% block footer %}
 
 <ul class="bottom-nav">
-  <li><button id="BookButtonOpen">Add Book</button></li>
+  <li><button onclick="openBookForm()" id="BookButtonOpen">Add Book</button></li>
   <li><button id="AuthorButtonOpen">Add Author</a></li>
 </ul>
 
@@ -108,7 +105,7 @@
 </div>
 
 <script>
-// Book Form
+  // Book Form
   var bookForm = document.getElementById("BookForm");  
   var bookButtonOpen = document.getElementById("BookButtonOpen");
   var bookButtonClose = document.getElementById("BookButtonClose");
@@ -127,7 +124,7 @@
       bookForm.style.display = "none";
     }
   }
-
+  
   // Author Form
   var authorForm = document.getElementById("AuthorForm");  
   var authorButtonOpen = document.getElementById("AuthorButtonOpen");
@@ -148,5 +145,7 @@
     }
   }
 </script>
+
+<script src="{% static "books/book_list.js" %}"></script>
 
 {% endblock %}

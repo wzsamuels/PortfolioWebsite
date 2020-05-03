@@ -1,15 +1,22 @@
 {% extends "base.html" %} 
-{% load static %}
+
+{% block title %}{{ block.super }} - Budget App{% endblock %}
+
+{% block header %}Budget App{% endblock %}
+
 {% block content %}
 
-<h2>Budget App</h2>
-
-<div style="margin-right:20px;" class="container bg-white rounded shadow-sm">
+<div class="container bg-white rounded shadow-sm">
+  Target Budget for the Month: ${{ budget.amount }}
+</div>
+<br>
+<div style="margin-right:20px; margin-left:20px;" class="bg-white rounded shadow-sm">
   <table style="table-layout:fixed; width:100%">
-    <tr>
-      <th>Amount ▲ ▼</th>
-      <th>Type ▲ ▼</th>
-      <th>Date ▲ ▼</th>
+    <tr style="text-align:center;">
+      <th>Amount<!-- ▲ ▼--></th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Budget Left</th>
     </tr>
 
     <!-- Display all the current transactions -->
@@ -17,7 +24,7 @@
     <tr>
       <td>${{ trans.amount }}</td>
       <td>{{ trans.get_transType_display }}</td>
-      <td>{{ trans.date|date:"M d Y" }}</td>
+      <td>{{ trans.date|date:"M j, Y" }}</td>
     </tr>
     {% endfor %}
     {% if user.is_authenticated %}
@@ -26,9 +33,7 @@
       <td>{{ transaction_form.amount }}</td>
       <td>{{ transaction_form.transType}}</td>
       <td>{{ transaction_form.date}}</td>
-    </tr>
-    <tr>
-      <td><button type="submit">Add Transaction</button></td>
+      <td style="text-align:center;"><button type="submit">Add Transaction</button></td>
     </tr>
     </form>
     {% endif %}        

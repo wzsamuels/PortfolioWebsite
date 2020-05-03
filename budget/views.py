@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from budget.models import Transaction
+from budget.models import Transaction, Budget
 from budget.forms import TransactionForm
 
 def BudgetIndex(request):
@@ -17,6 +17,8 @@ def BudgetIndex(request):
         form = TransactionForm()
             
     context = {}
-    context["transaction_list"] = Transaction.objects.all()
+    #context["transaction_list"] = Transaction.objects.all()
+    context["budget"] = Budget.objects.get(user=request.user)
+    context["transaction_list"] = Transaction.objects.filter(budget__user=request.user)
     context["transaction_form"] = form
     return render(request, 'budget/index.html', context)

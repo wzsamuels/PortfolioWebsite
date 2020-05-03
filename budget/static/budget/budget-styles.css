@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>
+
+.table-number {
+    min:0;
+    max:1000000000000;
+}
+
+
+</style>
+</head>
+</html>

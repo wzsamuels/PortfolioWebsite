@@ -23,3 +23,11 @@ function authorSort() {
     document.getElementById("SortByTitle").style.display = "none";
     document.getElementById("SortByAuthor").style.display = "block";
 }
+
+function openBookForm() {
+    document.getElementById("BookForm").style.display = "block";
+}
+
+function closeBookForm() {
+    document.getElementById("BookForm").style.display = "none";
+}
