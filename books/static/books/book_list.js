@@ -1,19 +1,3 @@
-function openFormRight() {
-    document.getElementById("right-form").style.display = "block";
-}
-
-function closeFormRight() {
-    document.getElementById("right-form").style.display = "none";
-}
-
-function openFormLeft() {
-    document.getElementById("left-form").style.display = "block";
-}
-
-function closeFormLeft() {
-    document.getElementById("left-form").style.display = "none";
-}
-    
 function titleSort() {
     document.getElementById("SortByTitle").style.display = "block";
     document.getElementById("SortByAuthor").style.display = "none";
@@ -30,4 +14,32 @@ function openBookForm() {
 
 function closeBookForm() {
     document.getElementById("BookForm").style.display = "none";
+}
+
+function openAuthorForm() {
+    document.getElementById("AuthorForm").style.display = "block";
+}
+
+function closeAuthorForm() {
+    document.getElementById("AuthorForm").style.display = "none";
+}
+
+function openBookUpdate() {
+    document.getElementById("BookUpdate").style.display = "block";
+}
+
+function closeBookUpdate() {
+    document.getElementById("BookUpdate").style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    let bookForm = document.getElementById("BookForm");
+    let authorForm = document.getElementById("AuthorForm");
+    if (event.target == authorForm) {
+        authorForm.style.display = "none";
+    }
+    if (event.target == bookForm) {
+        bookForm.style.display = "none";
+    }
 }

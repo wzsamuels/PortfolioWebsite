@@ -1,26 +1,46 @@
-{% extends "base.html" %} 
+{% extends "books/index.html" %} 
 
 {% block content %}
 
-{% include "books/book_include.html" %}
-
 <div class="container">
   <h2>{{ object.title }}</h2>
-    <p><a href="{{ object.get_absolute_url }}update">Update Book Information</a></p>
-    <div class="container bg-white">
-        <p>Author(s):
-            {% for author in object.authors.all %}
-            <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a>
-            {% endfor %}
-        </p>
-        <p>Published:
-        </p>  
-        <p>Summary:
-
-        </p>
-    </div> 
+  <p><a href="#" onclick="openBookUpdate()">Update Book Information</a></p>
+  <div class="container bg-white">
+    <p>Author(s):
+      {% for author in object.authors.all %}
+      <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a>
+      {% endfor %}
+    </p>
+    <p>Published:
+    </p>  
+    <p>Summary:
+      
+    </p>
+  </div> 
 </div>
+
+<!-- Modal form for updating a  Book -->
+<div class="modal" id="BookUpdate">
+  <div class="modal-content">
+    <form method="post" class="form-container">{% csrf_token %}
+      <fieldset><legend>Update Book</legend>
+      {% if user.is_authenticated %}
+        <label for="{{ book_update_form.title.id_for_label }}">Title:</label>
+        {{ book_update_form.title }}
+        <label for="{{ book_update_form.authors.id_for_lab }}">Author(s):</label><br>
+        {{ book_update_form.authors}}
+        <button type="submit" class="btn" name="update_book_button">Update Book</button>       
+        {% else %}
+        <p style="text-align: center;">You must be logged in to add a book.</p>
+        {% endif %}
+        <button type="button" onclick="closeBookUpdate()" class="btn cancel">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block footer %}
+{{ block.super }}
 {% endblock %}

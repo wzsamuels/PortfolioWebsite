@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<!-- The Book objects in the database sorted by Title. Displayed by default -->
 <div id="SortByTitle" class="bookContainer">
   <div class="container">
   Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
@@ -28,7 +29,6 @@
 </div>
 
 <!-- The Book objects in the database sorted by Author. Hidden by default -->
-
 <div id="SortByAuthor" class="bookContainer">
   <div class="container">
     Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
@@ -55,13 +55,13 @@
   document.getElementById("BookList").classList.add('active');
 </script>
 
-{% endblock %}
+{% endblock content %}
 
 {% block footer %}
 
 <ul class="bottom-nav">
   <li><button onclick="openBookForm()" id="BookButtonOpen">Add Book</button></li>
-  <li><button id="AuthorButtonOpen">Add Author</a></li>
+  <li><button onclick="openAuthorForm()" id="AuthorButtonOpen">Add Author</a></li>
 </ul>
 
 <!-- Popup form for adding a new Book -->
@@ -78,7 +78,7 @@
         {% else %}
         <p style="text-align: center;">You must be logged in to add a book.</p>
         {% endif %}
-        <button type="button" id="BookButtonClose" class="btn cancel">Cancel</button>
+        <button type="button" onclick="closeBookForm()" id="BookButtonClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>
@@ -98,54 +98,14 @@
         {% else %}
         <p style="text-align: center;">You must be logged in to add an author.</p>
         {% endif %}
-        <button type="button" id="AuthorButtonClose" class="btn cancel">Cancel</button>
+        <button type="button" onclick="closeAuthorForm()" id="AuthorButtonClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>
 </div>
 
-<script>
-  // Book Form
-  var bookForm = document.getElementById("BookForm");  
-  var bookButtonOpen = document.getElementById("BookButtonOpen");
-  var bookButtonClose = document.getElementById("BookButtonClose");
-    
-  // When the user clicks the button, open the modal 
-  bookButtonOpen.onclick = function() {
-    bookForm.style.display = "block";
-  }    
-  bookButtonClose.onclick = function() {
-    bookForm.style.display = "none";
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == bookForm) {
-      bookForm.style.display = "none";
-    }
-  }
-  
-  // Author Form
-  var authorForm = document.getElementById("AuthorForm");  
-  var authorButtonOpen = document.getElementById("AuthorButtonOpen");
-  var authorButtonClose = document.getElementById("AuthorButtonClose");
-    
-  // When the user clicks the button, open the modal 
-  authorButtonOpen.onclick = function() {
-    authorForm.style.display = "block";
-  }    
-  authorButtonClose.onclick = function() {
-    authorForm.style.display = "none";
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == authorForm) {
-      authorForm.style.display = "none";
-    }
-  }
-</script>
-
+{% load static %}
+<!-- JS for displaying and hiding modal forms -->
 <script src="{% static "books/book_list.js" %}"></script>
 
 {% endblock %}
