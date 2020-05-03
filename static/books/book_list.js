@@ -24,6 +24,14 @@ function closeAuthorForm() {
     document.getElementById("AuthorForm").style.display = "none";
 }
 
+function openAuthorUpdate() {
+    document.getElementById("AuthorUpdate").style.display = "block";
+}
+
+function closeAuthorUpdate() {
+    document.getElementById("AuthorUpdate").style.display = "none";
+}
+
 function openBookUpdate() {
     document.getElementById("BookUpdate").style.display = "block";
 }
