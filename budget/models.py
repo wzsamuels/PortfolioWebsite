@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# A User's Budget. Every Budget needs a User.
 class Budget(models.Model):
     user = models.OneToOneField(
         User,
@@ -12,6 +13,7 @@ class Budget(models.Model):
     )
     amount = models.DecimalField(decimal_places=2, max_digits=13)
 
+# A single transaction
 class Transaction(models.Model):
     amount = models.DecimalField(decimal_places=2, max_digits=13)
     date = models.DateField(default=date.today)

@@ -23,14 +23,30 @@ function openAuthorForm() {
 function closeAuthorForm() {
     document.getElementById("AuthorForm").style.display = "none";
 }
-
+/*
 function openAuthorUpdate() {
     document.getElementById("AuthorUpdate").style.display = "block";
 }
 
 function closeAuthorUpdate() {
     document.getElementById("AuthorUpdate").style.display = "none";
-}
+    }*/
+
+$(function() {
+    $('#UpdateAuthorOpen').click(function(){
+        $('#AuthorUpdate').show();
+    });
+    $('#UpdateAuthorClose').click(function(){
+        $('#AuthorUpdate').hide();
+    });
+
+    $('#UpdateBookOpen').click(function(){
+        $('#BookUpdate').show();
+    });
+    $('#UpdateBookClose').click(function(){
+        $('#BookUpdate').hide();
+    });
+});
 
 function openBookUpdate() {
     document.getElementById("BookUpdate").style.display = "block";
@@ -49,5 +65,29 @@ window.onclick = function(event) {
     }
     if (event.target == bookForm) {
         bookForm.style.display = "none";
+    }
+}
+
+function bookSearch() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("bookSearchInput");
+    if(input) {
+        filter = input.value.toUpperCase();
+    }
+    ul = document.getElementById("bookList");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        if( document.getElementById("SearchByTitle").checked ) {
+            a = li[i].getElementsByTagName("a")[0];
+        }
+        else {
+            a = li[i].getElementsByTagName("a")[1];
+        }
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
     }
 }

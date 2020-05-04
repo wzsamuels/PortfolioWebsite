@@ -46,7 +46,7 @@ def BookIndex(request, name=None, slug=None):
         # Update an existing Author
         if 'author_update_button' in request.POST:
             author = Author.objects.get( slug=slug )
-            author_update_form = Author( request.POST, instance=author )
+            author_update_form = AuthorForm( request.POST, instance=author )
             BookFormSet = BookForm()
             AuthorFormSet = AuthorForm()
             if author_update_form.is_valid():

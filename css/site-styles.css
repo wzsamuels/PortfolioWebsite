@@ -315,6 +315,9 @@ input[type=submit] {
       /*ul.topnav li {float : none; }*/
       /*ul.bottom-nav li {float : none; }*/
       ul.bottom-nav {margin-left:-50px; left:25%;}
+      table, thead, tbody, th, td, tr { 
+	  display: block; 
+      }
   }
 
   </style>

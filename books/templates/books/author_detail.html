@@ -5,7 +5,7 @@
 <h2>{{ object }} </h2>
 
 <div class="container">
-  <p><a href="#" onclick="openAuthorUpdate()">Update Author Information</a></p>
+  <p><a href="#" id="UpdateAuthorOpen">Update Author Information</a></p>
   <div class="container bg-white">
     <p>Book(s) Written:</p>
     {% for book in object.books.all %}
@@ -23,11 +23,11 @@
         {{ author_update_form.first_name }}
         <label for="{{ author_update_form.last_name.id_for_label }}">Last Name:</label>
         {{ author_update_form.last_name }}
-        <button type="submit" class="btn" name="author_update_button">Add Author</button>
+        <button type="submit" class="btn" name="author_update_button">Update Author</button>
         {% else %}
         <p style="text-align: center;">You must be logged in to add an author.</p>
         {% endif %}
-        <button type="button" onclick="closeAuthorUpdate()" id="AuthorButtonClose" class="btn cancel">Cancel</button>
+        <button type="button" id="UpdateAuthorClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>
