@@ -20,7 +20,7 @@
 <!-- Modal form for updating a  Book -->
 <div class="modal" id="BookUpdate">
   <div class="modal-content">
-    <form method="post" class="form-container">{% csrf_token %}
+    <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Update Book</legend>
       {% if user.is_authenticated %}
         <label for="{{ book_update_form.title.id_for_label }}">Title:</label>

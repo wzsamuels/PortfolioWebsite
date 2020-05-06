@@ -16,7 +16,7 @@
 
 <div class="modal" id="AuthorUpdate">
   <div class="modal-content">
-    <form method="post" class="form-container">{% csrf_token %}
+    <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Update Author</legend>
         {% if user.is_authenticated %}
         <label for="{{ author_update_form.first_name.id_for_label }}">First Name:</label>

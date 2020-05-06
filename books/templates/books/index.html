@@ -7,15 +7,15 @@
 {% block content %}
 
 <div class="container">
-  <input type="text" id="bookSearchInput" onkeyup="bookSearch()" placeholder="Search for a book..." title="Type in a book title">
-  Search by: Title <input type="radio" id="SearchByTitle" name="SearchType" value="title" checked onclick="bookSearch()"> Author <input type="radio" id="SearchByAuthor" name="SearchType" value="author" onclick="bookSearch()">
+  <input type="text" id="BookSearchInput" placeholder="Search for a book..." title="Type in a book title"><br>
+  Search by: Title <input type="radio" id="SearchByTitle" name="SearchType" value="title" checked> Author <input type="radio" id="SearchByAuthor" name="SearchType" value="author">
 </div>
 
 <div class="container">
   Sort by: <a href="#" id="AuthorSort" >Author</a> | <a href="#" id="TitleSort">Title</a>
 
   <!-- The Book objects in the database sorted by Title. Displayed by default -->
-  <div id="SortByTitle" class="bookContainer bg-white rounded shadow-sm">    
+  <div id="SortByTitle" class="book-container bg-white rounded shadow-sm">    
     <ul class="list" id="bookList">
       {% for book in book_list|dictsort:"title" %}
       <li>
@@ -32,7 +32,7 @@
   </div>
 
   <!-- The Book objects in the database sorted by Author. Hidden by default -->
-  <div id="SortByAuthor" class="bookContainer bg-white rounded shadow-sm">
+  <div id="SortByAuthor" class="book-container bg-white rounded shadow-sm">
     <ul class="list">    
       {% for author in author_list %}
       <li>
@@ -49,17 +49,13 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  document.getElementById("SortByAuthor").style.display = "none";
-</script>
-
 {% endblock content %}
 
 {% block footer %}
 
-<ul class="bottom-nav">
-  <li><button onclick="openBookForm()" id="BookButtonOpen">Add Book</button></li>
-  <li><button onclick="openAuthorForm()" id="AuthorButtonOpen">Add Author</a></li>
+<ul class="book-bottom-nav">
+  <li><button id="AddBookOpen">Add Book</button></li>
+  <li><button id="AddAuthorOpen">Add Author</button></li>
 </ul>
 
 <!-- Popup form for adding a new Book -->
@@ -76,7 +72,7 @@
         {% else %}
         <p style="text-align: center;">You must be logged in to add a book.</p>
         {% endif %}
-        <button type="button" onclick="closeBookForm()" id="BookButtonClose" class="btn cancel">Cancel</button>
+        <button type="button" id="AddBookClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>
@@ -96,14 +92,10 @@
         {% else %}
         <p style="text-align: center;">You must be logged in to add an author.</p>
         {% endif %}
-        <button type="button" onclick="closeAuthorForm()" id="AuthorButtonClose" class="btn cancel">Cancel</button>
+        <button type="button" id="AddAuthorClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>
 </div>
-
-{% load static %}
-<!-- JS for displaying and hiding modal forms -->
-<script src="{% static "books/book_list.js" %}"></script>
 
 {% endblock %}

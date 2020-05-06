@@ -1,8 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0px;
     font-size:16px;
     box-sizing: border-box;
-    font-family:'Roboto', sans-serif;
 }
 
 table {
@@ -17,12 +20,6 @@ td {
 
 p {
     padding:0 16px;
-    line-height: 2.5;
-}
-
-* {
-    box-sizing: border-box;
-    /*font-family:'Roboto', sans-serif;*/
 }
 
 h1 {
@@ -96,66 +93,7 @@ label {
   display: block;
 }
 
-/** Bottom Nav Bar **/
-
-ul.bottom-nav {
-  list-style-type: none;
-  left:40%;
-  margin-left:-100px;
-  overflow: hidden;
-  background-color:transparent;
-  position: fixed;
-  bottom: 0;
-  width:100%;
-  height:50px;
-}
-
-ul.bottom-nav li {
-    float: left;
-    text-align:center;
-    padding-right:10px;
-    padding-left:10px;
-    /*text-align:center;*/
-}
-
-ul.bottom-nav li a {
-    display: block;
-    background-color: DodgerBlue;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-ul.bottom-nav li button {
-    border:none;
-    background-color: DodgerBlue;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 10px 12px;
-    text-decoration: none;
-}
-
-/** Book App Styles **/
-
-/* Ordered lists */    
-ul.list {
-    list-style-type: none;
-    margin: 5px;
-    padding: 5px;
-}
-
-ul.list li {
-    display: block;
-    padding: 20px 20px;
-    text-decoration: none;
-}
-
-.bookContainer {
-    margin-bottom:45px;
-}
-
+/*
 .bookButton button {
     border:none;
     background-color: DodgerBlue;
@@ -165,21 +103,21 @@ ul.list li {
     padding: 10px 12px;
     text-decoration: none;
 }    
-    
+  */  
 legend {
     text-align: center;
 }
 
 label {
     padding: 12px 12px 12px 0;
-        display: inline-block;
+    display: inline-block;
 }
-
+/*
 input.bookFormInput {
     min-width: 100%;
     max-width: 100%;
 }
-
+*/
 input[type=submit] {
     background-color: DodgerBlue;
     color: white;
@@ -190,9 +128,7 @@ input[type=submit] {
     /*float: right;*/
 }
 
-.container {
-    /*  width: 75%;
-     *max-width: 680px;*/
+.container {    
     padding: 15px 15px;
 }
 
@@ -239,10 +175,3 @@ input[type=submit] {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    /*ul.topnav li {float : none; }*/
-      /*ul.bottom-nav li {float : none; }*/
-    ul.bottom-nav {margin-left:-50px; left:25%;}
- }

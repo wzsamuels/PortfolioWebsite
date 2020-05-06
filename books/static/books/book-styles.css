@@ -1,8 +1,12 @@
-/* Add styles to the form container */
+/** Book App Styles **/
 .book-form {    
     padding: 10px;
     background-color: white;
       display:inline-block;
+}
+
+.book-form input[type=text] {
+    width:100%;
 }
 
 .book-form input[type=text], .book-form select {
@@ -12,7 +16,6 @@
     background: #f1f1f1;
 }
 
-/* When the inputs get focus, do something */
 .book-form input[type=text]:focus {
     background-color: #ddd;
     outline: none;
@@ -43,4 +46,69 @@
 .book-form .selector {
     width:100%;
     min-width:200px;
+}
+
+/* Ordered lists */    
+ul.list {
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+}
+
+ul.list li {
+    display: block;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+.book-container {
+    margin-bottom:60px;
+}
+
+/** Bottom Nav Bar **/
+
+ul.book-bottom-nav {
+  list-style-type: none;
+  left:40%;
+  margin-left:-100px;
+  overflow: hidden;
+  background-color:transparent;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  height:50px;
+}
+
+ul.book-bottom-nav li {
+    float: left;
+    text-align:center;
+    padding-right:10px;
+    padding-left:10px;
+    width: 20%;
+    /*text-align:center;*/
+}
+
+ul.book-bottom-nav li a {
+    display: block;
+    background-color: DodgerBlue;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.book-bottom-nav li button {
+    border:none;
+    background-color: DodgerBlue;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    width:100%
+}
+
+@media screen and (max-width: 600px) {    
+    ul.book-bottom-nav {margin-left:-50px; left:20%;}
+    ul.book-bottom-nav li {width:40%}
 }
