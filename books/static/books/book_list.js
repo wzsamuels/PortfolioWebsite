@@ -1,12 +1,28 @@
-function titleSort() {
-    document.getElementById("SortByTitle").style.display = "block";
-    document.getElementById("SortByAuthor").style.display = "none";
-}
+$(function() {
+    $('#UpdateAuthorOpen').click(function(){
+        $('#AuthorUpdate').show();
+    });
+    $('#UpdateAuthorClose').click(function(){
+        $('#AuthorUpdate').hide();
+    });
 
-function authorSort() {
-    document.getElementById("SortByTitle").style.display = "none";
-    document.getElementById("SortByAuthor").style.display = "block";
-}
+    $('#UpdateBookOpen').click(function(){
+        $('#BookUpdate').show();
+    });
+    $('#UpdateBookClose').click(function(){
+        $('#BookUpdate').hide();
+    });
+
+    $('#TitleSort').click(function(){
+        $('#SortByTitle').show();
+        $('#SortByAuthor').hide();
+    });
+    
+    $('#AuthorSort').click(function(){
+        $('#SortByAuthor').show();
+        $('#SortByTitle').hide();
+    });
+});
 
 function openBookForm() {
     document.getElementById("BookForm").style.display = "block";
@@ -22,38 +38,6 @@ function openAuthorForm() {
 
 function closeAuthorForm() {
     document.getElementById("AuthorForm").style.display = "none";
-}
-/*
-function openAuthorUpdate() {
-    document.getElementById("AuthorUpdate").style.display = "block";
-}
-
-function closeAuthorUpdate() {
-    document.getElementById("AuthorUpdate").style.display = "none";
-    }*/
-
-$(function() {
-    $('#UpdateAuthorOpen').click(function(){
-        $('#AuthorUpdate').show();
-    });
-    $('#UpdateAuthorClose').click(function(){
-        $('#AuthorUpdate').hide();
-    });
-
-    $('#UpdateBookOpen').click(function(){
-        $('#BookUpdate').show();
-    });
-    $('#UpdateBookClose').click(function(){
-        $('#BookUpdate').hide();
-    });
-});
-
-function openBookUpdate() {
-    document.getElementById("BookUpdate").style.display = "block";
-}
-
-function closeBookUpdate() {
-    document.getElementById("BookUpdate").style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it

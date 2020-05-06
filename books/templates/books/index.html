@@ -7,48 +7,45 @@
 {% block content %}
 
 <div class="container">
-
   <input type="text" id="bookSearchInput" onkeyup="bookSearch()" placeholder="Search for a book..." title="Type in a book title">
   Search by: Title <input type="radio" id="SearchByTitle" name="SearchType" value="title" checked onclick="bookSearch()"> Author <input type="radio" id="SearchByAuthor" name="SearchType" value="author" onclick="bookSearch()">
 </div>
 
-<!-- The Book objects in the database sorted by Title. Displayed by default -->
-<div id="SortByTitle" class="bookContainer container">    
-  Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-  <div class="bg-white rounded shadow-sm">
+<div class="container">
+  Sort by: <a href="#" id="AuthorSort" >Author</a> | <a href="#" id="TitleSort">Title</a>
+
+  <!-- The Book objects in the database sorted by Title. Displayed by default -->
+  <div id="SortByTitle" class="bookContainer bg-white rounded shadow-sm">    
     <ul class="list" id="bookList">
       {% for book in book_list|dictsort:"title" %}
       <li>
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
         <!-- Handle proper formatting for multiple authors -->
-      	{% for author in book.authors.all %}
-      	<a href="{{ author.get_absolute_url }}">{{ author }}</a>
-      	{% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-      	{% if forloop.revcounter0 == 1 %}and {%endif%}
-      	{% endfor %}
+        {% for author in book.authors.all %}
+        <a href="{{ author.get_absolute_url }}">{{ author }}</a>
+        {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+        {% if forloop.revcounter0 == 1 %}and {%endif%}
+        {% endfor %}
       </li>
         {% endfor %}
     </ul>
   </div>
-</div>
 
-<!-- The Book objects in the database sorted by Author. Hidden by default -->
-<div id="SortByAuthor" class="bookContainer container">
-  Sort by: <a href="javascript:authorSort();">Author</a> | <a onclick="javascript:titleSort()" href="#">Title</a>
-  <div class="bg-white rounded shadow-sm">
+  <!-- The Book objects in the database sorted by Author. Hidden by default -->
+  <div id="SortByAuthor" class="bookContainer bg-white rounded shadow-sm">
     <ul class="list">    
       {% for author in author_list %}
       <li>
         <a href="{{ author.get_absolute_url }}">{{ author }}</a> has written
         {% for book in author.books.all %}
-        <a href="{{ book.get_absolute_url }}">{{ book }}</a>
-        <!-- Handle proper formatting for multiple authors -->
-        {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
-        {% if forloop.revcounter0 == 1 %}and {%endif%}
+          <a href="{{ book.get_absolute_url }}">{{ book }}</a>
+          <!-- Handle proper formatting for multiple authors -->
+          {% if forloop.revcounter0 != 0 and not forloop.revcounter0 == 1 %},{% endif %}
+          {% if forloop.revcounter0 == 1 %}and {%endif%}
           {% endfor %}
       </li>
       {% endfor %}
-      </ul>
+    </ul>
   </div>
 </div>
 
@@ -68,7 +65,7 @@
 <!-- Popup form for adding a new Book -->
 <div class="modal" id="BookForm">
   <div class="modal-content">
-    <form method="post" class="form-container">{% csrf_token %}
+    <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Add Book</legend>
       {% if user.is_authenticated %}
         <label for="{{ book_form.title.id_for_label }}">Title:</label>
@@ -88,7 +85,7 @@
 <!-- Popup form for adding a new Author -->
 <div class="modal" id="AuthorForm">
   <div class="modal-content">
-    <form method="post" class="form-container">{% csrf_token %}
+    <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Add Author</legend>
         {% if user.is_authenticated %}
         <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
@@ -108,9 +105,5 @@
 {% load static %}
 <!-- JS for displaying and hiding modal forms -->
 <script src="{% static "books/book_list.js" %}"></script>
-
-<script>
-
-</script>
 
 {% endblock %}

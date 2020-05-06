@@ -5,9 +5,29 @@
 
 .table-number {
     min:0;
-    max:1000000000000;
+    max:100000000;
 }
 
+#BudgetTable td, #BudgetTable th {
+  border: 1px solid #dddddd;
+  /*text-align: left;*/
+  padding: 8px;
+}
+
+#BudgetTable tr:nth-child(even) {
+  background-color: #F5F5F5;
+}
+@media screen and (max-width: 600px) {
+
+    #BudgetFormAmount:before { content: "Amount"; }
+    #BudgetFormDate:before { content: "Date"; }
+    #BudgetFormAmount { background-color: #FFFFFF; }
+    #BudgetFormDate { background-color: #FFFFFF; }
+    #BudgetFormButton {background-color: #FFFFFF;}
+    td {border: none;}
+    tr.budget-input td {display: block;}
+    
+}
 
 </style>
 </head>

@@ -7,63 +7,41 @@
 {% block content %}
 
 <div class="container bg-white rounded shadow-sm">
-  Target Budget for the Month: ${{ budget.amount }}
+  Target Budget for the Month: $<span id="TotalBudget">{{ budget.amount }}</span>
 </div>
 <br>
 <div style="margin-right:20px; margin-left:20px;" class="bg-white rounded shadow-sm">
-  <table style="table-layout:fixed; width:100%">
-    <tr style="text-align:center;">
-      <th>Amount<!-- ▲ ▼--></th>
-      <th>Type</th>
-      <th>Date</th>
-      <th>Budget Left</th>
-    </tr>
+  <table style="table-layout:fixed; width:100%; overflow-x:auto;" id="BudgetTable">
+    <thead>
+      <tr style="text-align:center;">
+        <th>Amount<!-- ▲ ▼--></th>
+        <th>Date</th>
+        <th>Budget Left</th>
+      </tr>
+    </thead>
 
-    <!-- Display all the current transactions -->
-    {% for trans in transaction_list %}
-    <tr>
-      <td>${{ trans.amount }}</td>
-      <td>{{ trans.get_transType_display }}</td>
-      <td>{{ trans.date|date:"M j, Y" }}</td>
-    </tr>
-    {% endfor %}
-    {% if user.is_authenticated %}
-    <form method="post">{% csrf_token %}
-    <tr>
-      <td>{{ transaction_form.amount }}</td>
-      <td>{{ transaction_form.transType}}</td>
-      <td>{{ transaction_form.date}}</td>
-      <td style="text-align:center;"><button type="submit">Add Transaction</button></td>
-    </tr>
-    </form>
-    {% endif %}        
+    <tbody>
+      <!-- Display all the current transactions -->
+      {% for trans in transaction_list %}
+      <tr>
+        <td>$<span>{{ trans.amount }}</span></td>     
+        <td>{{ trans.date|date:"M j, Y" }}</td>
+        <td>$<span></span></td>
+      </tr>
+      {% endfor %}
+      <form method="post">{% csrf_token %}
+        <tr class="budget-input">
+          <td id="BudgetFormAmount" >{{ transaction_form.amount }}</td>
+          <td id="BudgetFormDate">{{ transaction_form.date}}</td>
+          <td id="BudgetFormButton" style="text-align:center;"><button type="submit">Add Transaction</button></td>
+        </tr>
+      </form>
+    </tbody>
   </table>
 </div>
-<!--
-  <form method="post">{% csrf_token %}
-    <fieldset><legend>Add Transaction</legend>
-      {% if user.is_authenticated %}
-      <table>
-        <tr>
-          <td><label for="{{ transaction_form.amount.id_for_label }}">Amount:</label></td>
-          <td> {{ transaction_form.amount }} </td>
-        </tr>
-        <tr>
-          <td> <label for ="{{ transaction_form.date.id_for_label }}">Date:</label></td>
-          <td>{{ transaction_form.date}} </td>
-        </tr>
-        <tr>
-          <td><label for ="{{ transaction_form.type.id_for_label }}">Type:</label></td>
-          <td>{{ transaction_form.transType }} </td>
-        </tr>
-      </table>
-      <button type="submit">Add Transaction</button>       
-      {% else %}
-        <p style="text-align: center;">You must be logged in to add a transaction</p>
-      {% endif %}
-    </fieldset>
-  </form>
-</form>
--->
- 
+
+{% load static %}
+<!-- JS for displaying and hiding modal forms -->
+<script src="{% static "budget/budget.js" %}"></script>
+
 {% endblock %}

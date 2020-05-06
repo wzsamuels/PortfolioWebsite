@@ -24,11 +24,11 @@ class Transaction(models.Model):
     	(WITHDRAWAL, 'Withdrawal'),
     	(DEPOSIT, 'Deposit'),
 	]
-    transType = models.CharField(
-    	max_length=2,
-    	choices=TYPE_CHOICES,
-    	default=WITHDRAWAL
-    )
+    #transType = models.CharField(
+    #	max_length=2,
+    #	choices=TYPE_CHOICES,
+    #	default=WITHDRAWAL
+    #)
 
     class Meta:
         ordering = ['date']

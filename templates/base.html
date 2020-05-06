@@ -13,8 +13,9 @@
     <!-- Style sheet for datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Site Wide CSS -->
-    <link rel="stylesheet" type="text/css"  href="{% static "site-styles.css" %}">
-    <link rel="stylesheet" type="text/css"  href="{% static "budget/budget-styles.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "site-styles.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "budget/budget-styles.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "books/book-styles.css" %}">
     <!-- Book App CSS
     <link rel="stylesheet" type="text/css"  href="{% static "books/styles.css" %}">-->
     <!-- JS for datepicker -->
@@ -42,15 +43,14 @@
           <a id="Budget" href="/budget/">Budget App</a>
         </div>
       </li>
-      <li><a href="#">Mobile Apps</a></li>
+      <!--<li><a href="#">Mobile Apps</a></li>-->
       <li><a href="#">College Projects</a></li>
       {% if user.is_authenticated %}
       <li><a id="Logout" href="/accounts/logout/">Logout</a></li>
       {% else %} 
-      <li><a id="Login" href="/accounts/login.html">Login</a></li>
+      <li><a id="Login" href="/accounts/login?next={{request.path}}">Login</a></li>
         {% endif %}
     </ul>
-
     <h1>
       {% block header %}
       {% endblock %}
