@@ -2,7 +2,9 @@
 
 {% block title %}{{ block.super }} - Budget App{% endblock %}
 
-{% block header %}Budget App{% endblock %}
+{% block header %}
+{% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}'s Budget
+{% endblock %}
 
 {% block content %}
 

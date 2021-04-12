@@ -8,7 +8,7 @@ def BudgetIndex(request):
         user = request.user
     else:
         user = User.objects.get(username="Guest")
-        
+
     if request.method == 'POST':
         #TransactionFormSet = TransactionForm(request.POST)
         form = TransactionForm(request.POST)

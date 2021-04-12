@@ -2,7 +2,7 @@
 
 {% block title %}{{ block.super }} - Book Collection{% endblock %}
 
-{% block header %}Book Collection{% endblock %}
+{% block header %}{% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}'s Book Collection{% endblock %}
 
 {% block content %}
 

@@ -30,6 +30,7 @@
   </head>
   
   <body class="bg-light">
+    <!-- Top Nav Bar -->
     <ul class="topnav">
       <li><a id="Home" href="/">Home</a></li>
       <li class="dropdown-links">
@@ -39,10 +40,21 @@
           <a id="Budget" href="/budget/">Budget App</a>
         </div>
       </li>
-      <!--<li><a href="#">Mobile Apps</a></li>-->
-      <li><a href="#">College Projects</a></li>
+      <li class="dropdown-links">
+        <a href="/c/" class="dropbutton">C</a>
+        <div class="dropdown-content">
+          <a>File Compression</a>
+        </div>
+      </li>
+      <li class="dropdown-links">
+        <a href="javascript:void(0)" class="dropbutton">Java</a>
+        <div class="dropdown-content">
+          <a>Animal Adoption</a>
+          <a>Class Scheduler</a>
+        </div>
+      </li>
       {% if user.is_authenticated %}
-      <li><a id="Logout" href="/accounts/logout/">Logout</a></li>
+      <li><a id="Logout" href="/accounts/logout?next={{request.path}}">Logout</a></li>
       {% else %} 
       <li><a id="Login" href="/accounts/login?next={{request.path}}">Login</a></li>
         {% endif %}

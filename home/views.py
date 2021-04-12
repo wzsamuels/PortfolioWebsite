@@ -5,3 +5,6 @@ def home_index(request):
 
 def college_index(request):
     return render(request, 'home/college.html')
+
+def c_index(request):
+    return render(request, 'home/c_index.html')
