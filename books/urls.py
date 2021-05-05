@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'books'
 urlpatterns = [
-    path('', views.BookIndex, name = 'index'),
-    path('<slug:slug>/', views.BookIndex, name='book_detail'),
-    path('authors/<slug:slug>/', views.BookIndex, name='author_detail'),
+    path('', views.book_index, name='index'),
+    path('<slug:slug>/', views.book_index, name='book_detail'),
+    path('authors/<slug:slug>/', views.book_index, name='author_detail'),
 ]

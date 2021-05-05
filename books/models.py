@@ -3,12 +3,14 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+
 class Collection(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
         primary_key=True,
     )
+
 
 class Author(models.Model):
     last_name = models.CharField(max_length=200)
@@ -24,10 +26,11 @@ class Author(models.Model):
     def get_absolute_url(self):
         return reverse('books:author_detail', kwargs={'slug': self.slug})
 
-    def save(self, *args, **kwargs): # new
+    def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.last_name + self.first_name)
         return super().save(*args, **kwargs)
+
 
 class Book(models.Model):
     title = models.CharField(max_length=100)

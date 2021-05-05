@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from books.models import Author, Book
 
+
 class AuthorForm(ModelForm):
     class Meta:
         model = Author
@@ -11,6 +12,7 @@ class AuthorForm(ModelForm):
         super(AuthorForm, self).__init__(*args, **kwargs)
         self.fields['last_name'].widget.attrs.update({'class' : 'bookFormInput'})
         self.fields['first_name'].widget.attrs.update({'class' : 'bookFormInput'})
+
 
 class BookForm(ModelForm):
     class Meta:
