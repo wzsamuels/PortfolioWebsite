@@ -1,5 +1,7 @@
 {% extends "base.html" %} 
 
+{% load static %}
+
 {% block header %}Welcome to Zach's Portfolio Website{% endblock %}
 
 {% block content %}
@@ -13,8 +15,11 @@
         <!-- <li><a href="/c/data">Data Compression</a></li> -->
         <li><a href="/books">Book Collection</a></li>
         <li><a href="/budget">Budget Tracker</a></li>
+        <li><a href="/c_sharp/yam.html">Yet Another MUD client</a></li>
       </ul>
     </p>
   </div>
+
+   <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; width: 50%;" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
 
 {% endblock %}
