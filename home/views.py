@@ -15,3 +15,11 @@ def c_index(request):
 
 def yam_view(request):
     return render(request, 'home/yam.html')
+
+
+def adoption_view(request):
+    return render(request, 'home/adoption.html')
+
+
+def ticket_view(request):
+    return render(request, 'home/ticket_manager.html')
