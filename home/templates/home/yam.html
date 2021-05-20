@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block header %}YAM: Yet Another MUD client{% endblock %}
 
 {% block content %}
 
   <div class="container bg-white rounded shadow-sm">
     <p style="margin: auto;">
-      Yam is a MUD client developed primarily for social MUDs.
+      Yam is a MUD client developed primarily for social MUDs. The project is a WPF application.
     </p>
   </div>
+
+  <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; width: 80%;" src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
 
 {% endblock %}
