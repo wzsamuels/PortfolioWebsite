@@ -132,6 +132,65 @@ input[type=submit] {
     padding: 15px 15px;
 }
 
+.pop-up {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0); /* Fallback color */
+    /*background-color: rgba(0,0,0,0.4); Black w/ opacity */
+}
+
+.pop-up .close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: grey;
+}
+
+.pop-up .close:hover {
+    color: black;
+}
+
+.pop-up-content {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50vw;
+    min-width:300px;
+    /*max-width:500px;*/
+    max-width: 50vw;
+    /*max-width: 300px;*/
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.pop-up-content-large {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80vw;
+    min-width:300px;
+    max-height: 90vh;
+    /*max-width:500px;*/
+    max-width: 80vw;
+    /*max-width: 300px;*/
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

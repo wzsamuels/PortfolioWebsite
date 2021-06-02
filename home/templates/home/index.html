@@ -6,20 +6,54 @@
 
 {% block content %}
 
-  <div class="container bg-white rounded shadow-sm">
-    <p style="margin: auto;">
-      This site contains some of the programming projects I've developed. Select one from the navigation bar or choose below:
-    </p>
-    <p>
-      <ul>
-        <!-- <li><a href="/c/data">Data Compression</a></li> -->
-        <li><a href="/books">Book Collection</a></li>
-        <li><a href="/budget">Budget Tracker</a></li>
-        <li><a href="/c_sharp/yam.html">Yet Another MUD client</a></li>
-      </ul>
-    </p>
+  <div class="container">
+    <div class="grid-container">
+      <div class="item1 container bg-white rounded shadow-sm">
+        <p style="margin: auto;">
+          This site contains some of the programming projects I've developed. Select one from the navigation bar or choose below:
+        </p>
+        <p>
+          <ul>
+            <!-- <li><a href="/c/data">Data Compression</a></li> -->
+            <li><a href="/books/intro.html">Book Collection</a></li>
+            <li><a href="/budget">Budget Tracker</a></li>
+            <li><a href="/c_sharp/yam.html">Yet Another MUD client</a></li>
+          </ul>
+        </p>
+      </div>
+      <div class="item2 container bg-white rounded shadow-sm">
+        <a href="#" id="BookGridItem"><img class="grid-img" src="{%  static 'home/book.png' %}"></a>
+      </div>
+      <div class="item3 container bg-white rounded shadow-sm">
+        <a href="#" id="TicketGridItem"><img class="grid-img" src="{%  static 'home/ticket.png' %}"></a>
+      </div>
+      <div class="item4 container bg-white rounded shadow-sm">
+        <img class="grid-img" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
+      </div>
+    </div>
   </div>
 
-   <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; width: 50%;" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
+  <div class="pop-up" id="BookPopUp">
+    <div class="pop-up-content">
+      <a class="close" href="#" id="BookPopUpClose">×</a>
+      <div class="container bg-white rounded shadow-sm">
+        <p style="margin: auto;">
+          The Book Collection is a web application that manages a user's book collection.  The books and book authors
+          are represented with Django's model system and stored in a PostgreSQL database.
+        </p>
+        <p style="padding-top: 10px; margin: auto;">
+          <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
+        </p>
+     </div>
+    </div>
+  </div>
+
+  <div class="pop-up" id="TicketPopUp">
+    <div class="pop-up-content-large">
+      <a class="close" href="#" id="TicketPopUpClose">×</a>
+      <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; width: 80%;" src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
+    </div>
+  </div>
+
 
 {% endblock %}

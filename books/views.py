@@ -85,3 +85,7 @@ class BookUpdate(UpdateView):
     model = Book
     fields = ['title', 'authors']
     template_name_suffix = '_update_form'
+
+
+def book_intro(request):
+    return render(request, 'books/intro.html')

@@ -20,10 +20,33 @@
     <!-- JS for datepicker -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static "home/home.js" %}"></script>
     <!-- Book App JS -->
     <script src="{% static "books/book_list.js" %}"></script>
     <!-- Budget App JS -->
     <script src="{% static "budget/budget.js" %}"></script>
+<!-- repeat(2, 30vw); -->
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        grid-gap: 15px;
+      }
+
+      .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .item1 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+    </style>
     
     <title>{% block title %}Zach's Website{% endblock %}</title>
     
@@ -36,7 +59,7 @@
       <li class="dropdown-links">
         <a href="javascript:void(0)" class="dropbutton">Web Apps</a>
         <div class="dropdown-content">
-          <a id="BookList" href="/books/">Book Collection</a>
+          <a id="BookList" href="/books/intro.html">Book Collection</a>
           <a id="Budget" href="/budget/">Budget App</a>
         </div>
       </li>

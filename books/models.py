@@ -18,6 +18,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=200)
     # slug = models.SlugField(null=False, unique=True)
     slug = models.SlugField(blank=True);
+    #collection = models.ForeignKey('Collection', on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ["last_name"]

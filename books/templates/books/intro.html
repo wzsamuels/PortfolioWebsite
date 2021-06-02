@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block header %}Book Collection{% endblock %}
+
+{% block content %}
+
+  <div class="container bg-white rounded shadow-sm">
+    <p style="margin: auto;">
+      The Book Collection is a web application that manages a user's book collection.  The books and book authors
+      are represented with Django's model system and stored in a PostgreSQL database.
+    </p>
+    <p style="margin: auto;">
+      <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
+    </p>
+
+  </div>
+
+{% endblock %}
