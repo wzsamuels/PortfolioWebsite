@@ -29,7 +29,7 @@
     <style>
       .grid-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-template-rows: auto auto auto;
         grid-gap: 15px;
       }
@@ -41,7 +41,8 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        display: block;
+          display: block;
+          max-width: 100%;
       }
 
       .item1 {
@@ -49,9 +50,31 @@
         grid-column-end: 4;
       }
 
-      figure h3 {
+      figure a {
+          color: inherit;
+      }
+
+      figure  a:link {
+          text-decoration: none;
+      }
+
+      figure a:visited {
+          text-decoration: none;
+      }
+
+      figure a:hover {
+          text-decoration: none;
+      }
+
+     figure  a:active {
+          text-decoration: none;
+      }
+
+
+      figure p {
           font-family: 'DejaVu Serif', serif;
       }
+
 
     </style>
     
