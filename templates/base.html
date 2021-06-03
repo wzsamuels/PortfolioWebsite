@@ -29,11 +29,14 @@
     <style>
       .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto;
         grid-gap: 15px;
       }
 
+      figure {
+          overflow: hidden;
+      }
       .grid-img {
         width: 100%;
         height: 100%;
@@ -44,6 +47,10 @@
       .item1 {
         grid-column-start: 1;
         grid-column-end: 4;
+      }
+
+      figure h3 {
+          font-family: 'DejaVu Serif', serif;
       }
 
     </style>
