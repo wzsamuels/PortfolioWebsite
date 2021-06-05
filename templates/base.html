@@ -38,11 +38,13 @@
           overflow: hidden;
       }
       .grid-img {
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 90%;
         object-fit: contain;
-          display: block;
-          max-width: 100%;
+        display: block;
+          margin: auto;
+        max-width: 70%;
+        max-height: 70%;
       }
 
       .item1 {
@@ -75,6 +77,84 @@
           font-family: 'DejaVu Serif', serif;
       }
 
+      figure div {
+          font-family: 'DejaVu Serif', serif;
+          padding-top:10%; padding-bottom:10%; text-align: center;
+          font-size: min(4vw, 25px);
+      }
+
+.grid-text {
+    padding-top:10%; padding-bottom:10%; text-align: center;
+
+}
+
+
+.pop-up {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden !important;
+}
+
+.pop-up-header {
+    background-color: white;
+    margin: auto;
+    /*border: 1px solid black;*/
+    padding-bottom: 10px;
+    max-height: 95vh;
+    max-width: 90vw;
+    border-top: 1px solid #888;
+    border-left: 1px solid #888;
+    border-right: 1px solid #888;
+    text-align: center;
+    font-size: 130%;
+    background-color: white
+}
+
+/* For the 'x' used to close a pop up */
+.pop-up .close {
+    position:fixed;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: grey;
+    right: 5%;
+    transform: translateX(-10%);
+}
+
+.pop-up .close:hover {
+    color: black;
+}
+
+.pop-up-content {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    max-width: 60vw;
+    max-height: 40vh;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.pop-up-content-large {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border-bottom: 1px solid #888;
+    border-left: 1px solid #888;
+    border-right: 1px solid #888;
+    max-height: 95vh;
+    max-width: 90vw;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
     </style>
     
@@ -122,10 +202,10 @@
         {% endif %}
     </ul>
     
-    <h1>
+    <h2 style="padding-top: 10px">
       {% block header %}
       {% endblock %}
-    </h1>
+    </h2>
     
     <div class="main">
       {% block content %}

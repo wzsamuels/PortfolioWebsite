@@ -9,7 +9,7 @@
   <div class="container">
     <div class="grid-container">
       <div class="item1 container bg-white rounded shadow-sm">
-        <p style="margin: auto;">
+        <p style="font-size: 120%; margin: auto;">
           This site contains some of the programming projects I've developed. Select one from the navigation bar or choose below:
         </p>
         <!--
@@ -22,10 +22,10 @@
         </p>
         -->
       </div>
-      <div class="item2 container bg-white rounded shadow-sm" style="overflow:hidden;">
+      <div class="item2 bg-white rounded shadow-sm" style="overflow:hidden;">
         <figure>
           <a href="#" id="BookGridItem">
-            <p>Book Collection</p>
+            <div class="grid-text">Book Collection</div>
             <img class="grid-img" src="{%  static 'home/book2.svg' %}">
           </a>
         </figure>
@@ -33,7 +33,7 @@
       <div class="item3 container bg-white rounded shadow-sm">
         <figure>
           <a href="#" id="TicketGridItem">
-            <p>Ticket Manager</p>
+            <div>Ticket Manager</div>
             <img class="grid-img" src="{%  static 'home/ticket.svg' %}">
           </a>
         </figure>
@@ -41,7 +41,7 @@
       <div class="item4 container bg-white rounded shadow-sm">
         <figure>
           <a href="#" id="RescueGridItem">
-            <p>Animal Rescue</p>
+            <div>Animal Rescue</div>
             <img class="grid-img" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
           </a>
         </figure>
@@ -49,7 +49,7 @@
       <div class="item5 container bg-white rounded shadow-sm">
         <figure>
           <a href="#" id="MudGridItem">
-            <p>Mud Client</p>
+            <div>Mud Client</div>
             <img class="grid-img" src="{% static 'home/mud.svg' %}" alt="MUD Client">
           </a>
         </figure>
@@ -58,8 +58,11 @@
   </div>
 
   <div class="pop-up" id="BookPopUp">
-    <div class="pop-up-content">
-      <a class="close" href="#" id="BookPopUpClose">×</a>
+    <div class="pop-up-header">
+      Book Collection
+      <a class="close" href="#" id="BookPopUpClose">&times;</a>
+    </div>
+    <div class="pop-up-content-large">
       <div class="container bg-white rounded shadow-sm">
         <p style="margin: auto;">
           The Book Collection is a web application that manages a user's book collection.  The books and book authors
@@ -73,9 +76,11 @@
   </div>
 
   <div class="pop-up" id="MudPopUp">
-    <div class="pop-up-content-large">
-      <a class="close" href="#" id="MudPopUpClose">×</a>
-      <div class="container bg-white rounded shadow-sm">
+    <div class="pop-up-header">
+        MUD Client
+        <a class="close" href="#" id="MudPopUpClose">&times;</a>
+    </div>
+    <div class="pop-up-content-large container">
         <p style="margin: auto;">
         Yam is a MUD client developed primarily for social MUDs (multiuser dungeons). The project is a Windows
         Presentation Foundation application writen in C#. It provides examples of:
@@ -85,31 +90,33 @@
         </ul>
         </p>
         <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
-      </div>
     </div>
   </div>
 
+
   <div class="pop-up" id="TicketPopUp">
+    <div class="pop-up-header">
+      Ticket Manager
+      <a class="close" href="#" id="TicketPopUpClose">&times;</a>
+    </div>
     <div class="pop-up-content-large">
-      <a class="close" href="#" id="TicketPopUpClose">×</a>
-      <div class="container">
-        <p style="margin: auto;">
-           The Ticket Manager handles a list of support tickets.
-        </p>
-        <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
-      </div>
+      <p style="margin: auto;">
+         The Ticket Manager handles a list of support tickets.
+      </p>
+      <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
     </div>
   </div>
 
   <div class="pop-up" id="RescuePopUp">
+    <div class="pop-up-header">
+      Animal Rescue
+      <a class="close" href="#" id="RescuePopUpClose">&times;</a>
+    </div>
     <div class="pop-up-content-large">
-      <a class="close" href="#" id="RescuePopUpClose">×</a>
-      <div class="container">
-        <p style="margin: auto;">
-          Handles a list of animal rescues and the records of currently and previously kept animals.
-        </p>
-        <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" class="pop-up-img" src="{% static 'home/packdoption.png' %}" alt="PackDoption Screen Shot">
-      </div>
+      <p style="margin: auto;">
+        Handles a list of animal rescues and the records of currently and previously kept animals.
+      </p>
+      <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" class="pop-up-img" src="{% static 'home/packdoption.png' %}" alt="PackDoption Screen Shot">
     </div>
   </div>
 
