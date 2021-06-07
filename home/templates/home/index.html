@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% load static %}
 
@@ -6,150 +6,169 @@
 
 {% block content %}
 
-  <div class="container">
+<div class="container">
     <div class="grid-container">
-      <div class="item1 container bg-white rounded shadow-sm">
-        <p style="font-size: 120%; margin: auto;">
-          This site contains some of the programming projects I've developed. Select one from the navigation bar or choose below:
-        </p>
-        <!--
-        <p>
-          <ul>
-            <li><a href="/books/intro.html">Book Collection</a></li>
-            <li><a href="/budget">Budget Tracker</a></li>
-            <li><a href="/c_sharp/yam.html">Yet Another MUD client</a></li>
-          </ul>
-        </p>
-        -->
-      </div>
-      <div class="item2 bg-white rounded shadow-sm" style="overflow:hidden;">
-        <figure>
-          <a href="#" id="BookGridItem">
-            <div class="grid-text">Book Collection</div>
-            <img class="grid-img" src="{%  static 'home/book2.svg' %}">
-          </a>
-        </figure>
-      </div>
-      <div class="item3 container bg-white rounded shadow-sm">
-        <figure>
-          <a href="#" id="TicketGridItem">
-            <div>Ticket Manager</div>
-            <img class="grid-img" src="{%  static 'home/ticket.svg' %}">
-          </a>
-        </figure>
-      </div>
-      <div class="item4 container bg-white rounded shadow-sm">
-        <figure>
-          <a href="#" id="RescueGridItem">
-            <div>Animal Rescue</div>
-            <img class="grid-img" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
-          </a>
-        </figure>
-      </div>
-      <div class="item5 container bg-white rounded shadow-sm">
-        <figure>
-          <a href="#" id="MudGridItem">
-            <div>Mud Client</div>
-            <img class="grid-img" src="{% static 'home/mud.svg' %}" alt="MUD Client">
-          </a>
-        </figure>
-      </div>
+        <div class="item1 container bg-white rounded shadow-sm">
+            <p style="font-size: 120%; margin: auto;">
+                This site contains some of the programming projects I've developed. Select one from the navigation
+                bar or choose below:
+            </p>
+        </div>
+        <div class="item2 bg-white rounded shadow-sm" style="overflow:hidden;">
+            <figure>
+                <a href="#" id="BookGridItem">
+                    <div class="grid-text">Book Collection</div>
+                    <img class="grid-img" src="{% static 'home/book2.svg' %}">
+                </a>
+            </figure>
+        </div>
+        <div class="item3 container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="TicketGridItem">
+                    <div>Ticket Manager</div>
+                    <img class="grid-img" src="{% static 'home/ticket.svg' %}">
+                </a>
+            </figure>
+        </div>
+        <div class="item4 container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="RescueGridItem">
+                    <div>Animal Rescue</div>
+                    <img class="grid-img" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
+                </a>
+            </figure>
+        </div>
+        <div class="item5 container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="MudGridItem">
+                    <div>Mud Client</div>
+                    <img class="grid-img" src="{% static 'home/mud.svg' %}" alt="MUD Client">
+                </a>
+            </figure>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div class="pop-up" id="BookPopUp">
+<div class="pop-up" id="BookPopUp">
     <div class="pop-up-header">
-      Book Collection
-      <a class="close" href="#" id="BookPopUpClose">&times; </a>
+        Book Collection
+        <a class="close" href="#" id="BookPopUpClose">&times; </a>
     </div>
     <div class="pop-up-content-large">
-      <div class="container bg-white rounded shadow-sm">
-        <p style="margin: auto;">
-          The Book Collection is a web application that manages a user's book collection.  The books and book authors
-          are represented with Django's model system and stored in a PostgreSQL database.
-        </p>
-        <p>
-          Github repository: https://github.com/wzsamuels/django-project (includes all of this site)
-        </p>
-        <p style="padding-top: 10px; margin: auto;">
-          <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
-        </p>
-     </div>
+        <div class="container bg-white rounded shadow-sm">
+            <p style="margin: auto;">
+                The Book Collection is a web application that manages a user's book collection. The books and book
+                authors
+                are represented with Django's model system and stored in a PostgreSQL database.
+            </p>
+            <p>
+                Github repository <a href="https://github.com/wzsamuels/django-project">link</a>. (includes all of this site)
+            </p>
+            <p style="padding-top: 10px; margin: auto;">
+                <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
+            </p>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div class="pop-up" id="MudPopUp">
+<div class="pop-up" id="MudPopUp">
     <div class="pop-up-header">
         MUD Client
         <a class="close" href="#" id="MudPopUpClose">&times; </a>
     </div>
-    <div class="pop-up-content-large container">
+    <div class="pop-up-content-large">
         <p style="margin: auto;">
-        Yam is a MUD client developed primarily for social MUDs (multiuser dungeons). The project is a Windows
-        Presentation Foundation application writen in C#. It provides examples of:
+            Yam is a MUD client developed primarily for social MUDs (multiuser dungeons). The project is a Windows
+            Presentation Foundation application writen in C#.
+        </p>
+        <p> This project demonstrates the following concepts:
         <ul>
-          <li>TCP Networking</li>
-          <li>Asynchronous Programming</li>
+            <li>TCP Networking</li>
+            <li>Asynchronous Programming</li>
         </ul>
         </p>
-        <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
+        <p style="text-align: center">Screen Shots</p>
+        <div class="slideshow-container">
+            <div class="slideshow-slide-mud" style="display: block">
+                <div class="slideshow-number-text">1 / 1</div>
+                <img src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
+            <!-- Next/previous controls -->
+            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
     </div>
-  </div>
+</div>
 
-
-  <div class="pop-up" id="TicketPopUp">
+<div class="pop-up" id="TicketPopUp">
     <div class="pop-up-header">
-      Ticket Manager
-      <a class="close" href="#" id="TicketPopUpClose">&times; </a>
+        Ticket Manager
+        <a class="close" href="#" id="TicketPopUpClose">&times; </a>
     </div>
     <div class="pop-up-content-large">
-      <p style="margin: auto;">
-         The Ticket Manager handles a list of support tickets.
-      </p>
-      <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
-    </div>
-  </div>
+        <p>
+            The Ticket Manager handles a list of support tickets.
+        </p>
+        <p style="text-align: center">Screen Shots</p>
+        <div class="slideshow-container">
+            <div class="slideshow-slide-ticket" style="display: block">
+                <div class="slideshow-number-text">1 / 1</div>
+                <img src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
 
-  <div class="pop-up" id="RescuePopUp">
+            <!-- Next/previous controls -->
+            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+</div>
+
+<div class="pop-up" id="RescuePopUp">
     <div class="pop-up-header">
-      Animal Rescue
-      <a class="close" href="#" id="RescuePopUpClose">&times; </a>
+        Animal Rescue
+        <a class="close" href="#" id="RescuePopUpClose">&times; </a>
     </div>
     <div class="pop-up-content-large">
-      <p style="margin: auto;">
-        PackDoption is a Java program that handles a list of animal rescues and the records rescue animals. It
-        demonstrates the following concepts:
-        <ul>
-          <li>Custom implementations of:</li>
-          <ul>
-            <li>Array-based Queues</li>
-            <li>Sorted Linked Lists</li>
-            <li>List Iterators</li>
-          </ul>
-        </ul>
+        <p style="margin: auto;">
+            PackDoption is a Java program that handles a list of animal rescues and the records of rescue animals. I
+            created it as part of NCSU's
+        </p>
+        <p>
+            This project demonstrates the following concepts:
+            <ul>
+                <li>Custom implementations of:
+                    <ul>
+                        <li>Array-based Queues</li>
+                        <li>Sorted Linked Lists</li>
+                        <li>List Iterators</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <p>
         Due to NCSU's academic integrity policy, the project's github repository is private, but it can be made
         available to potential employers upon request.
-      </p>
-      <div class="mySlides" style="display: block">
-        <div class="numbertext">1 / 2</div>
-        <img src="{% static 'home/packdoption1.png' %}" style="width: 100%;">
-      </div>
+        </p>
+        <p style="text-align: center">Screen shots:</p>
+        <div class="slideshow-container">
+            <div class="slideshow-slide-rescue" style="display: block">
+                <div class="slideshow-number-text">1 / 2</div>
+                <img src="{% static 'home/packdoption1.png' %}">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
 
-      <div class="mySlides">
-        <div class="numbertext">2 / 2</div>
-        <img src="{% static 'home/packdoption2.png' %}" style="width:100%;">
-      </div>
-
-      <!-- Next/previous controls -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-      <!--
-        <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" class="pop-up-img" src="{% static 'home/packdoption1.png' %}" alt="PackDoption Screen Shot">
-        <img style="display:block; margin-left: auto; margin-right: auto; margin-top: 20px; max-width: 100%;" class="pop-up-img" src="{% static 'home/packdoption2.png' %}" alt="PackDoption Screen Shot2">
-        -->
+            <div class="slideshow-slide-rescue">
+                <div class="slideshow-number-text">2 / 2</div>
+                <img src="{% static 'home/packdoption2.png' %}">
+                <div style="text-align: center;"> Caption Text</div>
+            </div>
+            <!-- Next/previous controls -->
+            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
     </div>
-  </div>
-
+</div>
 
 {% endblock %}

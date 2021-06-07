@@ -2,13 +2,14 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- JQuery UI CSS for datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Site Wide CSS -->
@@ -25,240 +26,250 @@
     <script src="{% static "books/book_list.js" %}"></script>
     <!-- Budget App JS -->
     <script src="{% static "budget/budget.js" %}"></script>
-<!-- repeat(2, 30vw); -->
+    <!-- repeat(2, 30vw); -->
     <style>
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-          grid-template-rows: auto auto auto;
-        grid-gap: 15px;
-      }
-
-      @media only screen and (min-width: 981px) {
-          .grid-container {
-              /* grid-template-columns: repeat(4, 25%); */
-              grid-template-columns: repeat(4, minmax(0, 1fr));
-          }
-      }
-
-      figure {
-          overflow: hidden;
-      }
-      .grid-img {
-        width: 90%;
-        height: 90%;
-        object-fit: contain;
-        display: block;
-          margin: auto;
-        max-width: 70%;
-        max-height: 70%;
-      }
-
-      .item1 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-      }
-
-       @media only screen and (min-width: 981px) {
-        .item1 {
-            grid-column-end: 5;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: auto auto auto;
+            grid-gap: 15px;
         }
-       }
 
-      figure a {
-          color: inherit;
-      }
+        @media only screen and (min-width: 981px) {
+            .grid-container {
+                /* grid-template-columns: repeat(4, 25%); */
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
 
-      figure  a:link {
-          text-decoration: none;
-      }
+        figure {
+            overflow: hidden;
+        }
 
-      figure a:visited {
-          text-decoration: none;
-      }
+        .grid-img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+            max-width: 70%;
+            max-height: 70%;
+        }
 
-      figure a:hover {
-          text-decoration: none;
-      }
+        .item1 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
 
-     figure  a:active {
-          text-decoration: none;
-      }
+        @media only screen and (min-width: 981px) {
+            .item1 {
+                grid-column-end: 5;
+            }
+        }
 
+        figure a {
+            color: inherit;
+        }
 
-      figure p {
-          font-family: 'DejaVu Serif', serif;
-      }
+        figure a:link {
+            text-decoration: none;
+        }
 
-      figure div {
-          font-family: 'DejaVu Serif', serif;
-          padding-top:10%; padding-bottom:10%; text-align: center;
-          font-size: min(4vw, 25px);
-      }
+        figure a:visited {
+            text-decoration: none;
+        }
 
-.grid-text {
-    padding-top:10%; padding-bottom:10%; text-align: center;
+        figure a:hover {
+            text-decoration: none;
+        }
 
-}
-
-
-.pop-up {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 5vh; /* Location of the box */
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow-y: hidden !important;
-}
-
-.pop-up-header {
-    position: relative;
-    background-color: white;
-    margin: auto;
-    /*border: 1px solid black;*/
-    padding-bottom: 10px;
-    max-height: 95vh;
-    max-width: 90vw;
-    border-top: 1px solid #888;
-    border-left: 1px solid #888;
-    border-right: 1px solid #888;
-    text-align: center;
-    font-size: 130%;
-    background-color: white
-}
-
-/* For the 'x' used to close a pop up */
-.pop-up .close {
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: grey;
-    float: right;
-    position: absolute;
-    right: 5px;
-    /*transform: translateX(-10%);*/
-}
-
-.pop-up .close:hover {
-    color: black;
-}
-
-.pop-up-content {
-    position: relative;
-    background-color: white;
-    margin: auto;
-    padding: 0;
-    max-width: 60vw;
-    max-height: 40vh;
-    border: 1px solid #888;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-.pop-up-content-large {
-    position: relative;
-    background-color: white;
-    margin: auto;
-    padding: 0;
-    border-bottom: 1px solid #888;
-    border-left: 1px solid #888;
-    border-right: 1px solid #888;
-    max-height: 85vh;
-    max-width: 90vw;
-    overflow-y: auto;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-}
+        figure a:active {
+            text-decoration: none;
+        }
 
 
-/* Hide the slides by default */
-.mySlides {
-  display: none;
-}
+        figure p {
+            font-family: 'DejaVu Serif', serif;
+        }
 
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 70%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
+        figure div {
+            font-family: 'DejaVu Serif', serif;
+            padding-top: 10%;
+            padding-bottom: 10%;
+            text-align: center;
+            font-size: min(4vw, 25px);
+        }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+        .grid-text {
+            padding-top: 10%;
+            padding-bottom: 10%;
+            text-align: center;
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+        }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
 
-/* Caption text */
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
+        .pop-up {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 5vh; /* Location of the box */
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden !important;
+        }
 
-img.demo {
-  opacity: 0.6;
-}
+        .pop-up-header {
+            position: relative;
+            background-color: white;
+            margin: auto;
+            /*border: 1px solid black;*/
+            padding-bottom: 10px;
+            max-height: 95vh;
+            max-width: min(90vw, 1000px);
+            border-top: 1px solid #888;
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            text-align: center;
+            font-size: 130%;
+            background-color: white
+        }
 
-.active,
-.demo:hover {
-  opacity: 1;
-}
+        /* For the 'x' used to close a pop up */
+        .pop-up .close {
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: grey;
+            float: right;
+            position: absolute;
+            right: 5px;
+            /*transform: translateX(-10%);*/
+        }
 
-img.hover-shadow {
-  transition: 0.3s;
-}
+        .pop-up .close:hover {
+            color: black;
+        }
 
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+        .pop-up-content {
+            position: relative;
+            background-color: white;
+            margin: auto;
+            padding: 0;
+            max-width: 60vw;
+            max-height: 40vh;
+            border: 1px solid #888;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .pop-up-content-large {
+            position: relative;
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            border-bottom: 1px solid #888;
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            max-height: 85vh;
+            max-width: min(90vw, 1000px);
+            overflow-y: auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .pop-up-content-large img {
+            margin-left: auto; margin-right: auto; max-width: 100%;
+            width: 100%;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Hide the images by default */
+        .slideshow-slide-mud {
+            display: none;
+        }
+
+        .slideshow-slide-rescue {
+            display: none;
+        }
+
+        .slideshow-slide-ticket {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .slideshow-prev, .slideshow-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white !important;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: grey;
+        }
+
+        /* Position the "next button" to the right */
+        .slideshow-next{
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .slideshow-prev:hover, .slideshow-next:hover {
+            color: white !important;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .slideshow-caption-text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .slideshow-number-text {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+            background-color: black;
+        }
 
 
     </style>
-    
+
     <title>{% block title %}Zach's Website{% endblock %}</title>
-    
-  </head>
-  
-  <body class="bg-light">
-    <!-- Top Nav Bar -->
-    <ul class="topnav">
-      <li><a id="Home" href="/">Home</a></li>
-      <li class="dropdown-links">
+
+</head>
+
+<body class="bg-light">
+<!-- Top Nav Bar -->
+<ul class="topnav">
+    <li><a id="Home" href="/">Home</a></li>
+    <li class="dropdown-links">
         <a href="javascript:void(0)" class="dropbutton">Web Apps</a>
         <div class="dropdown-content">
-          <a id="BookList" href="/books/intro.html">Book Collection</a>
-          <a id="Budget" href="/budget/">Budget App</a>
+            <a id="BookList" href="/books/intro.html">Book Collection</a>
+            <a id="Budget" href="/budget/">Budget App</a>
         </div>
-      </li>
+    </li>
     <!--
       <li class="dropdown-links">
         <a href="/c/" class="dropbutton">C</a>
@@ -267,40 +278,42 @@ img.hover-shadow {
         </div>
       </li>
       -->
-     <li class="dropdown-links">
+    <li class="dropdown-links">
         <a href="javascript:void(0)" class="dropbutton">C#</a>
         <div class="dropdown-content">
-          <a id="YAM" href="/c_sharp/yam.html">Yet Another MUD client</a>
+            <a id="YAM" href="/c_sharp/yam.html">Yet Another MUD client</a>
         </div>
-      </li>
-      <li class="dropdown-links">
+    </li>
+    <li class="dropdown-links">
         <a href="javascript:void(0)" class="dropbutton">Java</a>
         <div class="dropdown-content">
             <a id="TicketManager" href="/java/ticket_manager.html">Ticket Manager</a>
             <a id="AnimalAdoption" href="/java/adoption.html">Animal Rescue Manager</a>
             <!-- <a>Class Scheduler</a> -->
         </div>
-      </li>
-      {% if user.is_authenticated %}
-      <li><a id="Logout" href="/accounts/logout?next={{request.path}}">Logout</a></li>
-      {% else %} 
-      <li><a id="Login" href="/accounts/login?next={{request.path}}">Login</a></li>
-        {% endif %}
-    </ul>
-    
-    <h2 style="padding-top: 10px">
-      {% block header %}
-      {% endblock %}
-    </h2>
-    
-    <div class="main">
-      {% block content %}
-      {% endblock %}
-    </div>
-    
-    <div>
-      {%block footer %}{% endblock %}
-    </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+    </li>
+    {% if user.is_authenticated %}
+        <li><a id="Logout" href="/accounts/logout?next={{ request.path }}">Logout</a></li>
+    {% else %}
+        <li><a id="Login" href="/accounts/login?next={{ request.path }}">Login</a></li>
+    {% endif %}
+</ul>
+
+<h2 style="padding-top: 10px">
+    {% block header %}
+    {% endblock %}
+</h2>
+
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<div>
+    {% block footer %}{% endblock %}
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
 </html>
