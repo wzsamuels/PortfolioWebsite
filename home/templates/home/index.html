@@ -90,13 +90,18 @@
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
             <div class="slideshow-slide-mud" style="display: block">
-                <div class="slideshow-number-text">1 / 1</div>
+                <div class="slideshow-number-text">1 / 2</div>
+                <img src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
+            <div class="slideshow-slide-mud">
+                <div class="slideshow-number-text">2 / 2</div>
                 <img src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
             <!-- Next/previous controls -->
-            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="slideshow-prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1, 0)">&#10095;</a>
         </div>
     </div>
 </div>
@@ -113,14 +118,18 @@
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
             <div class="slideshow-slide-ticket" style="display: block">
-                <div class="slideshow-number-text">1 / 1</div>
+                <div class="slideshow-number-text">1 / 2</div>
                 <img src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
-
+            <div class="slideshow-slide-ticket">
+                <div class="slideshow-number-text">2 / 2</div>
+                <img src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
             <!-- Next/previous controls -->
-            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="slideshow-prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1, 1)">&#10095;</a>
         </div>
     </div>
 </div>
@@ -165,8 +174,8 @@
                 <div style="text-align: center;"> Caption Text</div>
             </div>
             <!-- Next/previous controls -->
-            <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="slideshow-prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+            <a class="slideshow-next" onclick="plusSlides(1, 2)">&#10095;</a>
         </div>
     </div>
 </div>
