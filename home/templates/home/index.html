@@ -91,12 +91,12 @@
         <div class="slideshow-container">
             <div class="slideshow-slide-mud" style="display: block">
                 <div class="slideshow-number-text">1 / 2</div>
-                <img src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
+                <img class="tall-screenshot" src="{% static 'home/ifmud1.png' %}" alt="Yam Screenshot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
             <div class="slideshow-slide-mud">
                 <div class="slideshow-number-text">2 / 2</div>
-                <img src="{% static 'home/ifmud1.PNG' %}" alt="Yam Screenshot">
+                <img class="tall-screenshot" src="{% static 'home/ifmud2.png' %}" alt="Yam Screenshot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
             <!-- Next/previous controls -->
@@ -113,18 +113,36 @@
     </div>
     <div class="pop-up-content-large">
         <p>
-            The Ticket Manager handles a list of support tickets.
+            The Ticket Manager program handles a list of support technical support tickets.
+            Concepts Demonstrated:
         </p>
+        <ul>
+            <li>The State Design Pattern: each ticket object changes state as </li>
+            <li>MVC Design Pattern</li>
+            <li>Polymorphism: a ticket object's state</li>
+        </ul>
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
-            <div class="slideshow-slide-ticket" style="display: block">
-                <div class="slideshow-number-text">1 / 2</div>
-                <img src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
+            <div class="slideshow-slide-ticket" style="display: block;">
+                <div class="slideshow-number-text">1 / 4</div>
+                <img class="tall-screenshot" src="{% static 'home/ticket1.png' %}" alt="TicketManager Screen Shot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
             <div class="slideshow-slide-ticket">
-                <div class="slideshow-number-text">2 / 2</div>
-                <img src="{% static 'home/ticketmanager.png' %}" alt="TicketManager Screen Shot">
+                <div class="slideshow-number-text">2 / 4</div>
+                <img class="tall-screenshot" src="{% static 'home/ticket2.png' %}" alt="TicketManager Screen Shot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
+
+            <div class="slideshow-slide-ticket">
+                <div class="slideshow-number-text">3 / 2</div>
+                <img class="tall-screenshot" src="{% static 'home/ticket3.png' %}" alt="TicketManager Screen Shot">
+                <div style="text-align: center;">Caption Text</div>
+            </div>
+
+            <div class="slideshow-slide-ticket">
+                <div class="slideshow-number-text">4 / 4</div>
+                <img class="tall-screenshot" src="{% static 'home/ticket4.png' %}" alt="TicketManager Screen Shot">
                 <div style="text-align: center;">Caption Text</div>
             </div>
             <!-- Next/previous controls -->
@@ -164,13 +182,13 @@
         <div class="slideshow-container">
             <div class="slideshow-slide-rescue" style="display: block">
                 <div class="slideshow-number-text">1 / 2</div>
-                <img src="{% static 'home/packdoption1.png' %}">
+                <img class="wide-screenshot" src="{% static 'home/packdoption1.png' %}">
                 <div style="text-align: center;">Caption Text</div>
             </div>
 
             <div class="slideshow-slide-rescue">
                 <div class="slideshow-number-text">2 / 2</div>
-                <img src="{% static 'home/packdoption2.png' %}">
+                <img class="wide-screenshot" src="{% static 'home/packdoption2.png' %}">
                 <div style="text-align: center;"> Caption Text</div>
             </div>
             <!-- Next/previous controls -->

@@ -172,13 +172,20 @@
             border-right: 1px solid #888;
             max-height: 85vh;
             max-width: min(90vw, 1000px);
-            overflow-y: auto;
+            overflow-y: scroll;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .pop-up-content-large img {
+        .pop-up-content-large img.tall-screenshot {
+            margin-left: auto; margin-right: auto; width: 50%; display:block;
+        }
+
+        .pop-up-content-large img.wide-screenshot {
             margin-left: auto; margin-right: auto; max-width: 100%;
-            width: 100%;
+        }
+
+        #img-test {
+
         }
 
         /* Slideshow container */
