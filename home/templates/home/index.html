@@ -9,16 +9,19 @@
 <div class="container">
     <div class="grid-container">
         <div class="item1 container bg-white rounded shadow-sm">
-            <p style="font-size: 120%; margin: auto;">
+            <p style="margin: auto;">
                 This site contains some of the programming projects I've developed. Select one from the navigation
-                bar or choose below:
+                bar or choose from the grid below:
+            </p>
+            <p>
+                This website is built from the ground up with Django, PostgreSQL, Nginx, and Ubuntu.
             </p>
         </div>
         <div class="item2 bg-white rounded shadow-sm" style="overflow:hidden;">
             <figure>
                 <a href="#" id="BookGridItem">
                     <div class="grid-text">Book Collection</div>
-                    <img class="grid-img" src="{% static 'home/book2.svg' %}">
+                    <img class="grid-img" src="{% static 'home/book-icon.svg' %}">
                 </a>
             </figure>
         </div>
@@ -26,15 +29,15 @@
             <figure>
                 <a href="#" id="TicketGridItem">
                     <div>Ticket Manager</div>
-                    <img class="grid-img" src="{% static 'home/ticket.svg' %}">
+                    <img class="grid-img" src="{% static 'home/ticket-icon.svg' %}">
                 </a>
             </figure>
         </div>
         <div class="item4 container bg-white rounded shadow-sm">
             <figure>
                 <a href="#" id="RescueGridItem">
-                    <div>Animal Rescue</div>
-                    <img class="grid-img" src="{% static 'home/cat.jpg' %}" alt="Cat Picture">
+                    <div>PackDoption/div>
+                    <img class="grid-img" src="{% static 'home/cat-icon.svg' %}" alt="Cat Picture">
                 </a>
             </figure>
         </div>
@@ -42,7 +45,15 @@
             <figure>
                 <a href="#" id="MudGridItem">
                     <div>Mud Client</div>
-                    <img class="grid-img" src="{% static 'home/mud.svg' %}" alt="MUD Client">
+                    <img class="grid-img" src="{% static 'home/mud-icon.svg' %}" alt="MUD Client">
+                </a>
+            </figure>
+        </div>
+        <div class="item6 container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="FilmterGridItem">
+                    <div>Filmter</div>
+                    <img class="grid-img" src="{% static 'home/filmter-icon.svg' %}" alt="MUD Client">
                 </a>
             </figure>
         </div>
@@ -57,13 +68,18 @@
     <div class="pop-up-content-large">
         <div class="container bg-white rounded shadow-sm">
             <p style="margin: auto;">
-                The Book Collection is a web application that manages a user's book collection. The books and book
-                authors
-                are represented with Django's model system and stored in a PostgreSQL database.
+                The Book Collection is a Django web application that manages a user's book collection.
             </p>
             <p>
                 Github repository <a href="https://github.com/wzsamuels/django-project">link</a>. (includes all of this site)
             </p>
+            <p style="display:inline;">Technical Concepts:</p>
+            <ul>
+                <li>Frontend Javascript, HTML, and CSS</li>
+                <li>Backend PostgreSQL Database</li>
+                <li>Backend Python with Django Models and Views</li>
+            </ul>
+            <br>
             <p style="padding-top: 10px; margin: auto;">
                 <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
             </p>
@@ -79,14 +95,15 @@
     <div class="pop-up-content-large">
         <p style="margin: auto;">
             Yam is a MUD client developed primarily for social MUDs (multiuser dungeons). The project is a Windows
-            Presentation Foundation application writen in C#.
+            Presentation Foundation application writen in C# with .NET 5.
         </p>
-        <p> This project demonstrates the following concepts:
+        <br>
+        <p style="display:inline;">Technical Concepts:</p>
         <ul>
             <li>TCP Networking</li>
             <li>Asynchronous Programming</li>
+            <li>Text Parsing</li>
         </ul>
-        </p>
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
             <div class="slideshow-slide-mud" style="display: block">
@@ -114,12 +131,14 @@
     <div class="pop-up-content-large">
         <p>
             The Ticket Manager program handles a list of support technical support tickets.
-            Concepts Demonstrated:
+        </p>
+        <p style="display:inline;">
+            Technical and Design Concepts:
         </p>
         <ul>
-            <li>The State Design Pattern: each ticket object changes state as </li>
+            <li>The State Design Pattern: each ticket object changes state as its worked on</li>
             <li>MVC Design Pattern</li>
-            <li>Polymorphism: a ticket object's state</li>
+            <li>Polymorphism: a ticket's state change is reflect by a change in its object type</li>
         </ul>
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
@@ -159,21 +178,20 @@
     </div>
     <div class="pop-up-content-large">
         <p style="margin: auto;">
-            PackDoption is a Java program that handles a list of animal rescues and the records of rescue animals. I
-            created it as part of NCSU's
+            PackDoption is a Java program that handles a list of animal rescues and the records of rescue animals.
         </p>
-        <p>
-            This project demonstrates the following concepts:
-            <ul>
-                <li>Custom implementations of:
-                    <ul>
-                        <li>Array-based Queues</li>
-                        <li>Sorted Linked Lists</li>
-                        <li>List Iterators</li>
-                    </ul>
-                </li>
-            </ul>
+        <p style="display:inline;">
+            Technical Concepts:
         </p>
+        <ul>
+            <li>Custom implementations of:
+                <ul>
+                    <li>Array-based Queues</li>
+                    <li>Sorted Linked Lists</li>
+                    <li>List Iterators</li>
+                </ul>
+            </li>
+        </ul>
         <p>
         Due to NCSU's academic integrity policy, the project's github repository is private, but it can be made
         available to potential employers upon request.
