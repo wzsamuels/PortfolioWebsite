@@ -7,6 +7,14 @@ $(function() {
         $('#BookPopUp').hide("fast");
     });
 
+    $('#FilmterGridItem').click(function () {
+        $('#FilmterPopUp').show("fast");
+    });
+
+    $('#FilmterPopUpClose').click(function () {
+        $('#FilmterPopUp').hide("fast");
+    });
+
     $('#TicketGridItem').click(function () {
         $('#TicketPopUp').show("fast");
     });
@@ -46,14 +54,18 @@ $(function() {
         else if (event.target == document.getElementById("RescuePopUp")) {
             $('#RescuePopUp').hide("fast");
         }
+        else if (event.target == document.getElementById("FilmterPopUp")) {
+            $('#FilmterPopUp').hide("fast");
+        }
     });
 });
 
-var slideIndex = [1,1,1];
-var slideId = ["slideshow-slide-mud", "slideshow-slide-ticket", "slideshow-slide-rescue"]
+var slideIndex = [1,1,1,1];
+var slideId = ["slideshow-slide-mud", "slideshow-slide-ticket", "slideshow-slide-rescue", "slideshow-slide-filmter"]
 showSlides(1, 0);
 showSlides(1, 1);
 showSlides(1, 2);
+showSlides(1, 3);
 
 function plusSlides(n, no) {
   showSlides(slideIndex[no] += n, no);

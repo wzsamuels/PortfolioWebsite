@@ -53,7 +53,7 @@
             <figure>
                 <a href="#" id="FilmterGridItem">
                     <div>Filmter</div>
-                    <img class="grid-img" src="{% static 'home/filmter-icon.svg' %}" alt="MUD Client">
+                    <img class="grid-img" src="{% static 'home/filmter-icon.svg' %}" alt="Filmter">
                 </a>
             </figure>
         </div>
@@ -83,6 +83,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="pop-up" id="MudPopUp">
     <div class="pop-up-header">
@@ -213,6 +214,54 @@
             <!-- Next/previous controls -->
             <a class="slideshow-prev" onclick="plusSlides(-1, 2)">&#10094;</a>
             <a class="slideshow-next" onclick="plusSlides(1, 2)">&#10095;</a>
+        </div>
+    </div>
+</div>
+
+<div class="pop-up" id="FilmterPopUp">
+    <div class="pop-up-header">
+        Filmter
+        <a class="close" href="#" id="FilmterPopUpClose">&times; </a>
+    </div>
+    <div class="pop-up-content-large">
+        <div class="container bg-white rounded shadow-sm">
+            <p style="margin: auto;">
+                Filmter sorts and filters
+            </p>
+            <p style="display:inline;">Technical Concepts:</p>
+            <ul>
+                <li>Coded in C#</li>
+                <li>GUI in Windows Presentation Foundation</li>
+                <li>Compares the efficiency of </li>
+            </ul>
+            <p>Github repository <a href="https://github.com/wzsamuels/Filmter">link</a>.</p>
+            <p style="text-align: center">Screen Shots</p>
+            <div class="slideshow-container">
+                <div class="slideshow-slide-filmter" style="display: block">
+                    <div class="slideshow-number-text">1 / 4</div>
+                    <img class="tall-screenshot" src="{% static 'home/filmter1.png' %}" alt="Filmter Screenshot">
+                    <div style="text-align: center;">Loading a very large movie file</div>
+                </div>
+                <div class="slideshow-slide-filmter" style="display: none">
+                    <div class="slideshow-number-text">2 / 4</div>
+                    <img class="tall-screenshot" src="{% static 'home/filmter2.png' %}" alt="Filmter Screenshot">
+                    <div style="text-align: center;">Movies from 2001 with a run time of 95 minutes</div>
+                </div>
+                <div class="slideshow-slide-filmter" style="display: none">
+                    <div class="slideshow-number-text">3 / 4</div>
+                    <img class="tall-screenshot" src="{% static 'home/filmter3.png' %}" alt="Filmter Screenshot">
+                    <div style="text-align: center;">A unordered linked list map...</div>
+                </div>
+                <div class="slideshow-slide-filmter" style="display: none">
+                    <div class="slideshow-number-text">4 / 4</div>
+                    <img class="tall-screenshot" src="{% static 'home/filmter4.png' %}" alt="Filmter Screenshot">
+                    <div style="text-align: center;">...is noticeably less efficient than a skip list map</div>
+                </div>
+
+                <!-- Next/previous controls -->
+                <a class="slideshow-prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+                <a class="slideshow-next" onclick="plusSlides(1, 3)">&#10095;</a>
+            </div>
         </div>
     </div>
 </div>
