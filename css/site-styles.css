@@ -66,6 +66,14 @@ label {
 
 .topnav a.active {background-color: DeepSkyBlue;}
 
+.topnav > li:last-child {
+    float:right;
+}
+
+/*
+    Styles for navigation bar drop down menus
+ */
+
 .topnav .dropdown-links li {
   display: inline-block;
 }
@@ -92,6 +100,8 @@ label {
 .topnav .dropdown-links:hover .dropdown-content {
   display: block;
 }
+
+
 
 /*
 .bookButton button {
@@ -340,7 +350,11 @@ figure div {
 }
 
 .pop-up-content-large img.wide-screenshot {
-    margin-left: auto; margin-right: auto; max-width: 100%;
+    margin-left: auto; margin-right: auto; width: 100%; display:block;
+}
+
+.pop-up p {
+    padding-bottom: 15px;
 }
 
 #img-test {
@@ -366,6 +380,14 @@ figure div {
 
 .slideshow-slide-ticket {
     display: none;
+}
+
+.slideshow-slide-filmter{
+    display: none;
+}
+
+.pop-up-content-large img.wide-screenshot {
+    margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
 /* Next & previous buttons */

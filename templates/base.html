@@ -26,21 +26,15 @@
     <script src="{% static "books/book_list.js" %}"></script>
     <!-- Budget App JS -->
     <script src="{% static "budget/budget.js" %}"></script>
-    <!-- repeat(2, 30vw); -->
-    <style>
-    .pop-up p {
-        padding-bottom: 15px;
-    }
-    </style>
 
     <title>{% block title %}Zach's Website{% endblock %}</title>
-
 </head>
 
 <body class="bg-light">
 <!-- Top Nav Bar -->
 <ul class="topnav">
-    <li><a id="Home" href="/">Home</a></li>
+    <li><a href="/">Home</a></li>
+    <!--
     <li class="dropdown-links">
         <a href="javascript:void(0)" class="drop-button">Projects</a>
         <div class="dropdown-content">
@@ -53,8 +47,10 @@
             <a>File Compression</a>
         </div>
     </li>
-    <li><a id="Resume" href="#">Resume</a></li>
-    <li><a id="Linkedin"></a></li>
+    -->
+    <li><a href="#">Resume</a></li>
+    <li><a href="https://www.linkedin.com/in/zach-samuels-338978214/">Linkedin</a></li>
+    <li><a href="https://github.com/wzsamuels/">Github</a></li>
     {% if user.is_authenticated %}
         <li><a id="Logout" href="/accounts/logout?next={{ request.path }}">Logout</a></li>
     {% else %}
