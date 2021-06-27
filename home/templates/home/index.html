@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block header %}Welcome to Zach's Portfolio Website{% endblock %}
+{% block header %}Zach Samuels' Portfolio Website{% endblock %}
 
 {% block content %}
 
@@ -16,8 +16,36 @@
             <p>
                 This website is built from the ground up with Django, PostgreSQL, Nginx, and Ubuntu.
             </p>
+            <p>
+                Github repository for this website available <a href="https://github.com/wzsamuels/PortfolioWebsite">here</a>.
+            </p>
         </div>
-        <div class="item2 bg-white rounded shadow-sm" style="overflow:hidden;">
+
+        <div class="container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="FilmterGridItem">
+                    <div class="grid-text">Filmter</div>
+                    <img class="grid-img" src="{% static 'home/filmter-icon.svg' %}" alt="Filmter">
+                </a>
+            </figure>
+        </div>
+        <div class="container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="DataStructuresGridItem">
+                    <div class="grid-text">DataStructures</div>
+                    <img class="grid-img" src="{% static 'home/datastructures-icon.svg' %}" alt="Filmter">
+                </a>
+            </figure>
+        </div>
+         <div class="container bg-white rounded shadow-sm">
+            <figure>
+                <a href="#" id="MudGridItem">
+                    <div class="grid-text">YAM</div>
+                    <img class="grid-img" src="{% static 'home/mud-icon.svg' %}" alt="MUD Client">
+                </a>
+            </figure>
+        </div>
+        <div class="bg-white rounded shadow-sm" style="overflow:hidden;">
             <figure>
                 <a href="#" id="BookGridItem">
                     <div class="grid-text">Book Collection</div>
@@ -25,38 +53,23 @@
                 </a>
             </figure>
         </div>
-        <div class="item3 container bg-white rounded shadow-sm">
+        <div class="container bg-white rounded shadow-sm">
             <figure>
                 <a href="#" id="TicketGridItem">
-                    <div>Ticket Manager</div>
+                    <div class="grid-text">Ticket Manager</div>
                     <img class="grid-img" src="{% static 'home/ticket-icon.svg' %}">
                 </a>
             </figure>
         </div>
-        <div class="item4 container bg-white rounded shadow-sm">
+        <div class="container bg-white rounded shadow-sm">
             <figure>
                 <a href="#" id="RescueGridItem">
-                    <div>PackDoption</div>
+                    <div class="grid-text">PackDoption</div>
                     <img class="grid-img" src="{% static 'home/cat-icon.svg' %}" alt="Cat Picture">
                 </a>
             </figure>
         </div>
-        <div class="item5 container bg-white rounded shadow-sm">
-            <figure>
-                <a href="#" id="MudGridItem">
-                    <div>Mud Client</div>
-                    <img class="grid-img" src="{% static 'home/mud-icon.svg' %}" alt="MUD Client">
-                </a>
-            </figure>
-        </div>
-        <div class="item6 container bg-white rounded shadow-sm">
-            <figure>
-                <a href="#" id="FilmterGridItem">
-                    <div>Filmter</div>
-                    <img class="grid-img" src="{% static 'home/filmter-icon.svg' %}" alt="Filmter">
-                </a>
-            </figure>
-        </div>
+
     </div>
 </div>
 
@@ -68,15 +81,15 @@
     <div class="pop-up-content-large">
         <div class="container bg-white rounded shadow-sm">
             <p style="margin: auto;">
-                The Book Collection is a Django web application that manages a user's book collection.
+                Book Collection is a Django web application that manages a user's book collection.
             </p>
             <p style="display:inline;">Technical Concepts:</p>
             <ul>
-                <li>Frontend Javascript, HTML, and CSS</li>
-                <li>Backend PostgreSQL Database</li>
-                <li>Backend Python with Django Models and Views</li>
+                <li>Frontend written Javascript, HTML, and CSS</li>
+                <li>Backend written Python with Django Models and Views</li>
+                <li>Backend stores postgreSQL database</li>
             </ul>
-            <p>Github repository <a href="https://github.com/wzsamuels/django-project">link</a>. (includes all of this site)</p>
+            <p>Github repository available<a href="https://github.com/wzsamuels/PortfolioWebsite/tree/master/books">here</a>.</p>
             <p style="padding-top: 10px; margin: auto;">
                 <a style="margin: auto;" href="/books/" class="dropbutton">Continue to Book Collection</a>
             </p>
@@ -84,20 +97,20 @@
     </div>
 </div>
 
-
 <div class="pop-up" id="MudPopUp">
     <div class="pop-up-header">
-        MUD Client
+        YAM
         <a class="close" href="#" id="MudPopUpClose">&times; </a>
     </div>
     <div class="pop-up-content-large">
         <p style="margin: auto;">
-            YAM allows users to connect with text-based MUDs (multiuser dungeons).
+            YAM (Yet Another MUD client) allows users to connect to text-based MUDs (multiuser dungeons).
         </p>
+        <p>Github repository available<a href="https://github.com/wzsamuels/yam">here</a>.
         <p style="display:inline;">Technical Concepts:</p>
         <ul>
-            <li>C#/.NET</li>
-            <li>Windows Presentation Foundation GUI</li>
+            <li>Written in C# with .NET</li>
+            <li>GUI written in XAML with Windows Presentation Foundation</li>
             <li>TCP Networking</li>
             <li>Asynchronous Programming</li>
             <li>Text Parsing</li>
@@ -107,12 +120,12 @@
             <div class="slideshow-slide-mud" style="display: block">
                 <div class="slideshow-number-text">1 / 2</div>
                 <img class="tall-screenshot" src="{% static 'home/ifmud1.png' %}" alt="Yam Screenshot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Connecting to a world</div>
             </div>
             <div class="slideshow-slide-mud">
                 <div class="slideshow-number-text">2 / 2</div>
                 <img class="tall-screenshot" src="{% static 'home/ifmud2.png' %}" alt="Yam Screenshot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Successfully logged in</div>
             </div>
             <!-- Next/previous controls -->
             <a class="slideshow-prev" onclick="plusSlides(-1, 0)">&#10094;</a>
@@ -130,41 +143,42 @@
         <p>
             The Ticket Manager program handles a list of support technical support tickets.
         </p>
-        <p style="display:inline;">
-            Technical and Design Concepts:
-        </p>
-        <ul>
-            <li>The State Design Pattern: each ticket object changes state as its worked on</li>
-            <li>MVC Design Pattern</li>
-            <li>Polymorphism: a ticket's state change is reflect by a change in its object type</li>
-        </ul>
         <p>
             Due to NCSU's academic integrity policy, the project's github repository is private, but it can be made
             available to potential employers upon request.
         </p>
+        <p style="display:inline;">
+            Technical and Design Concepts:
+        </p>
+        <ul>
+            <li>Written in Java.</li>
+            <li>The State Design Pattern: each ticket object changes state as it's worked on</li>
+            <li>MVC Design Pattern for the interaction of the backend and GUI</li>
+            <li>Polymorphism: a ticket's state change is reflect by a change in its object type</li>
+        </ul>
         <p style="text-align: center">Screen Shots</p>
         <div class="slideshow-container">
             <div class="slideshow-slide-ticket" style="display: block;">
                 <div class="slideshow-number-text">1 / 4</div>
                 <img class="tall-screenshot" src="{% static 'home/ticket1.png' %}" alt="TicketManager Screen Shot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Cancelling a ticket</div>
             </div>
             <div class="slideshow-slide-ticket">
                 <div class="slideshow-number-text">2 / 4</div>
                 <img class="tall-screenshot" src="{% static 'home/ticket2.png' %}" alt="TicketManager Screen Shot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Creating a new ticket</div>
             </div>
 
             <div class="slideshow-slide-ticket">
-                <div class="slideshow-number-text">3 / 2</div>
+                <div class="slideshow-number-text">3 / 4</div>
                 <img class="tall-screenshot" src="{% static 'home/ticket3.png' %}" alt="TicketManager Screen Shot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Resolving an open ticket</div>
             </div>
 
             <div class="slideshow-slide-ticket">
                 <div class="slideshow-number-text">4 / 4</div>
                 <img class="tall-screenshot" src="{% static 'home/ticket4.png' %}" alt="TicketManager Screen Shot">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">List of tickets in various states</div>
             </div>
             <!-- Next/previous controls -->
             <a class="slideshow-prev" onclick="plusSlides(-1, 1)">&#10094;</a>
@@ -175,17 +189,22 @@
 
 <div class="pop-up" id="RescuePopUp">
     <div class="pop-up-header">
-        Animal Rescue
+        PackDoption
         <a class="close" href="#" id="RescuePopUpClose">&times; </a>
     </div>
     <div class="pop-up-content-large">
         <p style="margin: auto;">
             PackDoption is a Java program that handles a list of animal rescues and the records of rescue animals.
         </p>
+        <p>
+        Due to NCSU's academic integrity policy, the project's github repository is private, but it can be made
+        available to potential employers upon request.
+        </p>
         <p style="display:inline;">
             Technical Concepts:
         </p>
         <ul>
+            <li>Written in Java</li>
             <li>Custom implementations of:
                 <ul>
                     <li>Array-based Queues</li>
@@ -194,22 +213,18 @@
                 </ul>
             </li>
         </ul>
-        <p>
-        Due to NCSU's academic integrity policy, the project's github repository is private, but it can be made
-        available to potential employers upon request.
-        </p>
         <p style="text-align: center">Screen shots:</p>
         <div class="slideshow-container">
             <div class="slideshow-slide-rescue" style="display: block">
                 <div class="slideshow-number-text">1 / 2</div>
                 <img class="wide-screenshot" src="{% static 'home/packdoption1.png' %}">
-                <div style="text-align: center;">Caption Text</div>
+                <div style="text-align: center;">Animals held in a rescue</div>
             </div>
 
             <div class="slideshow-slide-rescue">
                 <div class="slideshow-number-text">2 / 2</div>
                 <img class="wide-screenshot" src="{% static 'home/packdoption2.png' %}">
-                <div style="text-align: center;"> Caption Text</div>
+                <div style="text-align: center;">List of rescues</div>
             </div>
             <!-- Next/previous controls -->
             <a class="slideshow-prev" onclick="plusSlides(-1, 2)">&#10094;</a>
@@ -226,35 +241,37 @@
     <div class="pop-up-content-large">
         <div class="container bg-white rounded shadow-sm">
             <p style="margin: auto;">
-                Filmter sorts and filters
+                Filmter sorts and filters a list of movies taken from IMDB. This project provides a practical implementation
+                of the data structures and sorting algorithms from the DataStructures project.
             </p>
+            <p>Github repository available<a href="https://github.com/wzsamuels/Filmter">here</a>.</p>
             <p style="display:inline;">Technical Concepts:</p>
             <ul>
-                <li>Coded in C#</li>
-                <li>GUI in Windows Presentation Foundation</li>
-                <li>Compares the efficiency of </li>
+                <li>Written in C# with .NET</li>
+                <li>GUI written in XAML with Windows Presentation Foundation</li>
+                <li>Compares the efficiency of the various sorting algorithms
+                and data structures</li>
             </ul>
-            <p>Github repository <a href="https://github.com/wzsamuels/Filmter">link</a>.</p>
             <p style="text-align: center">Screen Shots</p>
             <div class="slideshow-container">
                 <div class="slideshow-slide-filmter" style="display: block">
                     <div class="slideshow-number-text">1 / 4</div>
-                    <img class="tall-screenshot" src="{% static 'home/filmter1.png' %}" alt="Filmter Screenshot">
+                    <img style="text-align: center" class="wide-screenshot" src="{% static 'home/filmter1.png' %}" alt="Filmter Screenshot">
                     <div style="text-align: center;">Loading a very large movie file</div>
                 </div>
-                <div class="slideshow-slide-filmter" style="display: none">
+                <div class="slideshow-slide-filmter">
                     <div class="slideshow-number-text">2 / 4</div>
-                    <img class="tall-screenshot" src="{% static 'home/filmter2.png' %}" alt="Filmter Screenshot">
+                    <img class="wide-screenshot" src="{% static 'home/filmter2.png' %}" alt="Filmter Screenshot">
                     <div style="text-align: center;">Movies from 2001 with a run time of 95 minutes</div>
                 </div>
-                <div class="slideshow-slide-filmter" style="display: none">
+                <div class="slideshow-slide-filmter">
                     <div class="slideshow-number-text">3 / 4</div>
-                    <img class="tall-screenshot" src="{% static 'home/filmter3.png' %}" alt="Filmter Screenshot">
+                    <img class="wide-screenshot" src="{% static 'home/filmter3.png' %}" alt="Filmter Screenshot">
                     <div style="text-align: center;">A unordered linked list map...</div>
                 </div>
-                <div class="slideshow-slide-filmter" style="display: none">
+                <div class="slideshow-slide-filmter">
                     <div class="slideshow-number-text">4 / 4</div>
-                    <img class="tall-screenshot" src="{% static 'home/filmter4.png' %}" alt="Filmter Screenshot">
+                    <img class="wide-screenshot" src="{% static 'home/filmter4.png' %}" alt="Filmter Screenshot">
                     <div style="text-align: center;">...is noticeably less efficient than a skip list map</div>
                 </div>
 
@@ -262,6 +279,72 @@
                 <a class="slideshow-prev" onclick="plusSlides(-1, 3)">&#10094;</a>
                 <a class="slideshow-next" onclick="plusSlides(1, 3)">&#10095;</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="pop-up" id="DataStructuresPopUp">
+    <div class="pop-up-header">
+        DataStructures
+        <a class="close" href="#" id="DataStructuresPopUpClose">&times; </a>
+    </div>
+    <div class="pop-up-content-large">
+        <div class="container bg-white rounded shadow-sm">
+            <p style="margin: auto;">
+                DataStructures is a collection of data structures and sorting algorithms that can be imported into other
+                projects as a dynamic-link library. Adapted from a java project started at NCSU, the code has been
+                completely ported to C# to comply with NCSU's academic integrity policies.
+            </p>
+            <p>Github repository available<a href="https://github.com/wzsamuels/DataStructures">here</a>.
+            <p style="display:inline;">Technical Concepts:</p>
+            <ul>
+                <li>Written in C#</li>
+                <li>Unit tests for all data structures and algorithms</li>
+                <li>Custom implementations of many data structures, including:
+                    <ul>
+                        <li>Hash Tables:
+                            <ul>
+                                <li>Linear Probing Hash Map</li>
+                                <li>Separate Chaining Hash Map</li>
+                            </ul>
+                        </li>
+                        <li>Lists:
+                            <ul>
+                                <li>Array-based List</li>
+                                <li>Positional Linked List</li>
+                                <li>Singly Linked List</li>
+                            </ul>
+                        </li>
+                        <li>Maps:
+                            <ul>
+                                <li>Search Table</li>
+                                <li>Skip List</li>
+                                <li>Unordered Array</li>
+                                <li>Unordered Linked List</li>
+                            </ul>
+                        </li>
+                        <li>Search Trees:
+                            <ul>
+                                <li>AVL Tree</li>
+                                <li>Binary Search Tree</li>
+                                <li>Red Black Tree</li>
+                                <li>Splay Tree</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Custom implementations of the following sort algorithms:
+                    <ul>
+                        <li>Bubble Sort</li>
+                        <li>Counting Sort</li>
+                        <li>Insertion Sort</li>
+                        <li>Merge Sort</li>
+                        <li>Quick Sort</li>
+                        <li>Radix Sort</li>
+                        <li>Selection Sort</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

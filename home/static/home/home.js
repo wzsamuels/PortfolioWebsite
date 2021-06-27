@@ -31,12 +31,20 @@ $(function() {
         $('#MudPopUp').hide("fast");
     });
 
-     $('#RescueGridItem').click(function () {
+    $('#RescueGridItem').click(function () {
         $('#RescuePopUp').show("fast");
     });
 
     $('#RescuePopUpClose').click(function () {
         $('#RescuePopUp').hide("fast");
+    });
+
+    $('#DataStructuresGridItem').click(function () {
+        $('#DataStructuresPopUp').show("fast");
+    });
+
+    $('#DataStructuresPopUpClose').click(function () {
+        $('#DataStructuresPopUp').hide("fast");
     });
 
     // When the user clicks anywhere outside of the modal, close it
@@ -56,6 +64,9 @@ $(function() {
         }
         else if (event.target == document.getElementById("FilmterPopUp")) {
             $('#FilmterPopUp').hide("fast");
+        }
+        else if (event.target == document.getElementById("DataStructuresPopUp")) {
+            $('#DataStructuresPopUp').hide("fast");
         }
     });
 });
