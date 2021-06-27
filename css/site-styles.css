@@ -204,8 +204,8 @@ input[type=submit] {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
     .pop-up-content-large img.tall-screenshot {
-        margin-left: auto; margin-right: auto; width: 100%; display:block;
-    }
+        margin-left: auto; margin-right: auto; width: 70%; display:block;
+    }    
 }
 
 figure {
@@ -230,6 +230,9 @@ figure {
 @media only screen and (min-width: 981px) {
     .item1 {
         grid-column-end: 5;
+    }
+    .pop-up-content-large img.tall-screenshot {
+        margin-left: auto; margin-right: auto; width: 100%; display:block;
     }
 }
 
@@ -270,7 +273,7 @@ figure div {
     padding-top: 10%;
     padding-bottom: 10%;
     text-align: center;
-
+    font-size: 3vw;
 }
 
 /**
@@ -346,7 +349,7 @@ figure div {
 }
 
 .pop-up-content-large img.tall-screenshot {
-    margin-left: auto; margin-right: auto; width: 70%; display:block;
+    margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
 .pop-up-content-large img.wide-screenshot {
