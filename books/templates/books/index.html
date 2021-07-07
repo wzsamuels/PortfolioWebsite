@@ -63,15 +63,12 @@
   <div class="modal-content">
     <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Add Book</legend>
-      {% if user.is_authenticated %}
         <label for="{{ book_form.title.id_for_label }}">Title:</label>
         {{ book_form.title }}
         <label for="{{ book_form.authors.id_for_lab }}">Author(s):</label><br>
         {{ book_form.authors}}
-        <button type="submit" class="btn" name="book_button">Add Book</button>       
-        {% else %}
+        <button type="submit" class="btn" name="book_button">Add Book</button>
         <p style="text-align: center;">You must be logged in to add a book.</p>
-        {% endif %}
         <button type="button" id="AddBookClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
@@ -83,15 +80,11 @@
   <div class="modal-content">
     <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Add Author</legend>
-        {% if user.is_authenticated %}
         <label for="{{ author_form.first_name.id_for_label }}">First Name:</label>
         {{ author_form.first_name }}
         <label for="{{ author_form.last_name.id_for_label }}">Last Name:</label>
         {{ author_form.last_name }}
         <button type="submit" class="btn" name="author_button">Add Author</button>
-        {% else %}
-        <p style="text-align: center;">You must be logged in to add an author.</p>
-        {% endif %}
         <button type="button" id="AddAuthorClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
