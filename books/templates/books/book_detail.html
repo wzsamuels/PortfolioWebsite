@@ -12,8 +12,8 @@
       <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a>
       {% endfor %}
     </p>
-    <!-- <p>Published:</p>  
-    <p>Summary:</p> -->
+    <p>Published: {{ object.published }}</p>
+    <p>Summary: {{ object.summary }}</p>
   </div> 
 </div>
 
@@ -27,7 +27,6 @@
         <label for="{{ book_update_form.authors.id_for_lab }}">Author(s):</label><br>
         {{ book_update_form.authors}}
         <button type="submit" class="btn" name="update_book_button">Update Book</button>
-        <p style="text-align: center;">You must be logged in to add a book.</p>
         <button type="button" id="UpdateBookClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>

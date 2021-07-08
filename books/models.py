@@ -16,9 +16,7 @@ class Collection(models.Model):
 class Author(models.Model):
     last_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    # slug = models.SlugField(null=False, unique=True)
     slug = models.SlugField(blank=True);
-    #collection = models.ForeignKey('Collection', on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ["last_name"]
@@ -38,9 +36,10 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     authors = models.ManyToManyField(Author, related_name='books')
-    published = models.IntegerField(default=0)
-    summary = models.TextField()
+    published = models.IntegerField(default=1900)
+    summary = models.TextField(default="None")
     slug = models.SlugField(null=False, unique=True)
+    #collection = models.ForeignKey('Collection', on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ['title']
@@ -54,13 +53,6 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('books:book_detail', kwargs={'slug': self.slug})
-
-    """
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
-    """
 
     def save(self, **kwargs):
         slug_str = "%s" % self.title

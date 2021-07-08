@@ -5,18 +5,15 @@
       display:inline-block;
 }
 
-.book-form input[type=text] {
+.book-form input[type=text], .book-form select, .book-form textarea, .book-form input[type=number] {
     width:100%;
-}
-
-.book-form input[type=text], .book-form select {
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
 }
 
-.book-form input[type=text]:focus {
+.book-form input[type=text]:focus, .book-form input[type=number]:focus, .book-form textarea:focus {
     background-color: #ddd;
     outline: none;
 }

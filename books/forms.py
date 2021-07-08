@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, CharField, Textarea, TextInput
 from django import forms
 from books.models import Author, Book
 
@@ -10,14 +10,14 @@ class AuthorForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AuthorForm, self).__init__(*args, **kwargs)
-        self.fields['last_name'].widget.attrs.update({'class' : 'bookFormInput'})
-        self.fields['first_name'].widget.attrs.update({'class' : 'bookFormInput'})
+        #self.fields['last_name'].widget.attrs.update({'class' : 'bookFormInput'})
+        #self.fields['first_name'].widget.attrs.update({'class' : 'bookFormInput'})
 
 
 class BookForm(ModelForm):
     class Meta:
         model = Book
-        fields = ['title', 'authors'] #'__all__'
+        fields = ['title', 'authors', 'published', 'summary'] #'__all__'
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)

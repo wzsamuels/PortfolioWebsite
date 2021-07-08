@@ -63,13 +63,16 @@
   <div class="modal-content">
     <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Add Book</legend>
-        <label for="{{ book_form.title.id_for_label }}">Title:</label>
-        {{ book_form.title }}
-        <label for="{{ book_form.authors.id_for_lab }}">Author(s):</label><br>
-        {{ book_form.authors}}
-        <button type="submit" class="btn" name="book_button">Add Book</button>
-        <p style="text-align: center;">You must be logged in to add a book.</p>
-        <button type="button" id="AddBookClose" class="btn cancel">Cancel</button>
+          <label for="{{ book_form.title.id_for_label }}">Title:</label>
+          {{ book_form.title }}
+          <label for="{{ book_form.published.id_for_label }}">Published:</label>
+          {{ book_form.published }}
+          <label for="{{ book_form.authors.id_for_label }}">Author(s):</label><br>
+          {{ book_form.authors}}
+          <label for="{{ book_form.summary.id_for_label }}">Summary:</label>
+          {{ book_form.summary }}
+          <button type="submit" class="btn" name="book_button">Add Book</button>
+          <button type="button" id="AddBookClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>

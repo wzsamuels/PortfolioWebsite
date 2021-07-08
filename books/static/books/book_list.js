@@ -35,7 +35,7 @@ $(function() {
         $('#BookUpdate').hide();
     });
 
-    // Functions for showing and hiding Update Book modal window.
+    // Functions for showing and hiding Delete Book modal window.
     $('#DeleteBookOpen').click(function(){
         $('#BookDelete').show();
     });
