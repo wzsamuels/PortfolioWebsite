@@ -1,4 +1,6 @@
 $(function() {
+
+    // Functions for showing and hiding Add Book modal window.
     $('#AddBookOpen').click(function(){
         $('#BookForm').show();
     });
@@ -7,6 +9,7 @@ $(function() {
         $('#BookForm').hide();
     });
 
+    // Functions for showing and hiding Add Author modal window.
     $('#AddAuthorOpen').click(function(){
         $('#AuthorForm').show();
     });
@@ -14,7 +17,8 @@ $(function() {
     $('#AddAuthorClose').click(function(){
         $('#AuthorForm').hide();
     });
-    
+
+    // Functions for showing and hiding Update Author modal window.
     $('#UpdateAuthorOpen').click(function(){
         $('#AuthorUpdate').show();
     });
@@ -23,11 +27,20 @@ $(function() {
         $('#AuthorUpdate').hide();
     });
 
+    // Functions for showing and hiding Update Book modal window.
     $('#UpdateBookOpen').click(function(){
         $('#BookUpdate').show();
     });
     $('#UpdateBookClose').click(function(){
         $('#BookUpdate').hide();
+    });
+
+    // Functions for showing and hiding Update Book modal window.
+    $('#DeleteBookOpen').click(function(){
+        $('#BookDelete').show();
+    });
+    $('#DeleteBookClose').click(function(){
+        $('#BookDelete').hide();
     });
 
     $('#TitleSort').click(function(){
@@ -41,7 +54,7 @@ $(function() {
     });  
 
     function bookSearch() {
-        var input, filter, ul, li, a, i, txtValue;
+        let input, filter, ul, li, a, i, txtValue;
         input = document.getElementById("BookSearchInput");
         if(input) {
             filter = input.value.toUpperCase();
@@ -83,5 +96,6 @@ $(function() {
 
     $( ".datepicker" ).datepicker();
 
+    // By default books are sorted by title, not author
     $('#SortByAuthor').hide();
 });
