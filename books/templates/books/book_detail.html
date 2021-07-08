@@ -5,7 +5,7 @@
 <h2>{{ object.title }}</h2>
 
 <div class="container">
-  <p><a href="#" id="UpdateBookOpen">Update Book Information</a></p>
+  <p><a href="#" id="UpdateBookOpen">Update Book Information</a> | <a href="#" id="DeleteBookOpen">Delete Book</a></p>
   <div class="container bg-white">
     <p>Author(s):
       {% for author in object.authors.all %}
@@ -22,16 +22,26 @@
   <div class="modal-content">
     <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Update Book</legend>
-      {% if user.is_authenticated %}
         <label for="{{ book_update_form.title.id_for_label }}">Title:</label>
         {{ book_update_form.title }}
         <label for="{{ book_update_form.authors.id_for_lab }}">Author(s):</label><br>
         {{ book_update_form.authors}}
-        <button type="submit" class="btn" name="update_book_button">Update Book</button>       
-        {% else %}
+        <button type="submit" class="btn" name="update_book_button">Update Book</button>
         <p style="text-align: center;">You must be logged in to add a book.</p>
-        {% endif %}
         <button type="button" id="UpdateBookClose" class="btn cancel">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!-- Modal form for deleting a  Book -->
+<div class="modal" id="BookDelete">
+  <div class="modal-content">
+    <form method="post" class="book-form">{% csrf_token %}
+      <fieldset><legend>Delete Book</legend>
+          <p style="text-align: center;">Are you sure you want to delete this book?</p>
+          <button type="submit" class="btn" name="delete_book_button">Delete Book</button>
+          <button type="button" id="DeleteBookClose" class="btn cancel">Cancel</button>
       </fieldset>
     </form>
   </div>

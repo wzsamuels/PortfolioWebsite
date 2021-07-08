@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
@@ -20,7 +21,6 @@ class AuthorUpdate(UpdateView):
 # separate views for each type of functionality, but it allows for the user to add Book
 # and Author objects from every web page belonging to Books.
 
-
 def book_index(request, name=None, slug=None):
     book_form_set = BookForm()
     author_form_set = AuthorForm()
@@ -32,8 +32,6 @@ def book_index(request, name=None, slug=None):
             book_form_set = BookForm(request.POST)
             if book_form_set.is_valid():
                 book_form_set.save()
-
-                # TODO: Handle duplicate book
         # Update an existing Book
         if 'update_book_button' in request.POST:
             book = Book.objects.get(slug=slug)
@@ -51,6 +49,11 @@ def book_index(request, name=None, slug=None):
             author_update_form = AuthorForm(request.POST, instance=author)
             if author_update_form.is_valid():
                 author_update_form.save()
+        # Delete Book
+        if 'delete_book_button' in request.POST:
+            deleted_book = Book.objects.get(slug=slug)
+            deleted_book.delete()
+            return HttpResponseRedirect("/books/")
 
     # context = super().get_context_data(**kwargs)
     context = {"author_form": author_form_set, "book_form": book_form_set}
@@ -67,9 +70,9 @@ def book_index(request, name=None, slug=None):
             book = Book.objects.get(slug=slug)
             context["book_update_form"] = BookForm(instance=book)
             context["object"] = book
-            # context["form"] = BookForm(initial={'title' : book.title, 'authors' : Author.objects.filter(books__title=book.title) })
             return render(request, 'books/book_detail.html', context)
-    # Otherwise its the page that lists all Books and Authors
+
+    # Otherwise its the index page that lists all Books and Authors
     else:
         context["book_list"] = Book.objects.all()
         context["author_list"] = Author.objects.all()
