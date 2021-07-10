@@ -1,8 +1,15 @@
 /** Book App Styles **/
+
+/* Book Modal Window */
+
 .book-form {    
     padding: 10px;
     background-color: white;
       display:inline-block;
+}
+
+.book-form select {
+    min-width:200px;
 }
 
 .book-form input[type=text], .book-form select, .book-form textarea, .book-form input[type=number] {
@@ -44,8 +51,8 @@
     opacity: 1;
 }
 
-.book-form select {
-    min-width:200px;
+.book-form input[type=text].book-update-title {
+    background-color: #aaaaaa;
 }
 
 /* Ordered lists */    
@@ -111,4 +118,43 @@ ul.book-bottom-nav li button {
 @media screen and (max-width: 600px) {    
     ul.book-bottom-nav {margin-left:-50px; left:20%;}
     ul.book-bottom-nav li {width:40%}
+}
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}*/
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

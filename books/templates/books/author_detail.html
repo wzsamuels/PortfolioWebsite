@@ -5,7 +5,10 @@
 <h2>{{ object }} </h2>
 
 <div class="container">
-  <p><a href="#" id="UpdateAuthorOpen">Update Author Information</a></p>
+  <p>
+      <a href="/books/">Book Index</a> |
+      <a href="#" id="UpdateAuthorOpen">Update Author Information</a>
+  </p>
   <div class="container bg-white">
     <p>Book(s) Written:</p>
     {% for book in object.books.all %}

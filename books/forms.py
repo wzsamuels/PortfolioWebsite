@@ -18,6 +18,9 @@ class BookForm(ModelForm):
     class Meta:
         model = Book
         fields = ['title', 'authors', 'published', 'summary'] #'__all__'
+        help_texts = {
+            'title': "Test",
+        }
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
@@ -26,8 +29,10 @@ class BookForm(ModelForm):
         instance = getattr(self, 'instance', None)
         if instance and instance.pk:
             self.fields['title'].widget.attrs['readonly'] = True
+            self.fields['title'].help_text = "A book's title cannot be changed."
+            self.fields['title'].widget.attrs.update({'class': 'book-update-title'})
         #self.fields['authors'].widget.attrs.update({'class' : 'selector'})
-        #self.fields['title'].widget.attrs.update({'class' : 'bookFormInput'})
+
 #class BookForm(forms.Form):
  #   title = forms.CharField(label='title', max_length=100)
   #  authors = forms.ModelMultipleChoiceField(queryset=Author.objects.all())
