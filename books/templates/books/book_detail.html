@@ -23,9 +23,13 @@
     <form method="post" class="book-form">{% csrf_token %}
       <fieldset><legend>Update Book</legend>
         <label for="{{ book_update_form.title.id_for_label }}">Title:</label>
-        {{ book_update_form.title }}
-        <label for="{{ book_update_form.authors.id_for_lab }}">Author(s):</label><br>
-        {{ book_update_form.authors}}
+          {{ book_update_form.title }}
+          <label for="{{ book_update_form.published.id_for_label }}">Published:</label>
+          {{ book_update_form.published }}
+          <label for="{{ book_update_form.authors.id_for_label }}">Author(s):</label><br>
+          {{ book_update_form.authors}}
+          <label for="{{ book_update_form.summary.id_for_label }}">Summary:</label>
+          {{ book_update_form.summary }}
         <button type="submit" class="btn" name="update_book_button">Update Book</button>
         <button type="button" id="UpdateBookClose" class="btn cancel">Cancel</button>
       </fieldset>

@@ -21,8 +21,13 @@ class BookForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
-        self.fields['authors'].widget.attrs.update({'class' : 'selector'})
-        self.fields['title'].widget.attrs.update({'class' : 'bookFormInput'})
+
+        # Disable editing the title when updating book info
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            self.fields['title'].widget.attrs['readonly'] = True
+        #self.fields['authors'].widget.attrs.update({'class' : 'selector'})
+        #self.fields['title'].widget.attrs.update({'class' : 'bookFormInput'})
 #class BookForm(forms.Form):
  #   title = forms.CharField(label='title', max_length=100)
   #  authors = forms.ModelMultipleChoiceField(queryset=Author.objects.all())

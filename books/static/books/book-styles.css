@@ -13,6 +13,10 @@
     background: #f1f1f1;
 }
 
+.book-form textarea {
+    height: 6em;
+}
+
 .book-form input[type=text]:focus, .book-form input[type=number]:focus, .book-form textarea:focus {
     background-color: #ddd;
     outline: none;
@@ -40,8 +44,7 @@
     opacity: 1;
 }
 
-.book-form .selector {
-    width:100%;
+.book-form select {
     min-width:200px;
 }
 
