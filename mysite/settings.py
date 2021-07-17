@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'books.apps.BooksConfig',
     'home.apps.HomeConfig',
     'budget.apps.BudgetConfig',
+    'react.apps.ReactConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +130,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/django-project/static'
 
 STATICFILES_DIRS = [
+    '/home/ubuntu/django-project/webpack/',
     '/home/ubuntu/django-project/css/',
 ]       
 
@@ -135,5 +138,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
 )
+
+REST_FRAMEWORK = {
+  'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
 
 #LOGIN_REDIRECT_URL = '/books/'
