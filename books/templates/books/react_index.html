@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ block.super }} - Book Collection{% endblock %}
+
+{% block header %}{% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}'s Book Collection{% endblock %}
+
+{% block content %}
+  <div id="js-framework-home"></div>
+  <script src="{% static 'js-bundle.js' %}"></script>
+{% endblock content %}

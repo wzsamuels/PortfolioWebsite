@@ -1,7 +1,42 @@
-from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.views.generic import TemplateView
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from books.forms import BookForm, AuthorForm
-from books.models import Author, Book
+from books.models import Author, Book, Collection
+from rest_framework import serializers, viewsets
+from books.serializers import BookSerializer
+
+
+@api_view(['GET'])
+def book_collection(request):
+    if request.method == 'GET':
+        books = Book.objects.all()
+        serializer = BookSerializer(books, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def book_element(request, pk):
+    try:
+        post = Book.objects.get(pk=pk)
+    except Book.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = BookSerializer(post)
+        return Response(serializer.data)
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    serializer_class = BookSerializer
+    queryset = Book.objects.all()
+
+
+class BookTemplateView(TemplateView):
+    template_name = "books/react_index.html"
 
 
 # The one view that handles everything for the Books app. More complicated than having
@@ -12,6 +47,11 @@ from books.models import Author, Book
 def book_index(request, name=None, slug=None):
     book_form_set = BookForm()
     author_form_set = AuthorForm()
+
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = User.objects.get(username="Guest")
 
     # Handle form submissions
     if request.method == 'POST':

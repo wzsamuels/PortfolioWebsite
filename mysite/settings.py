@@ -30,10 +30,10 @@ ALLOWED_HOSTS = ['wzsamuels.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
     'books.apps.BooksConfig',
     'home.apps.HomeConfig',
     'budget.apps.BudgetConfig',
-    'react.apps.ReactConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

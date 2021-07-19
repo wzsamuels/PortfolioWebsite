@@ -1,9 +1,12 @@
 const path = require('path');
 
 module.exports = {
-    entry: './assets/index.js',
+    entry: {
+        index: './assets/index.js',
+        blog: './assets/blog/index.js',
+    },
     output: {
-        filename: 'js-bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './webpack'),
     },
     module: {

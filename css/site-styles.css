@@ -19,12 +19,12 @@ td {
 p {
     padding:0 16px;
 }
-
+/*
 h1 {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-}
+}*/
 
 h2 {
     padding-top: 20px;
@@ -138,11 +138,10 @@ input[type=submit] {
     /*float: right;*/
 }
 
+
 .container {    
     padding: 15px 15px;
 }
-
-
 
 /* The Modal (background) */
 .modal {

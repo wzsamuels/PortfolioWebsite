@@ -3,6 +3,7 @@ import re
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class Collection(models.Model):
@@ -12,11 +13,14 @@ class Collection(models.Model):
         primary_key=True,
     )
 
+    def __str__(self):
+        return self.user.__str__()
+
 
 class Author(models.Model):
     last_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
-    slug = models.SlugField(blank=True);
+    slug = models.SlugField(blank=True)
 
     class Meta:
         ordering = ["last_name"]
@@ -38,8 +42,8 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author, related_name='books')
     published = models.IntegerField(default=1900)
     summary = models.TextField(default="None")
-    slug = models.SlugField(null=False, unique=True)
-    #collection = models.ForeignKey('Collection', on_delete=models.CASCADE, null=True)
+    slug = models.SlugField(null=False, unique=True, blank=True)
+    collection = models.ForeignKey('collection', on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ['title']

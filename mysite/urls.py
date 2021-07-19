@@ -19,40 +19,21 @@ from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
-
 # Serializers define the API representation.
 from rest_framework.documentation import include_docs_urls
-
 from mysite import settings
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
-    #path('accounts/login.html', auth_views.LoginView.as_view()),
     path('accounts/profile/', auth_views.LoginView.as_view()),
-    #path('accounts/login.html', auth_views.LoginView.as_view(redirect_authenticated_user='')),
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
     path('books/', include('books.urls')),
     path('budget/', include('budget.urls')),
-    path('react/', include('react.urls')),
     path('', include('home.urls')),
-    path('router/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-path('docs/', include_docs_urls(title='My API service'), name='api-docs'),
+    path('docs/', include_docs_urls(title='My API service'), name='api-docs'),
 ]
 
 if settings.DEBUG:
