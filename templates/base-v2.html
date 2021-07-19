@@ -5,7 +5,7 @@
 <head>
   <!-- meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,24 +15,8 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous">
   </script>
-    <!-- JQuery UI CSS for datepicker -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- Site Wide CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static "site-styles.css" %}">
-    <!-- Budget App CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static "budget/budget-styles.css" %}">
-    <!-- Book App CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static "books/book-styles.css" %}">
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- Home Page JS -->
-    <script src="{% static "home/home.js" %}"></script>
-    <!-- Book App JS -->
-    <script src="{% static "books/book_list.js" %}"></script>
-    <!-- Budget App JS -->
-    <script src="{% static "budget/budget.js" %}"></script>
 
-    <title>{% block title %}Zach Samuels' Website{% endblock %}</title>
+  <title>{% block title %}Zach Samuels' Website{% endblock %}</title>
 </head>
 
 <body class="bg-light">
@@ -102,8 +86,6 @@
 <div>
     {% block footer %}{% endblock %}
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
