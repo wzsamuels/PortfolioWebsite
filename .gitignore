@@ -134,8 +134,8 @@ dmypy.json
 old/
 venv2
 #mysite/settings.py
-books/migrations
-budget/migrations
+#books/migrations
+#budget/migrations
 
 #Static files should be collected locally
 /static/
