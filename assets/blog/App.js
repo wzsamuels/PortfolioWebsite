@@ -12,9 +12,14 @@ const BlogApplication = function(props) {
 
     if (loading) return <h1>loading...</h1>;
 
-    if (error)
-        return <pre>{JSON.stringify(error, null, 2)}</pre>;
-
+    if (error) {
+        return (
+            <>
+            <AddPostForm/>
+                <pre>{JSON.stringify(error, null, 2)}</pre>
+            </>
+        );
+    }
     return (
         <>
         <AddPostForm/>
