@@ -5,15 +5,8 @@ from . import views
 
 app_name = 'books'
 urlpatterns = [
-    #path('', views.book_index, name='index'),
-    path('', TemplateView.as_view(template_name="books/react_index.html")),
+    path('', views.book_index),
     path('<slug:slug>/', views.book_index, name='book_detail'),
-    path('authors/<slug:slug>/', views.book_index, name='author_detail'),
-    path('api/v2/books/', views.book_collection),
-    path('api/v2/books/<int:pk>', views.book_element),
+    path('api/books/', views.BookCollection),
+    path('api/books/<int:pk>', views.BookElement),
 ]
-
-router = routers.DefaultRouter()
-router.register('api/v1/books', views.BookViewSet)
-
-urlpatterns += router.urls

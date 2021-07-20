@@ -1,8 +1,8 @@
 from django.forms import ModelForm, CharField, Textarea, TextInput
 from django import forms
-from books.models import Author, Book
+from books.models import Book
 
-
+"""
 class AuthorForm(ModelForm):
     class Meta:
         model = Author
@@ -13,7 +13,7 @@ class AuthorForm(ModelForm):
         #self.fields['last_name'].widget.attrs.update({'class' : 'bookFormInput'})
         #self.fields['first_name'].widget.attrs.update({'class' : 'bookFormInput'})
 
-
+"""
 class BookForm(ModelForm):
     class Meta:
         model = Book

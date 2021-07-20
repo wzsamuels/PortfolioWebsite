@@ -1,42 +1,32 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic import TemplateView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from books.forms import BookForm, AuthorForm
-from books.models import Author, Book, Collection
-from rest_framework import serializers, viewsets
+from books.forms import BookForm
+from books.models import Book, Collection
+from rest_framework import serializers, viewsets, generics
 from books.serializers import BookSerializer
 
 
-@api_view(['GET'])
-def book_collection(request):
-    if request.method == 'GET':
-        books = Book.objects.all()
-        serializer = BookSerializer(books, many=True)
-        return Response(serializer.data)
+def home(request):
+    tmpl_vars = {'form': BookForm()}
+    return render(request, 'books/index.html', tmpl_vars)
 
 
-@api_view(['GET'])
-def book_element(request, pk):
-    try:
-        post = Book.objects.get(pk=pk)
-    except Book.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == 'GET':
-        serializer = BookSerializer(post)
-        return Response(serializer.data)
-
-
-class BookViewSet(viewsets.ModelViewSet):
-    serializer_class = BookSerializer
+@method_decorator(ensure_csrf_cookie, name='dispatch')
+class BookCollection(generics.ListCreateAPIView):
     queryset = Book.objects.all()
+    serializer_class = BookSerializer
 
 
-class BookTemplateView(TemplateView):
-    template_name = "books/react_index.html"
+@method_decorator(ensure_csrf_cookie, name='dispatch')
+class BookElement(generics.RetrieveDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
 
 
 # The one view that handles everything for the Books app. More complicated than having
@@ -46,7 +36,6 @@ class BookTemplateView(TemplateView):
 
 def book_index(request, name=None, slug=None):
     book_form_set = BookForm()
-    author_form_set = AuthorForm()
 
     if request.user.is_authenticated:
         user = request.user
@@ -66,41 +55,32 @@ def book_index(request, name=None, slug=None):
             book_update_form = BookForm(request.POST, instance=book)
             if book_update_form.is_valid():
                 book_update_form.save()
-        # Add an Author
-        if 'author_button' in request.POST:
-            author_form_set = AuthorForm(request.POST)
-            if author_form_set.is_valid():
-                author_form_set.save()
-        # Update an existing Author
-        if 'author_update_button' in request.POST:
-            author = Author.objects.get(slug=slug)
-            author_update_form = AuthorForm(request.POST, instance=author)
-            if author_update_form.is_valid():
-                author_update_form.save()
+
         # Delete Book
         if 'delete_book_button' in request.POST:
             deleted_book = Book.objects.get(slug=slug)
             deleted_book.delete()
             return HttpResponseRedirect("/books/")
 
-    context = {"author_form": author_form_set, "book_form": book_form_set}
+    context = {"book_form": book_form_set}
 
     # If the url has a slug value, it's either a detail page for an author or book
     if slug:
+        """
         if request.path_info.startswith('/books/authors/'):
             author = Author.objects.get(slug=slug)
             context["author_update_form"] = AuthorForm(instance=author)
             context["object"] = author
             return render(request, 'books/author_detail.html', context)
-        else:
-            context["test"] = request.path_info
-            book = Book.objects.get(slug=slug)
-            context["book_update_form"] = BookForm(instance=book)
-            context["object"] = book
-            return render(request, 'books/book_detail.html', context)
+        """
+
+        context["test"] = request.path_info
+        book = Book.objects.get(slug=slug)
+        context["book_update_form"] = BookForm(instance=book)
+        context["object"] = book
+        return render(request, 'books/book_detail.html', context)
 
     # Otherwise its the index page that lists all Books and Authors
     else:
         context["book_list"] = Book.objects.all()
-        context["author_list"] = Author.objects.all()
         return render(request, 'books/index.html', context)

@@ -16,7 +16,7 @@ class Collection(models.Model):
     def __str__(self):
         return self.user.__str__()
 
-
+"""
 class Author(models.Model):
     last_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
@@ -35,7 +35,7 @@ class Author(models.Model):
         if not self.slug:
             self.slug = slugify(self.last_name + self.first_name)
         return super().save(*args, **kwargs)
-
+"""
 
 class Book(models.Model):
     title = models.CharField(max_length=100)

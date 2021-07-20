@@ -10,10 +10,7 @@
       <a href="#" id="UpdateBookOpen">Update Book Information</a> |
       <a href="#" id="DeleteBookOpen">Delete Book</a></p>
   <div class="container bg-white">
-    <p>Author(s):
-      {% for author in object.authors.all %}
-      <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a>
-      {% endfor %}
+    <p>Author(s): {{ object.authors }}
     </p>
     <p>Published: {{ object.published }}</p>
     <p>Summary: {{ object.summary }}</p>
