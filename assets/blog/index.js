@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from "react-dom";
-import BlogApplication from "./App";
-import AddPostForm from "./AddPostForm"
+import React, {createContext} from 'react';
+import {render} from "react-dom";
+import App from "./App";
+import PostProvider from "./PostProvider";
 
-ReactDOM.render(
-  // Our main React application component, which we've imported from another file
-
-  <BlogApplication />,
-  // Gets rendered to the <div> we defined in our Django template using the shared id
+render(
+  <PostProvider>
+    <App />
+  </PostProvider>,
   document.getElementById('js-home')
 );
 
