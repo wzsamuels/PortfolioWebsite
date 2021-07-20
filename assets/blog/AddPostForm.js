@@ -36,6 +36,7 @@ export default function AddPostForm() {
         };
 
     return (
+        <div className="container">
         <div className="container bg-white rounded shadow p-3 mb-5 bg-body rounded">
             <form method="POST" id="post-form" onSubmit={submit}>
                 <CSRFToken />
@@ -51,6 +52,7 @@ export default function AddPostForm() {
                  </div>
                  <button type="submit" className="btn btn-primary">Submit</button>
              </form>
+        </div>
         </div>
   );
 }
