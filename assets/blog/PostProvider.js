@@ -12,18 +12,21 @@ export default function PostProvider({ children }) {
     error
   } = useFetch('api/posts/');
 
+  // Update the post data when it changes
   useEffect(() => {
     setPosts(data);
   },[data]);
 
-
-  const addPost = (title, text, author) =>
+  // Add a new post to data held in memory (database is updated with fetch)
+  const addPost = (id, title, text, author, created) =>
     setPosts([
       ...posts,
       {
+        id,
         title,
         text,
         author,
+        created,
       }
     ]);
 
