@@ -4,7 +4,7 @@ import CSRFToken from "../lib/csrftoken";
 import {useFetch} from "./usefetch";
 import getCookie from "../lib/getcookie";
 
-export default function AddPostForm() {
+export default function AddPostForm({onCancel}) {
     const [titleProps, resetTitle] = useInput("");
     const [textProps, resetText] = useInput("");
 
@@ -36,8 +36,7 @@ export default function AddPostForm() {
         };
 
     return (
-        <div className="container">
-        <div className="container bg-white rounded shadow p-3 mb-5 bg-body rounded">
+        <div className="container box rounded shadow p-3 mb-5 rounded">
             <form method="POST" id="post-form" onSubmit={submit}>
                 <CSRFToken />
                 <div className="mb-3">
@@ -47,12 +46,12 @@ export default function AddPostForm() {
                 </div>
                  <div className="mb-3">
                     <label className="form-label">Text</label>
-                    <textarea {...textProps} cols="40" rows="10" id="post-text" required
-                        placeholder="Say something..." className="form-control" style={{height: "6em"}}/>
+                    <textarea {...textProps} id="post-text" required
+                        placeholder="Say something..." />
                  </div>
-                 <button type="submit" className="btn btn-primary">Submit</button>
+                 <button type="submit" className="button-green">Submit</button>
+                <button className="button-green m-3" onClick={onCancel}>Cancel</button>
              </form>
-        </div>
         </div>
   );
 }

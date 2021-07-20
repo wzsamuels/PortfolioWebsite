@@ -4,6 +4,9 @@ import {useFetch} from "./usefetch";
 import AddPostForm from "./AddPostForm"
 
 const BlogApplication = function(props) {
+    const [isFormVisible, setFormVisible] = useState(false);
+
+    // Fetch the posts via the API
     const {
     loading,
     data,
@@ -22,7 +25,14 @@ const BlogApplication = function(props) {
     }
     return (
         <>
-        <AddPostForm/>
+            { isFormVisible
+                ? (
+                    <>
+                        <AddPostForm onCancel={() => setFormVisible(false)}/>
+                    </>
+                )
+                : <button className="button-green mb-5" onClick={() => setFormVisible(!isFormVisible)}>Create Post</button>
+            }
         <PostList posts={data}  />
         </>
     );
@@ -31,34 +41,25 @@ const BlogApplication = function(props) {
 const PostList = function({posts = []}) {
 
     return (
-        <div className="container">
+        <>
             {posts.reverse().map((post, i) => (
                 <PostElement key={post.id} {...post} />
             ))}
-        </div>
+        </>
     );
 }
 
 const PostElement = function(props) {
 
-    const [isVisible, setIsVisible] = useState([]);
+    const [isVisible, setIsVisible] = useState(true);
     return (
         <>
-            <div className="container bg-white rounded shadow p-3 mb-5 bg-body rounded">
-                <div className="container">
-                    <div className="container">
+            <div className="container box p-3 mb-5 rounded">
                         <h2>{props.title}</h2>
-                    </div>
-                    <div className="container">
                         <h4>by {props.author}</h4>
-                    </div>
                 { isVisible && <PostBody {...props}/> }
-                </div>
-                <br/>
-                <div className="container">
-                    <button className="btn btn-dark" onClick={() => setIsVisible(!isVisible)}>
-                        {isVisible ? "Hide" : "Show"}</button>
-                </div>
+                <button className="button-purple mt-3" onClick={() => setIsVisible(!isVisible)}>
+                    {isVisible ? "Hide" : "Show"}</button>
             </div>
         </>
     );
@@ -68,11 +69,11 @@ const PostBody = function({  title = "None", author = "None",
 
     return (
         <>
-            <div className="container bg-white border rounded p-3 mb-5 bg-body rounded">
+            <div className="content-text">
                 <p>{text}</p>
             </div>
-            <div className="container">
-                <p>{created}</p>
+            <div className="mt-2">
+                {created}
             </div>
         </>
     );

@@ -1,3 +1,9 @@
+
+table {
+    border-spacing: 10px;
+}
+
+
 .table-number {
     min:0;
     max:100000000;

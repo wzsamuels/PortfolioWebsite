@@ -4,26 +4,14 @@
 
 {% block title %}{{ block.super }} - Blog{% endblock %}
 
-{% block header %}
-  <div class="p-5 text-center bg-light">
-    <h1 class="mb-3">
-      Blog App
-    </h1>
-  </div>
-{% endblock header %}
+{% block header %}Blog App{% endblock header %}
 
 {% block content %}
-  <div class="container">
-    <div class="container">
-
-    </div>
     <div class="container">
       <h2>Hey, <span id="user">{% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}</span>,
       want to write something?
       </h2>
-      <br/>
     </div>
-  </div>
   <br>
   <div class="container" id="js-home"></div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
