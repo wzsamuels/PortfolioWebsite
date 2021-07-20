@@ -39,7 +39,8 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    authors = models.ManyToManyField(Author, related_name='books')
+    #authors = models.ManyToManyField(Author, related_name='books')
+    authors = models.CharField(max_length=100)
     published = models.IntegerField(default=1900)
     summary = models.TextField(default="None")
     slug = models.SlugField(null=False, unique=True, blank=True)

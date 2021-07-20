@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import BlogApplication from "./App";
+import AddPostForm from "./AddPostForm"
 
 ReactDOM.render(
   // Our main React application component, which we've imported from another file
+
   <BlogApplication />,
   // Gets rendered to the <div> we defined in our Django template using the shared id
   document.getElementById('js-home')
@@ -30,9 +32,6 @@ $(function() {
                 $('#post-text').val(''); // remove the value from the input
 
                 console.log(json); // log the returned json to the console
-                $("#talk").prepend("<li id='post-"+json.id+"'><strong>"+json.text+"</strong> - <em> "+
-                    json.author+"</em> - <span> "+dateString+
-                    "</span> - <a id='delete-post-"+json.id+"'>delete me</a></li>");
                 console.log("success"); // another sanity check
             },
             // handle a non-successful response

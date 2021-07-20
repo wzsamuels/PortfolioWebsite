@@ -1,65 +1,76 @@
 import React, { useState } from 'react';
 import {useEffect} from "react";
+import {useFetch} from "./usefetch";
+import AddPostForm from "./AddPostForm"
 
 const BlogApplication = function(props) {
-    // State variable to show whether we're loading data or not.
-    // Defaults to "true" to show a loading screen until we get our data from the API
-     const [isLoading, setIsLoading] = useState(true);
-    // State variable where we'll save our list of employees
-    const [posts, setPosts] = useState([]);
+    const {
+    loading,
+    data,
+    error
+  } = useFetch('api/posts/');
 
-    useEffect(() => {
-        $.ajax({
-            url: 'api/posts/',
-            dataType: 'json',
-            cache: false,
-            success: function (data) {
-                setPosts(data);
-                setIsLoading(false);
-            }.bind(this),
-            error : function(xhr,errmsg,err) {
-                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-            }
-        });
-    },[],);
+    if (loading) return <h1>loading...</h1>;
 
-  // Show a loading state if we haven't gotten data back yet
-  if (isLoading) {
-    return <p>Posts are loading...</p>;
-  }
-  // Show an "empty" state if we have no employees
-  if (posts.length === 0) {
-    return <p>No posts found!</p>;
-  } else {
-    return <PostList posts={posts} />;
-  }
+    if (error)
+        return <pre>{JSON.stringify(error, null, 2)}</pre>;
+
+    return (
+        <>
+        <AddPostForm/>
+        <PostList posts={data}  />
+        </>
+    );
 }
 
-const PostList = function(props) {
+const PostList = function({posts = []}) {
+
     return (
-        <div className="container" id="talk">
-            {
-                props.posts.map((post, index) => {
-                    return (
-                        <div className="container bg-white rounded shadow p-3 mb-5 bg-body rounded">
-                            <div className="container">
-                                <h2>{post.title}</h2>
-                            </div>
-                            <div className="container">
-                                <h4>by {post.author}</h4>
-                            </div>
-                            <div className="container">
-                                <p>{post.text}</p>
-                            </div>
-                            <div className="container">
-                                <p>{post.created}</p>
-                            </div>
-                        </div>
-                    );
-                })
-            }
+        <div className="container">
+            {posts.reverse().map((post, i) => (
+                <PostElement key={post.id} {...post} />
+            ))}
         </div>
     );
-};
+}
+
+const PostElement = function(props) {
+
+    const [isVisible, setIsVisible] = useState([]);
+    return (
+        <>
+            <div className="container bg-white rounded shadow p-3 mb-5 bg-body rounded">
+                <div className="container">
+                    <div className="container">
+                        <h2>{props.title}</h2>
+                    </div>
+                    <div className="container">
+                        <h4>by {props.author}</h4>
+                    </div>
+                { isVisible && <PostBody {...props}/> }
+                </div>
+                <br/>
+                <div className="container">
+                    <button className="btn btn-dark" onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? "Hide" : "Show"}</button>
+                </div>
+            </div>
+        </>
+    );
+}
+const PostBody = function({  title = "None", author = "None",
+                                 text = "Empty", created = new Date() }) {
+
+    return (
+        <>
+            <div className="container bg-white border rounded p-3 mb-5 bg-body rounded">
+                <p>{text}</p>
+            </div>
+            <div className="container">
+                <p>{created}</p>
+            </div>
+        </>
+    );
+}
 
 export default BlogApplication;

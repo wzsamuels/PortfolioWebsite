@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        index: './assets/index.js',
+        //index: './assets/books/index.js',
         blog: './assets/blog/index.js',
     },
     output: {
@@ -10,13 +10,14 @@ module.exports = {
         path: path.resolve(__dirname, './webpack'),
     },
     module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/preset-env", "@babel/preset-react"] }
-      },
-    ]
-  },
+        rules: [
+          {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            loader: "babel-loader",
+            options: { presets: ["@babel/preset-env", "@babel/preset-react"] }
+          },
+        ]
+    },
+    //devtool: "#source-map"
 };
