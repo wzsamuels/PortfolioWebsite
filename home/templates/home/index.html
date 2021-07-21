@@ -1,20 +1,14 @@
-{% extends "base.html" %}
+{% extends "base-v2.html" %}
 
 {% load static %}
 
-{% block header %}
-  <div class="p-5 text-center bg-light">
-    <h1 id="user" class="mb-3">
-      Zach Samuels' Portfolio Website
-    </h1>
-  </div>
-{% endblock %}
+{% block header %}Zach Samuels' Portfolio Website{% endblock header %}
 
 {% block content %}
 
 <div class="container">
     <div class="grid-container">
-        <div class="item1 container bg-white rounded shadow-sm">
+        <div class="item1 container rounded shadow-sm">
             <p>
                 This site contains some of the programming projects I've developed. Select one from the grid below for
                 more information.
@@ -29,7 +23,7 @@
 
         <!-- Project Grid -->
 
-        <div class="container bg-white rounded shadow-sm">
+        <div class="box">
             <figure>
                 <a href="#" id="FilmterGridItem">
                   <!--<div class="grid-text">Filmter</div>-->
@@ -40,7 +34,7 @@
                 </a>
             </figure>
         </div>
-        <div class="container bg-white rounded shadow-sm" style="position: relative">
+        <div class="box" style="position: relative">
             <figure>
                 <a href="#" id="DataStructuresGridItem">
                   <!--<div class="grid-text">Data Structures</div>-->
@@ -51,7 +45,7 @@
                 </a>
             </figure>
         </div>
-         <div class="container bg-white rounded shadow-sm">
+         <div class="box">
             <figure>
                 <a href="#" id="MudGridItem">
                   <!--<div class="grid-text">YAM</div>-->
@@ -62,7 +56,7 @@
                 </a>
             </figure>
         </div>
-        <div class="bg-white rounded shadow-sm" style="overflow:hidden;">
+        <div class="box" style="overflow:hidden;">
             <figure>
                 <a href="#" id="BookGridItem">
                   <!--<div class="grid-text">Book Collection</div>-->
@@ -73,7 +67,7 @@
                 </a>
             </figure>
         </div>
-        <div class="container bg-white rounded shadow-sm">
+        <div class="box">
             <figure>
                 <a href="#" id="TicketGridItem">
                   <!--<div class="grid-text">Ticket Manager</div>-->
@@ -84,7 +78,7 @@
                 </a>
             </figure>
         </div>
-        <div class="container bg-white rounded shadow-sm">
+        <div class="box">
             <figure>
                 <a href="#" id="RescueGridItem">
                   <!--<div class="grid-text">Pack Doption</div>-->
@@ -262,119 +256,115 @@
 </div>
 
 <div class="pop-up" id="FilmterPopUp">
-    <div class="pop-up-header">
-        Filmter
-        <a class="close" href="#" id="FilmterPopUpClose">&times; </a>
-    </div>
-    <div class="pop-up-content-large">
-        <div class="container bg-white rounded shadow-sm">
-            <p style="margin: auto;">
-                Filmter sorts and filters a list of movies taken from IMDB. This project provides a practical implementation
-                of the data structures and sorting algorithms from the DataStructures project.
-            </p>
-            <p>Github repository available <a href="https://github.com/wzsamuels/Filmter">here</a>.</p>
-            <p style="display:inline;">Technical Concepts:</p>
-            <ul>
-                <li>Written in C# with .NET</li>
-                <li>GUI written in XAML with Windows Presentation Foundation</li>
-                <li>Compares the efficiency of the various sorting algorithms
-                and data structures</li>
-            </ul>
-            <p style="text-align: center">Screen Shots</p>
-            <div class="slideshow-container">
-                <div class="slideshow-slide-filmter" style="display: block">
-                    <div class="slideshow-number-text">1 / 4</div>
-                    <img style="text-align: center" class="wide-screenshot" src="{% static 'home/filmter1.png' %}" alt="Filmter Screenshot">
-                    <div style="text-align: center;">Loading a very large movie file</div>
-                </div>
-                <div class="slideshow-slide-filmter">
-                    <div class="slideshow-number-text">2 / 4</div>
-                    <img class="wide-screenshot" src="{% static 'home/filmter2.png' %}" alt="Filmter Screenshot">
-                    <div style="text-align: center;">Movies from 2001 with a run time of 95 minutes</div>
-                </div>
-                <div class="slideshow-slide-filmter">
-                    <div class="slideshow-number-text">3 / 4</div>
-                    <img class="wide-screenshot" src="{% static 'home/filmter3.png' %}" alt="Filmter Screenshot">
-                    <div style="text-align: center;">A unordered linked list map...</div>
-                </div>
-                <div class="slideshow-slide-filmter">
-                    <div class="slideshow-number-text">4 / 4</div>
-                    <img class="wide-screenshot" src="{% static 'home/filmter4.png' %}" alt="Filmter Screenshot">
-                    <div style="text-align: center;">...is noticeably less efficient than a skip list map</div>
-                </div>
-
-                <!-- Next/previous controls -->
-                <a class="slideshow-prev" onclick="plusSlides(-1, 3)">&#10094;</a>
-                <a class="slideshow-next" onclick="plusSlides(1, 3)">&#10095;</a>
-            </div>
+  <div class="pop-up-header">
+      Filmter
+      <a class="close" href="#" id="FilmterPopUpClose">&times; </a>
+  </div>
+  <div class="pop-up-content-large">
+    <p style="margin: auto;">
+        Filmter sorts and filters a list of movies taken from IMDB. This project provides a practical implementation
+        of the data structures and sorting algorithms from the DataStructures project.
+    </p>
+    <p>Github repository available <a href="https://github.com/wzsamuels/Filmter">here</a>.</p>
+    <p style="display:inline;">Technical Concepts:</p>
+    <ul>
+        <li>Written in C# with .NET</li>
+        <li>GUI written in XAML with Windows Presentation Foundation</li>
+        <li>Compares the efficiency of the various sorting algorithms
+        and data structures</li>
+    </ul>
+    <p style="text-align: center">Screen Shots</p>
+    <div class="slideshow-container">
+        <div class="slideshow-slide-filmter" style="display: block">
+            <div class="slideshow-number-text">1 / 4</div>
+            <img style="text-align: center" class="wide-screenshot" src="{% static 'home/filmter1.png' %}" alt="Filmter Screenshot">
+            <div style="text-align: center;">Loading a very large movie file</div>
         </div>
-    </div>
+        <div class="slideshow-slide-filmter">
+            <div class="slideshow-number-text">2 / 4</div>
+            <img class="wide-screenshot" src="{% static 'home/filmter2.png' %}" alt="Filmter Screenshot">
+            <div style="text-align: center;">Movies from 2001 with a run time of 95 minutes</div>
+        </div>
+        <div class="slideshow-slide-filmter">
+            <div class="slideshow-number-text">3 / 4</div>
+            <img class="wide-screenshot" src="{% static 'home/filmter3.png' %}" alt="Filmter Screenshot">
+            <div style="text-align: center;">A unordered linked list map...</div>
+        </div>
+        <div class="slideshow-slide-filmter">
+            <div class="slideshow-number-text">4 / 4</div>
+            <img class="wide-screenshot" src="{% static 'home/filmter4.png' %}" alt="Filmter Screenshot">
+            <div style="text-align: center;">...is noticeably less efficient than a skip list map</div>
+        </div>
+
+        <!-- Next/previous controls -->
+        <a class="slideshow-prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+        <a class="slideshow-next" onclick="plusSlides(1, 3)">&#10095;</a>
+      </div>
+  </div>
 </div>
 
 <div class="pop-up" id="DataStructuresPopUp">
-    <div class="pop-up-header">
-        DataStructures
-        <a class="close" href="#" id="DataStructuresPopUpClose">&times; </a>
-    </div>
-    <div class="pop-up-content-large">
-        <div class="container bg-white rounded shadow-sm">
-            <p style="margin: auto;">
-                DataStructures is a collection of data structures and sorting algorithms that can be imported into other
-                projects as a dynamic-link library. Adapted from a java project started at NCSU, the code has been
-                completely ported to C# to comply with NCSU's academic integrity policies.
-            </p>
-            <p>Github repository available <a href="https://github.com/wzsamuels/DataStructures">here</a>.
-            <p style="display:inline;">Technical Concepts:</p>
-            <ul>
-                <li>Written in C#</li>
-                <li>Unit tests for all data structures and algorithms</li>
-                <li>Custom implementations of many data structures, including:
-                    <ul>
-                        <li>Hash Tables:
-                            <ul>
-                                <li>Linear Probing Hash Map</li>
-                                <li>Separate Chaining Hash Map</li>
-                            </ul>
-                        </li>
-                        <li>Lists:
-                            <ul>
-                                <li>Array-based List</li>
-                                <li>Positional Linked List</li>
-                                <li>Singly Linked List</li>
-                            </ul>
-                        </li>
-                        <li>Maps:
-                            <ul>
-                                <li>Search Table</li>
-                                <li>Skip List</li>
-                                <li>Unordered Array</li>
-                                <li>Unordered Linked List</li>
-                            </ul>
-                        </li>
-                        <li>Search Trees:
-                            <ul>
-                                <li>AVL Tree</li>
-                                <li>Binary Search Tree</li>
-                                <li>Red Black Tree</li>
-                                <li>Splay Tree</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>Custom implementations of the following sort algorithms:
-                    <ul>
-                        <li>Bubble Sort</li>
-                        <li>Counting Sort</li>
-                        <li>Insertion Sort</li>
-                        <li>Merge Sort</li>
-                        <li>Quick Sort</li>
-                        <li>Radix Sort</li>
-                        <li>Selection Sort</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+  <div class="pop-up-header">
+      DataStructures
+      <a class="close" href="#" id="DataStructuresPopUpClose">&times; </a>
+  </div>
+  <div class="pop-up-content-large">
+      <p style="margin: auto;">
+          DataStructures is a collection of data structures and sorting algorithms that can be imported into other
+          projects as a dynamic-link library. Adapted from a java project started at NCSU, the code has been
+          completely ported to C# to comply with NCSU's academic integrity policies.
+      </p>
+      <p>Github repository available <a href="https://github.com/wzsamuels/DataStructures">here</a>.
+      <p style="display:inline;">Technical Concepts:</p>
+      <ul>
+          <li>Written in C#</li>
+          <li>Unit tests for all data structures and algorithms</li>
+          <li>Custom implementations of many data structures, including:
+              <ul>
+                  <li>Hash Tables:
+                      <ul>
+                          <li>Linear Probing Hash Map</li>
+                          <li>Separate Chaining Hash Map</li>
+                      </ul>
+                  </li>
+                  <li>Lists:
+                      <ul>
+                          <li>Array-based List</li>
+                          <li>Positional Linked List</li>
+                          <li>Singly Linked List</li>
+                      </ul>
+                  </li>
+                  <li>Maps:
+                      <ul>
+                          <li>Search Table</li>
+                          <li>Skip List</li>
+                          <li>Unordered Array</li>
+                          <li>Unordered Linked List</li>
+                      </ul>
+                  </li>
+                  <li>Search Trees:
+                      <ul>
+                          <li>AVL Tree</li>
+                          <li>Binary Search Tree</li>
+                          <li>Red Black Tree</li>
+                          <li>Splay Tree</li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>Custom implementations of the following sort algorithms:
+              <ul>
+                  <li>Bubble Sort</li>
+                  <li>Counting Sort</li>
+                  <li>Insertion Sort</li>
+                  <li>Merge Sort</li>
+                  <li>Quick Sort</li>
+                  <li>Radix Sort</li>
+                  <li>Selection Sort</li>
+              </ul>
+          </li>
+      </ul>
+  </div>
 </div>
 
 {% endblock %}

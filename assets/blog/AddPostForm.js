@@ -69,8 +69,8 @@ export default function AddPostForm({onCancel}) {
                   <textarea {...textProps} id="post-text" required
                       placeholder="Say something..." />
                </div>
-               <button  type="submit" className="button-green">Submit</button>
-              <button className="button-green m-3" onClick={onCancel}>Cancel</button>
+               <button  type="submit" className="button-submit">Submit</button>
+              <button className="button-cancel m-3" onClick={onCancel}>Cancel</button>
            </form>
       </div>
   );

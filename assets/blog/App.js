@@ -9,7 +9,7 @@ export default function App() {
     <>
       { isFormVisible
         ? <AddPostForm onCancel={() => setFormVisible(false)}/>
-        : <button className="button-green mb-5" onClick={() => setFormVisible(!isFormVisible)}>Create Post</button>
+        : <button className="button-submit mb-5" onClick={() => setFormVisible(!isFormVisible)}>Create Post</button>
       }
       <PostList/>
     </>

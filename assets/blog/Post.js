@@ -8,7 +8,7 @@ export default function Post(props) {
                   <h2>{props.title}</h2>
                   <h4>by {props.author}</h4>
           { isVisible && <PostBody {...props}/> }
-          <button className="button-purple mt-3" onClick={() => setIsVisible(!isVisible)}>
+          <button className="button-primary mt-3" onClick={() => setIsVisible(!isVisible)}>
               {isVisible ? "Hide" : "Show"}</button>
       </div>
     </>
