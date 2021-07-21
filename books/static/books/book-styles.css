@@ -1,71 +1,16 @@
 /** Book App Styles **/
 
-/* Book Modal Window */
-
-.book-form {    
-    padding: 10px;
-    background-color: white;
-      display:inline-block;
-}
-
-.book-form select {
-    min-width:200px;
-}
-
-.book-form input[type=text], .book-form select, .book-form textarea, .book-form input[type=number] {
-    width:100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-}
-
-.book-form textarea {
-    height: 6em;
-}
-
-.book-form input[type=text]:focus, .book-form input[type=number]:focus, .book-form textarea:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-/* Set a style for the submit/login button */
-.book-form .btn {
-    background-color: DodgerBlue;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-}
-  
-/* Add a red background color to the cancel button */
-.book-form .cancel {
-    background-color: DeepSkyBlue;
-}
-    
-/* Add some hover effects to buttons */
-.book-form .btn:hover, .open-button:hover {
-    opacity: 1;
-}
-
-.book-form input[type=text].book-update-title {
-    background-color: #aaaaaa;
-}
-
-/* Ordered lists */    
+/* Ordered lists */
 ul.list {
-    list-style-type: none;
-    margin: 5px;
-    padding: 5px;
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
 }
 
 ul.list li {
-    display: block;
-    padding: 15px 15px;
-    text-decoration: none;
+  display: block;
+  padding: 15px 15px;
+  text-decoration: none;
 }
 
 .book-container {
@@ -94,7 +39,7 @@ ul.book-bottom-nav li {
     width: 20%;
     /*text-align:center;*/
 }
-
+/*
 ul.book-bottom-nav li a {
     display: block;
     background-color: DodgerBlue;
@@ -103,6 +48,7 @@ ul.book-bottom-nav li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 
 ul.book-bottom-nav li button {
     border:none;
@@ -113,7 +59,7 @@ ul.book-bottom-nav li button {
     padding: 10px 12px;
     text-decoration: none;
     width:100%
-}
+}*/
 
 @media screen and (max-width: 600px) {    
     ul.book-bottom-nav {margin-left:-50px; left:20%;}
@@ -125,36 +71,3 @@ ul.book-bottom-nav li button {
   display: inline-block;
   border-bottom: 1px dotted black;
 }*/
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}

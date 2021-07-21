@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base-v2.html" %}
 
 {% block title %}{{ block.super }} - Book Collection{% endblock %}
 
@@ -7,22 +7,22 @@
 {% block content %}
 
 <div class="container">
-  <input type="text" id="BookSearchInput" placeholder="Search for a book..." title="Type in a book title"><br>
+  <input type="text" id="BookSearchInput" placeholder="Search for a book..." title="Type in a book title">
   Search by: Title <input type="radio" id="SearchByTitle" name="SearchType" value="title" checked> Author <input type="radio" id="SearchByAuthor" name="SearchType" value="author">
 </div>
-
+<br>
 <div class="container">
-  Sort by: <a href="#" id="AuthorSort" >Author</a> | <a href="#" id="TitleSort">Title</a>
-
+  <!--Sort by: <a href="#" id="AuthorSort" >Author</a> | <a href="#" id="TitleSort">Title</a>-->
   <!-- The Book objects in the database sorted by Title. Displayed by default -->
-  <div id="SortByTitle" class="book-container bg-white rounded shadow-sm">    
+  <div id="SortByTitle" class="box">
     <ul class="list" id="bookList">
       {% for book in book_list|dictsort:"title" %}
       <li>
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
         <!-- Handle proper formatting for multiple authors -->
-        {{ book.authors }}
-        {% endfor %}
+        <span id="Authors">{{ book.authors }}</span>
+      </li>
+      {% endfor %}
     </ul>
   </div>
 </div>
@@ -32,30 +32,38 @@
 {% block footer %}
 
 <ul class="book-bottom-nav">
-  <li><button id="AddBookOpen">Add Book</button></li>
+  <li><button class="button-submit" id="AddBookOpen">Add Book</button></li>
 </ul>
 
 <!-- Popup form for adding a new Book -->
 <div class="modal" id="BookForm">
-  <div class="modal-content">
-    <form method="post" class="book-form">{% csrf_token %}
+  <div class="modal-content-form">
+    <form method="post">{% csrf_token %}
       <fieldset><legend>Add Book</legend>
+        <div class="mb-3">
           <label for="{{ book_form.title.id_for_label }}">Title:</label>
           {{ book_form.title }}
+        </div>
+        <div class="mb-3">
           <label for="{{ book_form.published.id_for_label }}">Published:</label>
           {{ book_form.published }}
-          <label for="{{ book_form.authors.id_for_label }}">Author(s):</label><br>
+        </div>
+        <div class="mb-3">
+          <br><label for="{{ book_form.authors.id_for_label }}">Author(s):</label>
           {{ book_form.authors}}
+        </div>
+        <div class="mb-3">
           <label for="{{ book_form.summary.id_for_label }}">Summary:</label>
           {{ book_form.summary }}
-          <button type="submit" class="btn" name="book_button">Add Book</button>
-          <button type="button" id="AddBookClose" class="btn cancel">Cancel</button>
+        </div>
+          <button type="submit" class="button-submit m-3" name="book_button">Add Book</button>
+          <button type="button" id="AddBookClose" class="button-cancel m-3">Cancel</button>
       </fieldset>
     </form>
   </div>
 </div>
 
-<!-- Popup form for adding a new Author -->
+<!-- Popup form for adding a new Author
 <div class="modal" id="AuthorForm">
   <div class="modal-content">
     <form method="post" class="book-form">{% csrf_token %}
@@ -70,5 +78,6 @@
     </form>
   </div>
 </div>
+-->
 
 {% endblock %}

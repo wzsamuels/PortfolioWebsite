@@ -61,19 +61,24 @@ $(function() {
         }
         ul = document.getElementById("bookList");
         li = ul.getElementsByTagName("li");
+        let results = 0;
         for (i = 0; i < li.length; i++) {
             if( document.getElementById("SearchByTitle").checked ) {
                 a = li[i].getElementsByTagName("a")[0];
-        }
+            }
             else {
-                a = li[i].getElementsByTagName("a")[1];
-        }
+                a = li[i].getElementsByTagName("span")[0];
+            }
             txtValue = a.textContent || a.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 li[i].style.display = "";
+                results++;
             } else {
                 li[i].style.display = "none";
             }
+        }
+        if(results === 0) {
+            ul.appendChild(Object.assign(document.createElement('li'), {innerText: "No results found."}));
         }
     }
 

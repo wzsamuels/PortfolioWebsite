@@ -1,72 +1,72 @@
 $(function() {
     $('#BookGridItem').click(function () {
-        $('#BookPopUp').show("fast");
+        $('#BookPopUp').show();
     });
 
     $('#BookPopUpClose').click(function () {
-        $('#BookPopUp').hide("fast");
+        $('#BookPopUp').hide();
     });
 
     $('#FilmterGridItem').click(function () {
-        $('#FilmterPopUp').show("fast");
+        $('#FilmterPopUp').show();
     });
 
     $('#FilmterPopUpClose').click(function () {
-        $('#FilmterPopUp').hide("fast");
+        $('#FilmterPopUp').hide();
     });
 
     $('#TicketGridItem').click(function () {
-        $('#TicketPopUp').show("fast");
+        $('#TicketPopUp').show();
     });
 
     $('#TicketPopUpClose').click(function () {
-        $('#TicketPopUp').hide("fast");
+        $('#TicketPopUp').hide();
     });
 
     $('#MudGridItem').click(function () {
-        $('#MudPopUp').show("fast");
+        $('#MudPopUp').show();
     });
 
     $('#MudPopUpClose').click(function () {
-        $('#MudPopUp').hide("fast");
+        $('#MudPopUp').hide();
     });
 
     $('#RescueGridItem').click(function () {
-        $('#RescuePopUp').show("fast");
+        $('#RescuePopUp').show();
     });
 
     $('#RescuePopUpClose').click(function () {
-        $('#RescuePopUp').hide("fast");
+        $('#RescuePopUp').hide();
     });
 
     $('#DataStructuresGridItem').click(function () {
-        $('#DataStructuresPopUp').show("fast");
+        $('#DataStructuresPopUp').show();
     });
 
     $('#DataStructuresPopUpClose').click(function () {
-        $('#DataStructuresPopUp').hide("fast");
+        $('#DataStructuresPopUp').hide();
     });
 
     // When the user clicks anywhere outside of the modal, close it
     $(window).click(function(event) {
         //let book = document.getElementById("BookPopUp");
         if (event.target == document.getElementById("BookPopUp")) {
-            $('#BookPopUp').hide("fast");
+            $('#BookPopUp').hide();
         }
         else if (event.target == document.getElementById("TicketPopUp")) {
-            $('#TicketPopUp').hide("fast");
+            $('#TicketPopUp').hide();
         }
         else if (event.target == document.getElementById("MudPopUp")) {
-            $('#MudPopUp').hide("fast");
+            $('#MudPopUp').hide();
         }
         else if (event.target == document.getElementById("RescuePopUp")) {
-            $('#RescuePopUp').hide("fast");
+            $('#RescuePopUp').hide();
         }
         else if (event.target == document.getElementById("FilmterPopUp")) {
-            $('#FilmterPopUp').hide("fast");
+            $('#FilmterPopUp').hide();
         }
         else if (event.target == document.getElementById("DataStructuresPopUp")) {
-            $('#DataStructuresPopUp').hide("fast");
+            $('#DataStructuresPopUp').hide();
         }
     });
 });

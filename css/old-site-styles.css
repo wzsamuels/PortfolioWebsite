@@ -202,7 +202,7 @@ input[type=submit] {
         /* grid-template-columns: repeat(4, 25%); */
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-    .pop-up-content-large img.tall-screenshot {
+    .modal-content-large img.tall-screenshot {
         margin-left: auto; margin-right: auto; width: 70%; display:block;
     }    
 }
@@ -230,7 +230,7 @@ figure {
     .item1 {
         grid-column-end: 5;
     }
-    .pop-up-content-large img.tall-screenshot {
+    .modal-content-large img.tall-screenshot {
         margin-left: auto; margin-right: auto; width: 100%; display:block;
     }
 }
@@ -279,7 +279,7 @@ figure div {
     Project pop up modals
  */
 
-.pop-up {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -291,7 +291,7 @@ figure div {
     overflow-y: hidden !important;
 }
 
-.pop-up-header {
+.modal-header {
     position: relative;
     background-color: white;
     margin: auto;
@@ -307,7 +307,7 @@ figure div {
 }
 
 /* For the 'x' used to close a pop up */
-.pop-up .close {
+.modal .close {
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -318,11 +318,11 @@ figure div {
     /*transform: translateX(-10%);*/
 }
 
-.pop-up .close:hover {
+.modal .close:hover {
     color: black;
 }
 
-.pop-up-content {
+.modal-content {
     position: relative;
     background-color: white;
     margin: auto;
@@ -333,7 +333,7 @@ figure div {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.pop-up-content-large {
+.modal-content-large {
     position: relative;
     background-color: white;
     margin: auto;
@@ -347,15 +347,15 @@ figure div {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.pop-up-content-large img.tall-screenshot {
+.modal-content-large img.tall-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
-.pop-up-content-large img.wide-screenshot {
+.modal-content-large img.wide-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
-.pop-up p {
+.modal p {
     padding-bottom: 15px;
 }
 
@@ -388,7 +388,7 @@ figure div {
     display: none;
 }
 
-.pop-up-content-large img.wide-screenshot {
+.modal-content-large img.wide-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 

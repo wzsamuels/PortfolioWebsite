@@ -1,15 +1,15 @@
 {% extends "books/index.html" %} 
 
-{% block content %}
+{% block header %}{{ object.title }}{% endblock header %}
 
-<h2>{{ object.title }}</h2>
+{% block content %}
 
 <div class="container">
   <p>
       <a href="/books/">Book Index</a> |
       <a href="#" id="UpdateBookOpen">Update Book Information</a> |
       <a href="#" id="DeleteBookOpen">Delete Book</a></p>
-  <div class="container bg-white">
+  <div class="container">
     <p>Author(s): {{ object.authors }}
     </p>
     <p>Published: {{ object.published }}</p>
@@ -19,24 +19,23 @@
 
 <!-- Modal form for updating a  Book -->
 <div class="modal" id="BookUpdate">
-    <div class="modal-content">
-        <form method="post" class="book-form">{% csrf_token %}
-            <fieldset><legend>Update Book</legend>
-                <label for="{{ book_update_form.title.id_for_label }}">Title:</label>
-                {{ book_update_form.title }}
-                <div style="font-size: small;display: inline; text-decoration-color: grey">{{ book_update_form.title.help_text }}</div>
-                <br><br>
-                <label for="{{ book_update_form.published.id_for_label }}">Published:</label>
-                {{ book_update_form.published }}
-                <label for="{{ book_update_form.authors.id_for_label }}">Author(s):</label><br>
-                {{ book_update_form.authors}}
-                <label for="{{ book_update_form.summary.id_for_label }}">Summary:</label>
-                {{ book_update_form.summary }}
-                <button type="submit" class="btn" name="update_book_button">Update Book</button>
-                <button type="button" id="UpdateBookClose" class="btn cancel">Cancel</button>
-            </fieldset>
-        </form>
-    </div>
+  <div class="modal-form-header">Update Book</div>
+  <div class="modal-content-form">
+      <form method="post" class="m-3">{% csrf_token %}
+        <label for="{{ book_update_form.title.id_for_label }}">Title:</label>
+        {{ book_update_form.title }}
+        <div style="font-size: small;display: inline; text-decoration-color: grey">{{ book_update_form.title.help_text }}</div>
+        <br><br>
+        <label for="{{ book_update_form.published.id_for_label }}">Published:</label>
+        {{ book_update_form.published }}
+        <label for="{{ book_update_form.authors.id_for_label }}">Author(s):</label><br>
+        {{ book_update_form.authors}}
+        <label for="{{ book_update_form.summary.id_for_label }}">Summary:</label>
+        {{ book_update_form.summary }}
+        <button type="submit" class="button-submit m-3" name="update_book_button">Update Book</button>
+        <button type="button" id="UpdateBookClose" class="button-cancel m-3">Cancel</button>
+      </form>
+  </div>
 </div>
 
 <!-- Modal form for deleting a  Book -->

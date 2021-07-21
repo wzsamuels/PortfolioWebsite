@@ -37,31 +37,6 @@ svg text {
     color: $text-color;
 }
 
-/*
-.dropdown-menu {
-
-  .dropdown-item:hover {
-    color: $text-color;
-    background-color: #272729;
-  }
-
-  .dropdown-item.active {
-    color: $text-color;
-    background-color: #272729;
-
-    &:hover {
-      color: $text-color;
-      background-color: #272729;
-    }
-  }
-}
-*/
-/*
-.dropdown-item-dark {
-    @extend .dropdown-item;
-    background-color: #272729;
-    //color: $text-color;
-}*/
 
 // A lighter grey box around content
 .box {
@@ -107,10 +82,10 @@ input[type=text]:focus, input[type=number]:focus, textarea:focus {
     outline-offset: 0px !important;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=number], textarea {
     @extend .form-control;
     color: $text-color;
-    background-color: #272727;
+    background-color: $dark-theme-dp4;
     border: none;
 }
 
@@ -123,24 +98,12 @@ input[type=text]:hover, input[type=number]:hover, textarea:hover {
 
 legend {
     text-align: center;
+    background-color: $dark-theme-dp4;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-/* Modal Content */
+
+/* Modal Content
 .modal-content {
     position: relative;
     //background-color: white;
@@ -150,13 +113,14 @@ legend {
     width: 50%;
     min-width:300px;
     max-width:500px;
-    /*max-width: 300px;*/
+    //max-width: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+*/
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
@@ -184,7 +148,7 @@ legend {
         /* grid-template-columns: repeat(4, 25%); */
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-    .pop-up-content-large img.tall-screenshot {
+    .modal-content-large img.tall-screenshot {
         margin-left: auto; margin-right: auto; width: 70%; display:block;
     }
 }
@@ -212,7 +176,7 @@ figure {
     .item1 {
         grid-column-end: 5;
     }
-    .pop-up-content-large img.tall-screenshot {
+    .modal-content-large img.tall-screenshot {
         margin-left: auto; margin-right: auto; width: 100%; display:block;
     }
 }
@@ -261,7 +225,8 @@ figure div {
     Project pop up modals
  */
 
-.pop-up {
+// Modal background
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -275,7 +240,7 @@ figure div {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.pop-up-header {
+.modal-header-custom {
     position: relative;
     background-color: $dark-theme-dp1;
     margin: auto;
@@ -288,10 +253,14 @@ figure div {
     border-right: 1px solid #888;
     text-align: center;
     font-size: 130%;
+        -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
 
 /* For the 'x' used to close a pop up */
-.pop-up .close {
+.modal .close {
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
@@ -302,11 +271,11 @@ figure div {
     /*transform: translateX(-10%);*/
 }
 
-.pop-up .close:hover {
+.modal .close:hover {
     color: black;
 }
 
-.pop-up-content {
+.modal-content {
     position: relative;
     background-color: $dark-theme-dp4;
     margin: auto;
@@ -315,9 +284,13 @@ figure div {
     max-height: 40vh;
     border: 1px solid #888;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
 
-.pop-up-content-large {
+.modal-content-large {
     position: relative;
     background-color: $dark-theme-dp4;
     margin: auto;
@@ -329,17 +302,58 @@ figure div {
     max-width: min(90vw, 1000px);
     overflow-y: scroll;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
 
-.pop-up-content-large img.tall-screenshot {
+.modal-form-header {
+    position: relative;
+    background-color: $dark-theme-dp1;
+    margin: auto;
+    /*border: 1px solid black;*/
+    padding-bottom: 10px;
+    width: 50%;
+    min-width:300px;
+    max-width:500px;
+    border-top: 1px solid #888;
+    border-left: 1px solid #888;
+    border-right: 1px solid #888;
+    text-align: center;
+    font-size: 130%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modal-content-form {
+    position: relative;
+    background-color: $dark-theme-dp1;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    min-width:300px;
+    max-width:500px;
+    /*max-width: 300px;*/
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modal-content-large img.tall-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
-.pop-up-content-large img.wide-screenshot {
+.modal-content-large img.wide-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
-.pop-up p {
+.modal p {
     padding-bottom: 15px;
 }
 
@@ -372,7 +386,7 @@ figure div {
     display: none;
 }
 
-.pop-up-content-large img.wide-screenshot {
+.modal-content-large img.wide-screenshot {
     margin-left: auto; margin-right: auto; width: 100%; display:block;
 }
 
@@ -425,3 +439,4 @@ figure div {
     top: 0;
     background-color: black;
 }
+
