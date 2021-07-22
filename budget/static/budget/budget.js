@@ -1,3 +1,4 @@
+/*
 $(function() {
     let total = parseFloat(document.getElementById("TotalBudget").textContent);
     let table = document.getElementById("BudgetTable");
@@ -8,3 +9,4 @@ $(function() {
         let row = rows[i].getElementsByTagName("span")[1].textContent = total;
     }
 });
+*/

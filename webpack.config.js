@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        //index: './assets/books/index.js',
+        bookley: './assets/books/index.js',
         blog: './assets/blog/index.js',
     },
     output: {
@@ -15,7 +15,15 @@ module.exports = {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             loader: "babel-loader",
-            options: { presets: ["@babel/preset-env", "@babel/preset-react"] }
+            options: {
+              presets: [
+                "@babel/preset-env",
+                "@babel/preset-react"
+              ],
+              plugins: [
+                '@babel/transform-runtime'
+              ]
+            }
           },
         ]
     },

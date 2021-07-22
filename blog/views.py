@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -18,8 +19,19 @@ class PostCollection(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+    def perform_create(self, serializer):
+        if self.request.user.is_authenticated:
+            user = self.request.user
+        else:
+            user = User.objects.get(username="Guest")
+
+        serializer.is_valid()
+        serializer.save(author=user)
+
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class PostMember(generics.RetrieveDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+

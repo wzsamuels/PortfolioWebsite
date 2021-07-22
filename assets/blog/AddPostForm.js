@@ -1,11 +1,11 @@
 import React, {useEffect, useRef} from "react";
 import { useInput } from "../lib/hooks";
 import CSRFToken from "../lib/csrftoken";
-import {useFetch} from "./usefetch";
+import {fetchPost, useFetch} from "../lib/usefetch";
 import getCookie from "../lib/getcookie";
 import {usePosts} from "./PostProvider";
 
-export default function AddPostForm({onCancel}) {
+export default function AddPostForm({onFormClose}) {
   const [titleProps, resetTitle] = useInput("");
   const [textProps, resetText] = useInput("");
   const { addPost } = usePosts();
@@ -21,35 +21,11 @@ export default function AddPostForm({onCancel}) {
   // On submitting the form
   const submit = e => {
     e.preventDefault();
-    onCancel();
-    let form = new FormData();
-    // Right now the current user is taken from a Django template
-    // TODO: Set up a proper API to retrieve the user
-    const author = $('#user').text();
-    const title = titleProps.value;
-    const text = textProps.value;
-    form.append('title', title);
-    form.append('text', text);
-    form.append('author', author);
-    //useFetch('api/posts', "POST", form)
-    // TODO: Make useFetch work here for POST request
-    const csrftoken = getCookie('csrftoken');
-    fetch('api/posts/', {
-        method: "POST",
-        body: form,
-        mode: 'same-origin',
-        headers: {
-            'X-CSRFToken': csrftoken
-        },
-    })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Success:', result);
-      addPost(result.id, result.title, result.text, result.author, result.created);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    onFormClose();
+    fetchPost('api/posts/', {title: titleProps.value, text: textProps.value})
+      .then(result =>
+        addPost(result.id, result.title, result.text, result.author, result.created)
+    );
     resetTitle();
     resetText();
   };
@@ -70,8 +46,33 @@ export default function AddPostForm({onCancel}) {
                       placeholder="Say something..." />
                </div>
                <button  type="submit" className="button-submit">Submit</button>
-              <button className="button-cancel m-3" onClick={onCancel}>Cancel</button>
+              <button className="button-cancel m-3" onClick={onFormClose}>Cancel</button>
            </form>
       </div>
   );
 }
+/*
+    form.append('title', title);
+    form.append('text', text);
+    //form.append('author', author);
+    //useFetch('api/posts', "POST", form)
+    // TODO: Make useFetch work here for POST request
+    const csrftoken = getCookie('csrftoken');
+    fetch('api/posts/', {
+        method: "POST",
+        body: JSON.stringify({ title, text }),
+        mode: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Success:', result);
+
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+ */

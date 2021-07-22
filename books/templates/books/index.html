@@ -1,4 +1,6 @@
 {% extends "base-v2.html" %}
+{% load static %}
+
 
 {% block title %}{{ block.super }} - Book Collection{% endblock %}
 
@@ -6,34 +8,19 @@
 
 {% block content %}
 
-<div class="container">
-  <input type="text" id="BookSearchInput" placeholder="Search for a book..." title="Type in a book title">
-  Search by: Title <input type="radio" id="SearchByTitle" name="SearchType" value="title" checked> Author <input type="radio" id="SearchByAuthor" name="SearchType" value="author">
-</div>
-<br>
-<div class="container">
-  <!--Sort by: <a href="#" id="AuthorSort" >Author</a> | <a href="#" id="TitleSort">Title</a>-->
-  <!-- The Book objects in the database sorted by Title. Displayed by default -->
-  <div id="SortByTitle" class="box">
-    <ul class="list" id="bookList">
-      {% for book in book_list|dictsort:"title" %}
-      <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by
-        <!-- Handle proper formatting for multiple authors -->
-        <span id="Authors">{{ book.authors }}</span>
-      </li>
-      {% endfor %}
-    </ul>
+
+
+  <div class="container">
+    <div id="root"></div>
   </div>
-</div>
 
 {% endblock content %}
 
 {% block footer %}
 
-<ul class="book-bottom-nav">
-  <li><button class="button-submit" id="AddBookOpen">Add Book</button></li>
-</ul>
+  <ul class="book-bottom-nav">
+    <li><button class="button-submit" id="AddBookOpen">Add Book</button></li>
+  </ul>
 
 <!-- Popup form for adding a new Book -->
 <div class="modal" id="BookForm">
@@ -79,5 +66,5 @@
   </div>
 </div>
 -->
-
+<script src="{% static 'bookley.bundle.js' %}"></script>
 {% endblock %}

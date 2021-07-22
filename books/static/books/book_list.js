@@ -99,7 +99,7 @@ $(function() {
         }
     });
 
-    $( ".datepicker" ).datepicker();
+    //$( ".datepicker" ).datepicker();
 
     // By default books are sorted by title, not author
     $('#SortByAuthor').hide();

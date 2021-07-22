@@ -1,7 +1,10 @@
 import React, {useState} from "react";
+import {usePosts} from "./PostProvider";
+import parseDateTime from "../lib/parsedatetime";
 
 export default function Post(props) {
   const [isVisible, setIsVisible] = useState(true);
+  const { removePost } = usePosts();
   return (
     <>
       <div className="container box p-3 mb-5 rounded">
@@ -10,6 +13,8 @@ export default function Post(props) {
           { isVisible && <PostBody {...props}/> }
           <button className="button-primary mt-3" onClick={() => setIsVisible(!isVisible)}>
               {isVisible ? "Hide" : "Show"}</button>
+          <button className="button-cancel ms-3 mt-3" onClick={() => removePost(props.id)}>
+              Delete</button>
       </div>
     </>
   );
@@ -23,7 +28,7 @@ function PostBody({  title = "None", author = "None",
                 <p>{text}</p>
             </div>
             <div className="mt-2">
-                {created}
+                Posted {parseDateTime(created)}
             </div>
         </>
     );
