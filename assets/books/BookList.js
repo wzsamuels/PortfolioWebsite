@@ -7,14 +7,12 @@ export default function BookList() {
 
   return (
     <>
-      <div id="SortByTitle" className="box">
-        <ul className="list">
-          {books.map((book) => {
-            return <li key={book.id}><Book {...book} /></li>;
-          }
-          )}
-        </ul>
-      </div>
+      <ul className="list box">
+        {books.map((book) => {
+          return <li key={book.id}><Book {...book} /></li>;
+        }
+        )}
+      </ul>
     </>
   );
 }

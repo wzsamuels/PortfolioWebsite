@@ -25,7 +25,7 @@ def wiki_get(title):
         if '(novel)' in result['title']:
             pageid = result['pageid']
 
-    print('https://en.wikipedia.org/w/index.php?curid=' + str(pageid))
+    print('Best page found: https://en.wikipedia.org/w/index.php?curid=' + str(pageid))
     # Find all the images on the page
     params = {
         'origin': "*",
@@ -40,26 +40,22 @@ def wiki_get(title):
     image_array = data['parse']["images"]
     best_image = image_array[0]
     title_words = title.split()
-    maxCount = 0
-    maxCountIndex = -1
-    regex = r'\.(png | svg | jpg | jpeg | gif)$'
+    max_count = 0
+    max_count_index = -1
     regex = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp|svg))$)"
     p = re.compile(regex, re.IGNORECASE)
     for index, image in enumerate(image_array):
-        print(f"{index}: {image}")
         count = 0
         for title_word in title_words:
             if re.search(title_word, image, re.IGNORECASE):
-                print(f"match found: {title_word} in {image}")
                 count += 1
-        if count > maxCount and re.search(p, image):
-            maxCount = count
-            maxCountIndex = index
+        if count > max_count and re.search(p, image):
+            max_count = count
+            max_count_index = index
 
-    print(f"{maxCount} {maxCountIndex}")
-    if maxCountIndex > -1:
-        best_image = image_array[maxCountIndex]
-        print(f"{best_image}")
+    if max_count_index > -1:
+        best_image = image_array[max_count_index]
+        print(f"Best image found: {best_image}")
     #
     # Get the URL of the image
     params = {
@@ -73,9 +69,5 @@ def wiki_get(title):
     request = session.get(url=api, params=params)
     data = request.json()
     image_url = list(data['query']['pages'].values())[0]['imageinfo'][0]['url']
-    #print(list(image_url.values())[0]['imageinfo'][0]['url'])
-    #image_url = [0]
-    #print(image_url)
-    return image_url
 
-#wiki_get('Moby Dick')
+    return image_url
