@@ -7,7 +7,10 @@
  * MIT License
  */
 
-export default async function wikiGet(title) {
+export default async function wikiGet({title, cover}) {
+  //if(cover !== '#')
+    //return "COVER_EXISTS";
+
   const api = "https://en.wikipedia.org/w/api.php?";
 
   // Get search results for the title

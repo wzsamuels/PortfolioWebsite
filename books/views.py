@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -10,6 +12,9 @@ from books.forms import BookForm
 from books.models import Book, Collection
 from rest_framework import serializers, viewsets, generics
 from books.serializers import BookSerializer
+import requests
+
+from books.wikiGet import wiki_get
 
 
 def home(request):
@@ -21,10 +26,18 @@ def home(request):
 class BookCollection(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+"""
+    def perform_create(self, serializer):
+        serializer.is_valid()
+        session = requests.Session()
+        title = serializer.validated_data['title']
+        image_url = wiki_get(title)
+        serializer.save(cover=image_url)
+"""
 
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
-class BookElement(generics.RetrieveDestroyAPIView):
+class BookElement(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 

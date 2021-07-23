@@ -32,6 +32,19 @@ export default function BookProvider({ children }) {
       }
     ]);
 
+
+
+  const updateBook = (id, props) => {
+    let book = books.filter(book => book.id === id)
+    book = book[0];
+    setBooks(books.filter(book => book.id !== id));
+    console.log(JSON.stringify(book) + "\n" + JSON.stringify(books, null, 4))
+    for(const prop in props) {
+      book[prop] = props[prop];
+    }
+    setBooks([...books, book]);
+  }
+
   //const removeBook = id => setBooks(books.filter(book => book.id !== id));
 
   if (loading) return <h1>loading...</h1>;

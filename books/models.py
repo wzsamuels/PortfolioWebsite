@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.conf import settings
 
+from books.wikiGet import wiki_get
+
 
 class Collection(models.Model):
     user = models.OneToOneField(
@@ -37,6 +39,7 @@ class Author(models.Model):
         return super().save(*args, **kwargs)
 """
 
+# TODO: Remove slugs
 class Book(models.Model):
     title = models.CharField(max_length=100)
     #authors = models.ManyToManyField(Author, related_name='books')
@@ -45,6 +48,7 @@ class Book(models.Model):
     summary = models.TextField(default="None")
     slug = models.SlugField(null=False, unique=True, blank=True)
     collection = models.ForeignKey('collection', on_delete=models.CASCADE, null=True)
+    cover = models.CharField(default="#", max_length=200)
 
     class Meta:
         ordering = ['title']
@@ -62,6 +66,7 @@ class Book(models.Model):
     def save(self, **kwargs):
         slug_str = "%s" % self.title
         unique_slugify(self, slug_str)
+        setattr(self, 'cover', wiki_get(self.title))
         super().save(**kwargs)
 
 
