@@ -4,8 +4,10 @@ import App from "./App"
 import BookProvider from "./BookProvider";
 
 render(
-  <BookProvider>
-    <App/>
-  </BookProvider>,
+  <React.StrictMode>
+    <BookProvider>
+      <App/>
+    </BookProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );

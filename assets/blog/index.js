@@ -4,9 +4,11 @@ import App from "./App";
 import PostProvider from "./PostProvider";
 
 render(
-  <PostProvider>
-    <App />
-  </PostProvider>,
+  <React.StrictMode>
+      <PostProvider>
+        <App />
+      </PostProvider>
+  </React.StrictMode>,
   document.getElementById('js-home')
 );
 
