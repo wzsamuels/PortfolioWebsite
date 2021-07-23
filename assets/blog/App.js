@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AddPostForm from "./AddPostForm"
 import PostList from "./PostList";
+import wikiGet from "../books/BookCover";
 
 export default function App() {
   const [isFormVisible, setFormVisible] = useState(false);
